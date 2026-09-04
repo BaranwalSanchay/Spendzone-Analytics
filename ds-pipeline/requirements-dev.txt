@@ -1,0 +1,8 @@
+# Jupyter environment for the DS notebooks
+jupyter==1.1.1
+ipykernel==6.29.5
+notebook==7.3.2
+
+# Testing & formatting
+pytest==8.3.4
+black==24.10.0

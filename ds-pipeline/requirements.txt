@@ -1,0 +1,29 @@
+# Core data analysis
+pandas==2.2.3
+numpy==2.2.4
+scipy==1.15.2
+
+# Visualization
+matplotlib==3.10.1
+seaborn==0.13.2
+plotly==6.0.1
+kaleido==0.2.1
+wordcloud==1.9.4
+
+# Machine learning & interpretability
+scikit-learn==1.6.1
+statsmodels==0.14.4
+lime==0.2.0.1
+shap==0.46.0
+
+# Marketing Mix Modeling
+robynpy==0.2.1
+
+# Excel I/O (Pipeline/Investment_EDA.py)
+openpyxl==3.1.5
+
+# Pipeline web interface (Pipeline/main.py)
+fastapi==0.115.11
+uvicorn[standard]==0.34.0
+jinja2==3.1.6
+python-multipart==0.0.20
