@@ -1,0 +1,105 @@
+# ===== Node.js / Bun (frontend) =====
+node_modules/
+dist/
+dist-ssr/
+.vite/
+*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+# bun.lockb is the single source of truth for frontend deps — never commit npm's lockfile
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# ===== Python (ds-pipeline, backend) =====
+# Note: deliberately NOT ignoring bare `lib/`, `build/`, `var/`, etc. here — those
+# generic Python packaging-artifact names collide with real source directories
+# elsewhere in this monorepo (e.g. frontend/src/lib/). This project doesn't build
+# sdists/wheels, so they're not needed; __pycache__ and egg-info are enough.
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+*.egg
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Poetry / pip
+.pip-modules
+
+# Testing & coverage
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# ===== Jupyter =====
+.ipynb_checkpoints/
+
+# ===== Environment variables (never commit real secrets) =====
+.env
+.env.local
+.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ===== Project data & generated output =====
+*.csv
+*.xlsx
+*.xls
+*.sqlite
+*.db
+ds-pipeline/Pipeline/CSV Input Files/*.csv
+ds-pipeline/Analysis/CSV Input Files/*.csv
+ds-pipeline/Budget Allocation/CSV Input Files/*.csv
+ds-pipeline/Channel Allocation/CSV Input Files/*.csv
+ds-pipeline/Sales Allocation/CSV Input Files/*.csv
+backend/data/
+backend/reports/*.pdf
+backend/reports/*.md
+static/
+temp/
+templates/
+
+# ===== Firebase (legacy, retained in case of future use) =====
+.firebase/
+.firebaserc
+
+# ===== OS specific =====
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ===== IDE specific =====
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ===== Logs =====
+*.log
+logs/
+
+# Keep placeholder files
+!.gitkeep
