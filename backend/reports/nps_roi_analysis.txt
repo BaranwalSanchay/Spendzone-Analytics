@@ -1,0 +1,124 @@
+NPS to ROI Analysis
+===================
+
+NPS vs Next Month's ROI Analysis:
+
+Average Monthly NPS Score: 49.46
+Average Monthly ROI: 0.45
+Average Next Month ROI: 0.45
+Correlation between NPS and Next Month's ROI: -0.1979
+
+Monthly NPS and ROI Trends:
+- 2023-05:
+  NPS Score: 47.30
+  Current Month ROI: 0.00
+  Next Month ROI: 0.00
+
+- 2023-06:
+  NPS Score: 50.50
+  Current Month ROI: 0.00
+  Next Month ROI: 1.03
+  NPS increased by 3.20 from previous month
+  Next Month ROI increased by 1.03 from previous month
+
+- 2023-07:
+  NPS Score: 54.60
+  Current Month ROI: 1.03
+  Next Month ROI: 0.01
+  NPS increased by 4.10 from previous month
+  Next Month ROI decreased by 1.02 from previous month
+
+- 2023-08:
+  NPS Score: 60.00
+  Current Month ROI: 0.01
+  Next Month ROI: 0.44
+  NPS increased by 5.40 from previous month
+  Next Month ROI increased by 0.43 from previous month
+
+- 2023-09:
+  NPS Score: 46.90
+  Current Month ROI: 0.44
+  Next Month ROI: 0.30
+  NPS decreased by 13.10 from previous month
+  Next Month ROI decreased by 0.14 from previous month
+
+- 2023-10:
+  NPS Score: 44.40
+  Current Month ROI: 0.30
+  Next Month ROI: 0.65
+  NPS decreased by 2.50 from previous month
+  Next Month ROI increased by 0.35 from previous month
+
+- 2023-11:
+  NPS Score: 47.00
+  Current Month ROI: 0.65
+  Next Month ROI: 0.41
+  NPS increased by 2.60 from previous month
+  Next Month ROI decreased by 0.24 from previous month
+
+- 2023-12:
+  NPS Score: 45.80
+  Current Month ROI: 0.41
+  Next Month ROI: 0.52
+  NPS decreased by 1.20 from previous month
+  Next Month ROI increased by 0.11 from previous month
+
+- 2024-01:
+  NPS Score: 47.10
+  Current Month ROI: 0.52
+  Next Month ROI: 0.69
+  NPS increased by 1.30 from previous month
+  Next Month ROI increased by 0.17 from previous month
+
+- 2024-02:
+  NPS Score: 50.30
+  Current Month ROI: 0.69
+  Next Month ROI: 0.40
+  NPS increased by 3.20 from previous month
+  Next Month ROI decreased by 0.29 from previous month
+
+- 2024-03:
+  NPS Score: 49.00
+  Current Month ROI: 0.40
+  Next Month ROI: 0.60
+  NPS decreased by 1.30 from previous month
+  Next Month ROI increased by 0.19 from previous month
+
+- 2024-04:
+  NPS Score: 51.80
+  Current Month ROI: 0.60
+  Next Month ROI: 0.52
+  NPS increased by 2.80 from previous month
+  Next Month ROI decreased by 0.07 from previous month
+
+- 2024-05:
+  NPS Score: 47.30
+  Current Month ROI: 0.52
+  Next Month ROI: 0.71
+  NPS decreased by 4.50 from previous month
+  Next Month ROI increased by 0.19 from previous month
+
+- 2024-06:
+  NPS Score: 50.50
+  Current Month ROI: 0.71
+  Next Month ROI: 0.01
+  NPS increased by 3.20 from previous month
+  Next Month ROI decreased by 0.70 from previous month
+
+NPS vs ROI scatter plot saved to: /mnt/c/Users/bhave/Downloads/GC-DATA-2025/GC-DATA-2025/agents/plots/nps_roi_scatter_20250318_190830.png
+NPS vs ROI time series plot saved to: /mnt/c/Users/bhave/Downloads/GC-DATA-2025/GC-DATA-2025/agents/plots/nps_roi_timeseries_20250318_190830.png
+
+Key Insights:
+1. The correlation between monthly NPS and next month's ROI is -0.1979, indicating a weak negative relationship. Higher customer satisfaction counter-intuitively predicts slightly lower ROI in the following month.
+2. The month with highest NPS (2023-08, NPS: 60.00) was followed by a month with ROI of 0.44
+3. The month with lowest NPS (2023-10, NPS: 44.40) was followed by a month with ROI of 0.65
+5. Recent trends:
+   - NPS scores have been decreasing by 1.0% per month recently
+   - Next month ROI has been decreasing by 31.2% per month recently
+
+Strategic Recommendations:
+1. Investigate why customer satisfaction isn't strongly translating to improved ROI
+2. Identify other factors beyond NPS that may be stronger drivers of next month's ROI
+3. Review marketing investment allocation to ensure budget is directed to highest ROI channels
+4. Consider developing a more sophisticated customer satisfaction metric beyond NPS
+5. Implement a monthly NPS-to-ROI tracking system to monitor how this relationship evolves over time

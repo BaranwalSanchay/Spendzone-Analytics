@@ -1,0 +1,100 @@
+{
+    "instance_index": 6,
+    "explanations": {
+        "Camera": {
+            "top_features": [
+                {
+                    "Online marketing > 0.80": 14586202.3803
+                },
+                {
+                    " Affiliates > 0.69": 11237745.7799
+                },
+                {
+                    "Sponsorship <= -0.79": -10535142.1571
+                },
+                {
+                    "0.14 < TV <= 0.60": 8565066.1609
+                },
+                {
+                    "Content Marketing > 0.18": 5640120.5652
+                }
+            ]
+        },
+        "CameraAccessory": {
+            "top_features": [
+                {
+                    "Online marketing > 0.80": 14534133.1013
+                },
+                {
+                    " Affiliates > 0.69": 10505833.5539
+                },
+                {
+                    "Sponsorship <= -0.79": -9159235.9039
+                },
+                {
+                    "0.14 < TV <= 0.60": 8775537.3915
+                },
+                {
+                    "Content Marketing > 0.18": 6548225.5275
+                }
+            ]
+        },
+        "EntertainmentSmall": {
+            "top_features": [
+                {
+                    "Online marketing > 0.80": 14195598.3519
+                },
+                {
+                    " Affiliates > 0.69": 10744307.7144
+                },
+                {
+                    "Sponsorship <= -0.79": -10411576.7746
+                },
+                {
+                    "0.14 < TV <= 0.60": 9252223.0807
+                },
+                {
+                    "Content Marketing > 0.18": 5822028.2813
+                }
+            ]
+        },
+        "GameCDDVD": {
+            "top_features": [
+                {
+                    "Online marketing > 0.80": 13916423.8307
+                },
+                {
+                    " Affiliates > 0.69": 10849211.8309
+                },
+                {
+                    "Sponsorship <= -0.79": -10103121.2508
+                },
+                {
+                    "0.14 < TV <= 0.60": 8747075.446
+                },
+                {
+                    "Content Marketing > 0.18": 5431188.9273
+                }
+            ]
+        },
+        "GamingHardware": {
+            "top_features": [
+                {
+                    "Online marketing > 0.80": 14823910.4955
+                },
+                {
+                    " Affiliates > 0.69": 11128223.0216
+                },
+                {
+                    "Sponsorship <= -0.79": -10752487.1768
+                },
+                {
+                    "0.14 < TV <= 0.60": 8782696.3847
+                },
+                {
+                    "Content Marketing > 0.18": 6176023.0527
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "monthlyAverageRevenue": {
+      "2023-07": {
+        "salesDaysAvgRevenue": 6776716.68,
+        "nonSalesDaysAvgRevenue": 5790101.89
+        },
+      "2023-08": {
+        "salesDaysAvgRevenue": 10872.67,
+        "nonSalesDaysAvgRevenue": 16831.33},
+      "2023-09": {
+        "salesDaysAvgRevenue": 0.00,
+        "nonSalesDaysAvgRevenue": 14155389.95},
+      "2023-10": {
+        "salesDaysAvgRevenue": 83119293.78,
+        "nonSalesDaysAvgRevenue": 9175625.08},
+      "2023-11": {
+        "salesDaysAvgRevenue": 20748947.69,
+        "nonSalesDaysAvgRevenue": 7602393.89},
+      "2023-12": {
+        "salesDaysAvgRevenue": 10280387.08,
+        "nonSalesDaysAvgRevenue": 15160731.28},
+      "2024-01": {
+        "salesDaysAvgRevenue": 22098900.24,
+        "nonSalesDaysAvgRevenue": 10183986.65},
+      "2024-02": {
+        "salesDaysAvgRevenue": 12008258.98,
+        "nonSalesDaysAvgRevenue": 11283369.38},
+      "2024-03": {
+        "salesDaysAvgRevenue": 35058961.91,
+        "nonSalesDaysAvgRevenue": 10672364.82},
+      "2024-04": {
+        "salesDaysAvgRevenue": 0.00,
+        "nonSalesDaysAvgRevenue": 11323452.11},
+      "2024-05": {
+        "salesDaysAvgRevenue": 36545328.19,
+        "nonSalesDaysAvgRevenue": 10707757.20},
+      "2024-06": {
+        "salesDaysAvgRevenue": 0.00,
+        "nonSalesDaysAvgRevenue": 10197110.70}
+    }
+  }

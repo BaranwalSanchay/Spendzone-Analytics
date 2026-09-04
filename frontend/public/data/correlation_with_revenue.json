@@ -1,0 +1,73 @@
+{
+    "correlations_with_revenue_gmv": [
+      {
+        "factor": "NPS_Score",
+        "correlation": -0.3725
+      },
+      {
+        "factor": "Online marketing",
+        "correlation": 0.3663
+      },
+      {
+        "factor": "Affiliates",
+        "correlation": 0.3625
+      },
+      {
+        "factor": "Total Investment",
+        "correlation": 0.3434
+      },
+      {
+        "factor": "is_sales",
+        "correlation": 0.3237
+      },
+      {
+        "factor": "TV",
+        "correlation": 0.2891
+      },
+      {
+        "factor": "Sponsorship",
+        "correlation": 0.2842
+      },
+      {
+        "factor": "Content Marketing",
+        "correlation": 0.2416
+      },
+      {
+        "factor": "Mean Temp (°C)",
+        "correlation": -0.2125
+      },
+      {
+        "factor": "SEM",
+        "correlation": 0.1963
+      },
+      {
+        "factor": "Digital",
+        "correlation": 0.1299
+      },
+      {
+        "factor": "sla",
+        "correlation": -0.1192
+      },
+      {
+        "factor": "Payday Week",
+        "correlation": -0.1139
+      },
+      {
+        "factor": "Stock_Index",
+        "correlation": -0.1134
+      },
+      {
+        "factor": "Discount",
+        "correlation": 0.0683
+      },
+      {
+        "factor": "Holiday Week",
+        "correlation": 0.0439
+      },
+      {
+        "factor": "Holiday",
+        "correlation": -0.0248
+      }
+    ]
+  }
+  

@@ -1,0 +1,11 @@
+ROI Analysis Summary
+===================
+
+This file contains a summary of all ROI analyses performed.
+
+The following analyses were conducted:
+✓ Marketing Channel ROI Analysis
+✓ NPS to ROI Analysis
+✓ Stock Index to ROI Analysis
+
+See individual analysis files for detailed results.

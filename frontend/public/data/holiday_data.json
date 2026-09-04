@@ -1,0 +1,85 @@
+{
+  "holiday_data": [
+    {
+      "Date": "2023-09-07",
+      "Revenue": 14838794.0,
+      "orders": 3256,
+      "units": 7078,
+      "AOV": 4557.37,
+      "Holiday": "Labor Day"
+  },
+  {
+    "Date": "2024-06-24", 
+    "Revenue": 13524295.0,
+    "orders": 3410,
+    "units": 3563,
+    "AOV": 3966.07,
+    "Holiday": "Midsummer Day"
+  },
+  {
+    "Date": "2023-11-11",
+    "Revenue": 11990684.5,
+    "orders": 5051,
+    "units": 5216,
+    "AOV": 2373.92,
+    "Holiday": "Veterans Day"
+  },
+  {
+    "Date": "2024-03-28",
+    "Revenue": 11417645.0,
+    "orders": 4144,
+    "units": 4358,
+    "AOV": 2755.22,
+    "Holiday": "Easter"
+  },
+  {
+    "Date": "2024-02-29",
+    "Revenue": 10948370.0,
+    "orders": 4751,
+    "units": 4907,
+    "AOV": 2304.43,
+    "Holiday": "Leap Day"
+  },
+  {
+    "Date": "2024-01-01",
+    "Revenue": 10714503.0,
+    "orders": 4425,
+    "units": 4558,
+    "AOV": 2421.36,
+    "Holiday": "New Year's Day"
+  },
+  {
+    "Date": "2024-05-08",
+    "Revenue": 10462694.0,
+    "orders": 4451,
+    "units": 4638,
+    "AOV": 2350.64,
+    "Holiday": "Victory Day"
+  },
+  {
+    "Date": "2023-12-26",
+    "Revenue": 10243395.0,
+    "orders": 4671,
+    "units": 4821,
+    "AOV": 2192.98,
+    "Holiday": "Boxing Day"
+  },
+  {
+    "Date": "2024-05-23",
+    "Revenue": 10233483.5,
+    "orders": 4291,
+    "units": 4462,
+    "AOV": 2384.87,
+    "Holiday": "Ascension Day"
+  },
+  {
+    "Date": "2023-12-25",
+    "Revenue": 10133047.16,
+    "orders": 4090,
+    "units": 4258,
+    "AOV": 2477.52,
+    "Holiday": "Christmas Day"
+  }
+]
+}
+

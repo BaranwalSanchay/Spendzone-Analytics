@@ -1,0 +1,211 @@
+{
+    "monthly_revenue_by_payment_type": [
+      
+      {
+        "month": "2023-07",
+        "data": [
+          {
+            "order_payment_type": "COD",
+            "total_revenue": 108467900.0,
+            "order_count": 63732,
+            "revenue_percentage": 61.74305
+          },
+          {
+            "order_payment_type": "Prepaid",
+            "total_revenue": 67208390.0,
+            "order_count": 23805,
+            "revenue_percentage": 38.25695
+          }
+        ]
+      },
+      {
+        "month": "2023-08",
+        "data": [
+          {
+            "order_payment_type": "COD",
+            "total_revenue": 225100.0,
+            "order_count": 113,
+            "revenue_percentage": 53.762414
+          },
+          {
+            "order_payment_type": "Prepaid",
+            "total_revenue": 193594.0,
+            "order_count": 42,
+            "revenue_percentage": 46.237586
+          }
+        ]
+      },
+      {
+        "month": "2023-09",
+        "data": [
+          {
+            "order_payment_type": "COD",
+            "total_revenue": 275423900.0,
+            "order_count": 77517,
+            "revenue_percentage": 64.85725
+          },
+          {
+            "order_payment_type": "Prepaid",
+            "total_revenue": 149237800.0,
+            "order_count": 23768,
+            "revenue_percentage": 35.14275
+          }
+        ]
+      },
+      {
+        "month": "2023-10",
+        "data": [
+          {
+            "order_payment_type": "COD",
+            "total_revenue": 289520600.0,
+            "order_count": 151628,
+            "revenue_percentage": 57.186381
+          },
+          {
+            "order_payment_type": "Prepaid",
+            "total_revenue": 216754800.0,
+            "order_count": 50608,
+            "revenue_percentage": 42.813619
+          }
+        ]
+      },
+      {
+        "month": "2023-11",
+        "data": [
+          {
+            "order_payment_type": "COD",
+            "total_revenue": 201661100.0,
+            "order_count": 100854,
+            "revenue_percentage": 60.5145
+          },
+          {
+            "order_payment_type": "Prepaid",
+            "total_revenue": 131583200.0,
+            "order_count": 26428,
+            "revenue_percentage": 39.4855
+          }
+        ]
+      },
+      {
+        "month": "2023-12",
+        "data": [
+          {
+            "order_payment_type": "COD",
+            "total_revenue": 278289500.0,
+            "order_count": 122107,
+            "revenue_percentage": 63.854191
+          },
+          {
+            "order_payment_type": "Prepaid",
+            "total_revenue": 157530800.0,
+            "order_count": 31902,
+            "revenue_percentage": 36.145809
+          }
+        ]
+      },
+      {
+        "month": "2024-01",
+        "data": [
+          {
+            "order_payment_type": "COD",
+            "total_revenue": 250517600.0,
+            "order_count": 111605,
+            "revenue_percentage": 64.700943
+          },
+          {
+            "order_payment_type": "Prepaid",
+            "total_revenue": 136675500.0,
+            "order_count": 28905,
+            "revenue_percentage": 35.299057
+          }
+        ]
+      },
+      {
+        "month": "2024-02",
+        "data": [
+          {
+            "order_payment_type": "COD",
+            "total_revenue": 210649200.0,
+            "order_count": 113020,
+            "revenue_percentage": 63.531398
+          },
+          {
+            "order_payment_type": "Prepaid",
+            "total_revenue": 120917900.0,
+            "order_count": 28120,
+            "revenue_percentage": 36.468602
+          }
+        ]
+      },
+      {
+        "month": "2024-03",
+        "data": [
+          {
+            "order_payment_type": "COD",
+            "total_revenue": 234917200.0,
+            "order_count": 108002,
+            "revenue_percentage": 58.147367
+          },
+          {
+            "order_payment_type": "Prepaid",
+            "total_revenue": 169085900.0,
+            "order_count": 41142,
+            "revenue_percentage": 41.852633
+          }
+        ]
+      },
+      {
+        "month": "2024-04",
+        "data": [
+          {
+            "order_payment_type": "Prepaid",
+            "total_revenue": 275092000.0,
+            "order_count": 100492,
+            "revenue_percentage": 80.980021
+          },
+          {
+            "order_payment_type": "COD",
+            "total_revenue": 64611550.0,
+            "order_count": 27564,
+            "revenue_percentage": 19.019979
+          }
+        ]
+      },
+      {
+        "month": "2024-05",
+        "data": [
+          {
+            "order_payment_type": "COD",
+            "total_revenue": 250276200.0,
+            "order_count": 119787,
+            "revenue_percentage": 61.124502
+          },
+          {
+            "order_payment_type": "Prepaid",
+            "total_revenue": 159177000.0,
+            "order_count": 33569,
+            "revenue_percentage": 38.875498
+          }
+        ]
+      },
+      {
+        "month": "2024-06",
+        "data": [
+          {
+            "order_payment_type": "COD",
+            "total_revenue": 203855000.0,
+            "order_count": 94228,
+            "revenue_percentage": 66.638158
+          },
+          {
+            "order_payment_type": "Prepaid",
+            "total_revenue": 102058300.0,
+            "order_count": 24724,
+            "revenue_percentage": 33.361842
+          }
+        ]
+      }
+      
+   
+    ]
+  }

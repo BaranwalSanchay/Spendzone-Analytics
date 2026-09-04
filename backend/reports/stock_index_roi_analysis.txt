@@ -1,0 +1,120 @@
+Stock Index to ROI Analysis
+==========================
+
+Stock Index vs Current Month ROI Analysis:
+
+Average Monthly Stock Index: 1167.80
+Average Monthly ROI: 0.42
+Correlation between Stock Index and Current Month ROI: -0.0232
+Correlation between Stock Index % Change and ROI % Change: -0.0443
+
+Monthly Stock Index and ROI Trends:
+- 2023-05:
+  Stock Index: 1228.00
+  Current Month ROI: 0.00
+
+- 2023-06:
+  Stock Index: 1194.00
+  Current Month ROI: 0.00
+  Stock Index decreased by 2.77% from previous month
+  ROI increased by 188.30% from previous month
+
+- 2023-07:
+  Stock Index: 1177.00
+  Current Month ROI: 1.03
+  Stock Index decreased by 1.42% from previous month
+  ROI increased by 8852605.64% from previous month
+
+- 2023-08:
+  Stock Index: 1206.00
+  Current Month ROI: 0.01
+  Stock Index increased by 2.46% from previous month
+  ROI decreased by 99.20% from previous month
+
+- 2023-09:
+  Stock Index: 1101.00
+  Current Month ROI: 0.44
+  Stock Index decreased by 8.71% from previous month
+  ROI increased by 5236.37% from previous month
+
+- 2023-10:
+  Stock Index: 1210.00
+  Current Month ROI: 0.30
+  Stock Index increased by 9.90% from previous month
+  ROI decreased by 32.56% from previous month
+
+- 2023-11:
+  Stock Index: 1233.00
+  Current Month ROI: 0.65
+  Stock Index increased by 1.90% from previous month
+  ROI increased by 118.68% from previous month
+
+- 2023-12:
+  Stock Index: 1038.00
+  Current Month ROI: 0.41
+  Stock Index decreased by 15.82% from previous month
+  ROI decreased by 37.25% from previous month
+
+- 2024-01:
+  Stock Index: 1052.00
+  Current Month ROI: 0.52
+  Stock Index increased by 1.35% from previous month
+  ROI increased by 27.82% from previous month
+
+- 2024-02:
+  Stock Index: 1222.00
+  Current Month ROI: 0.69
+  Stock Index increased by 16.16% from previous month
+  ROI increased by 32.22% from previous month
+
+- 2024-03:
+  Stock Index: 1015.00
+  Current Month ROI: 0.40
+  Stock Index decreased by 16.94% from previous month
+  ROI decreased by 41.46% from previous month
+
+- 2024-04:
+  Stock Index: 1242.00
+  Current Month ROI: 0.60
+  Stock Index increased by 22.36% from previous month
+  ROI increased by 47.95% from previous month
+
+- 2024-05:
+  Stock Index: 1228.00
+  Current Month ROI: 0.52
+  Stock Index decreased by 1.13% from previous month
+  ROI decreased by 12.22% from previous month
+
+- 2024-06:
+  Stock Index: 1194.00
+  Current Month ROI: 0.71
+  Stock Index decreased by 2.77% from previous month
+  ROI increased by 36.15% from previous month
+
+- 2024-07:
+  Stock Index: 1177.00
+  Current Month ROI: 0.01
+  Stock Index decreased by 1.42% from previous month
+  ROI decreased by 98.58% from previous month
+
+Stock Index vs ROI scatter plot saved to: /mnt/c/Users/bhave/Downloads/GC-DATA-2025/GC-DATA-2025/agents/plots/stock_roi_scatter_20250318_190834.png
+Stock Index vs ROI time series plot saved to: /mnt/c/Users/bhave/Downloads/GC-DATA-2025/GC-DATA-2025/agents/plots/stock_roi_timeseries_20250318_190834.png
+
+Key Insights:
+1. The correlation between monthly Stock Index and Current Month ROI is -0.0232, indicating a weak negative relationship. Higher stock index counter-intuitively correlates with slightly lower ROI.
+2. The month with highest stock index (2024-04, Index: 1242.00) had a ROI of 0.60
+3. The month with lowest stock index (2024-03, Index: 1015.00) had a ROI of 0.40
+4. Average ROI during stock market uptrends: 0.46
+5. Average ROI during stock market downtrends: 0.39
+6. ROI during uptrends is 17.5% higher than during downtrends
+7. Recent trends:
+   - Stock index has been decreasing by 2.1% per month recently
+   - ROI has been decreasing by 31.2% per month recently
+8. Correlation between current month Stock Index and next month's ROI: -0.1703
+   This suggests stock index may be a leading indicator for ROI
+
+Strategic Recommendations:
+1. Stock index does not show a strong relationship with marketing ROI
+2. Focus on other factors that may have stronger influence on marketing effectiveness
+3. Consider a more detailed analysis to identify market factors that do correlate with ROI
+4. Implement monthly tracking of stock index vs. ROI to identify any changing relationships

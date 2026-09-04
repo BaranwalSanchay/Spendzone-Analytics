@@ -1,0 +1,435 @@
+Marketing Channel ROI Analysis
+===============================
+
+
+Channel: TV
+Month	Investment	Attributed Revenue	MMM ROI
+2023-05	$13,700,000.00	$-57.17	-0.0000
+2023-06	$16,627,168.83	$-210.90	-0.0000
+2023-07	$2,153,302.04	$-2,023,109.12	-0.9395
+2023-08	$64,380.73	$-425.87	-0.0066
+2023-09	$38,795,036.17	$-19,021,915.41	-0.4903
+2023-10	$61,447,110.95	$-18,446,630.74	-0.3002
+2023-11	$42,206,297.40	$-31,012,972.02	-0.7348
+2023-12	$53,975,022.24	$-24,035,953.88	-0.4453
+2024-01	$43,800,000.00	$-29,666,803.63	-0.6773
+2024-02	$25,860,076.17	$-18,841,295.70	-0.7286
+2024-03	$93,000,000.00	$-50,620,026.24	-0.5443
+2024-04	$52,051,962.55	$-37,431,655.40	-0.7191
+2024-05	$13,700,000.00	$-7,433,099.99	-0.5426
+2024-06	$16,627,168.83	$-12,950,112.10	-0.7789
+2024-07	$2,153,302.04	$-19,933.75	-0.0093
+
+
+Channel: Digital
+Month	Investment	Attributed Revenue	MMM ROI
+2023-05	$7,700,000.00	$29.47	0.0000
+2023-06	$14,207,605.07	$165.27	0.0000
+2023-07	$25,330,137.08	$21,825,169.93	0.8616
+2023-08	$12,780,736.84	$77,531.73	0.0061
+2023-09	$13,565,275.98	$6,099,755.89	0.4497
+2023-10	$126,224,797.66	$34,750,895.90	0.2753
+2023-11	$12,754,689.92	$8,594,918.72	0.6739
+2023-12	$30,633,600.27	$12,510,432.08	0.4084
+2024-01	$4,560,000.00	$2,832,482.44	0.6212
+2024-02	$19,126,510.18	$12,779,752.36	0.6682
+2024-03	$21,000,000.00	$10,482,489.80	0.4992
+2024-04	$8,718,921.70	$5,750,034.35	0.6595
+2024-05	$7,700,000.00	$3,831,297.44	0.4976
+2024-06	$14,207,605.07	$10,148,032.14	0.7143
+2024-07	$25,330,137.08	$215,043.96	0.0085
+
+
+Channel: Sponsorship
+Month	Investment	Attributed Revenue	MMM ROI
+2023-05	$316,800,000.00	$1,187.18	0.0000
+2023-06	$250,485,407.73	$2,853.37	0.0000
+2023-07	$74,142,697.34	$62,560,153.24	0.8438
+2023-08	$10,633,317.58	$63,168.66	0.0059
+2023-09	$627,876,513.14	$276,482,334.44	0.4403
+2023-10	$846,725,315.26	$228,282,802.31	0.2696
+2023-11	$141,721,159.18	$93,522,453.86	0.6599
+2023-12	$567,054,186.70	$226,781,779.20	0.3999
+2024-01	$42,000,000.00	$25,548,240.85	0.6083
+2024-02	$117,255,553.07	$76,723,684.40	0.6543
+2024-03	$415,900,000.00	$203,302,819.95	0.4888
+2024-04	$243,083,537.01	$156,990,198.02	0.6458
+2024-05	$316,800,000.00	$154,365,287.36	0.4873
+2024-06	$250,485,407.73	$175,207,509.73	0.6995
+2024-07	$74,142,697.34	$616,406.81	0.0083
+
+
+Channel: Content Marketing
+Month	Investment	Attributed Revenue	MMM ROI
+2023-05	$7,900,000.00	$33.24	0.0000
+2023-06	$450,806.25	$5.77	0.0000
+2023-07	$9,328.98	$8,836.96	0.9473
+2023-08	$63.25	$0.42	0.0067
+2023-09	$6,102,920.82	$3,016,965.66	0.4943
+2023-10	$34,440,747.57	$10,424,199.19	0.3027
+2023-11	$1,686,331.89	$1,249,291.35	0.7408
+2023-12	$10,673,068.66	$4,791,951.14	0.4490
+2024-01	$9,000,000.00	$6,146,016.22	0.6829
+2024-02	$5,967,709.89	$4,383,724.11	0.7346
+2024-03	$3,700,000.00	$2,030,465.84	0.5488
+2024-04	$348,756.87	$252,859.48	0.7250
+2024-05	$7,900,000.00	$4,321,465.45	0.5470
+2024-06	$450,806.25	$353,997.09	0.7853
+2024-07	$9,328.98	$87.07	0.0093
+
+
+Channel: Online marketing
+Month	Investment	Attributed Revenue	MMM ROI
+2023-05	$236,500,000.00	$1,094.30	0.0000
+2023-06	$79,712,998.66	$1,121.18	0.0000
+2023-07	$13,272,775.95	$13,828,111.17	1.0418
+2023-08	$1,292,442.64	$9,480.16	0.0073
+2023-09	$163,799,899.93	$89,059,132.21	0.5437
+2023-10	$243,717,777.37	$81,131,505.80	0.3329
+2023-11	$195,615,743.50	$159,388,388.30	0.8148
+2023-12	$225,037,555.61	$111,124,616.64	0.4938
+2024-01	$229,000,000.00	$171,996,207.45	0.7511
+2024-02	$198,923,662.86	$160,714,164.61	0.8079
+2024-03	$184,378,182.80	$111,284,759.00	0.6036
+2024-04	$165,145,095.93	$131,690,470.38	0.7974
+2024-05	$236,500,000.00	$142,287,678.90	0.6016
+2024-06	$79,712,998.66	$68,844,794.84	0.8637
+2024-07	$13,272,775.95	$136,248.74	0.0103
+
+
+Channel: Affiliates
+Month	Investment	Attributed Revenue	MMM ROI
+2023-05	$68,000,000.00	$236.36	0.0000
+2023-06	$27,680,230.61	$292.47	0.0000
+2023-07	$5,472,538.59	$4,283,106.19	0.7827
+2023-08	$736,839.80	$4,060.19	0.0055
+2023-09	$50,382,662.16	$20,578,553.72	0.4084
+2023-10	$69,737,111.08	$17,439,546.64	0.2501
+2023-11	$65,957,665.56	$40,372,631.84	0.6121
+2023-12	$68,269,379.37	$25,325,039.96	0.3710
+2024-01	$73,700,000.00	$41,583,379.99	0.5642
+2024-02	$64,650,190.43	$39,237,960.60	0.6069
+2024-03	$62,176,666.67	$28,191,780.50	0.4534
+2024-04	$56,934,558.70	$34,106,215.88	0.5990
+2024-05	$68,000,000.00	$30,733,638.11	0.4520
+2024-06	$27,680,230.61	$17,958,934.97	0.6488
+2024-07	$5,472,538.59	$42,201.56	0.0077
+
+
+Channel: SEM
+Month	Investment	Attributed Revenue	MMM ROI
+2023-05	$69,100,000.00	$459.35	0.0000
+2023-06	$37,355,159.78	$754.84	0.0000
+2023-07	$50,236,974.45	$75,194,017.87	1.4968
+2023-08	$25,135,280.04	$264,878.70	0.0105
+2023-09	$62,021,490.45	$48,446,872.01	0.7811
+2023-10	$319,270,113.79	$152,693,064.39	0.4783
+2023-11	$52,220,316.71	$61,129,535.01	1.1706
+2023-12	$111,810,304.31	$79,322,395.21	0.7094
+2024-01	$42,000,000.00	$45,320,155.89	1.0791
+2024-02	$48,736,297.40	$56,569,059.17	1.1607
+2024-03	$51,935,913.98	$45,035,257.93	0.8671
+2024-04	$42,199,581.03	$48,345,440.62	1.1456
+2024-05	$69,100,000.00	$59,727,304.23	0.8644
+2024-06	$37,355,159.78	$46,350,164.29	1.2408
+2024-07	$50,236,974.45	$740,888.61	0.0147
+
+
+Channel: Radio
+Month	Investment	Attributed Revenue	MMM ROI
+2023-05	$11,000,000.00	$47.95	0.0000
+2023-06	$0.00	$0.00	nan
+2023-07	$0.00	$0.00	nan
+2023-08	$0.00	$0.00	nan
+2023-09	$0.00	$0.00	nan
+2023-10	$0.00	$0.00	nan
+2023-11	$0.00	$0.00	nan
+2023-12	$0.00	$0.00	nan
+2024-01	$27,000,000.00	$19,105,819.00	0.7076
+2024-02	$0.00	$0.00	nan
+2024-03	$8,700,000.00	$4,947,250.70	0.5686
+2024-04	$0.00	$0.00	nan
+2024-05	$11,000,000.00	$6,235,156.25	0.5668
+2024-06	$0.00	$0.00	nan
+2024-07	$0.00	$0.00	nan
+
+
+Channel: Other
+Month	Investment	Attributed Revenue	MMM ROI
+2023-05	$49,870,000.00	$118.32	0.0000
+2023-06	$0.00	$0.00	nan
+2023-07	$0.00	$0.00	nan
+2023-08	$0.00	$0.00	nan
+2023-09	$0.00	$0.00	nan
+2023-10	$0.00	$0.00	nan
+2023-11	$0.00	$0.00	nan
+2023-12	$0.00	$0.00	nan
+2024-01	$270,900,000.00	$104,327,569.49	0.3851
+2024-02	$0.00	$0.00	nan
+2024-03	$159,455,450.85	$49,348,303.32	0.3095
+2024-04	$0.00	$0.00	nan
+2024-05	$49,870,000.00	$15,384,458.49	0.3085
+2024-06	$0.00	$0.00	nan
+2024-07	$0.00	$0.00	nan
+
+Marketing Mix Modeling (MMM) Analysis:
+
+Baseline Revenue (Intercept) (Current Months): $6,006,201.44 - Revenue expected without marketing
+
+Baseline Revenue (Intercept) (Next Months): $680,875,990.72 - Revenue expected without marketing
+
+Marketing Channel Impact Analysis:
+- SEM (Current Months):
+  Impact Coefficient: 104.7021
+  Average Monthly Investment: $71,247,571.08
+  Attributed Revenue: $719,140,248.11 (17.73% of total GMV)
+  MMM-based ROI: 0.7346
+  Marginal revenue impact - Each $1 spent generates $0.73 in revenue
+
+- Online marketing (Current Months):
+  Impact Coefficient: 72.8781
+  Average Monthly Investment: $151,058,793.99
+  Attributed Revenue: $1,241,497,773.67 (30.61% of total GMV)
+  MMM-based ROI: 0.5113
+  Marginal revenue impact - Each $1 spent generates $0.51 in revenue
+
+- Radio (Current Months):
+  Impact Coefficient: 68.6618
+  Average Monthly Investment: $3,846,666.67
+  Attributed Revenue: $30,288,273.90 (0.75% of total GMV)
+  MMM-based ROI: 0.4608
+  Marginal revenue impact - Each $1 spent generates $0.46 in revenue
+
+- Content Marketing (Current Months):
+  Impact Coefficient: 66.2620
+  Average Monthly Investment: $5,909,324.63
+  Attributed Revenue: $36,979,898.99 (0.91% of total GMV)
+  MMM-based ROI: 0.4649
+  Marginal revenue impact - Each $1 spent generates $0.46 in revenue
+
+- TV (Current Months):
+  Impact Coefficient: -65.7219
+  Average Monthly Investment: $31,744,055.20
+  Attributed Revenue: $-251,504,201.93 (-6.20% of total GMV)
+  MMM-based ROI: -0.4611
+  Negative revenue impact - Investment in this channel reduces revenue
+
+- Digital (Current Months):
+  Impact Coefficient: 60.2720
+  Average Monthly Investment: $22,922,667.79
+  Attributed Revenue: $129,898,031.48 (3.20% of total GMV)
+  MMM-based ROI: 0.4229
+  Marginal revenue impact - Each $1 spent generates $0.42 in revenue
+
+- Sponsorship (Current Months):
+  Impact Coefficient: 59.0235
+  Average Monthly Investment: $286,340,386.14
+  Attributed Revenue: $1,680,450,879.39 (41.43% of total GMV)
+  MMM-based ROI: 0.4141
+  Marginal revenue impact - Each $1 spent generates $0.41 in revenue
+
+- Affiliates (Current Months):
+  Impact Coefficient: 54.7477
+  Average Monthly Investment: $47,656,707.48
+  Attributed Revenue: $299,857,578.98 (7.39% of total GMV)
+  MMM-based ROI: 0.3841
+  Marginal revenue impact - Each $1 spent generates $0.38 in revenue
+
+- Other (Current Months):
+  Impact Coefficient: 37.3683
+  Average Monthly Investment: $35,339,696.72
+  Attributed Revenue: $169,060,449.63 (4.17% of total GMV)
+  MMM-based ROI: 0.2508
+  Marginal revenue impact - Each $1 spent generates $0.25 in revenue
+
+- Online marketing (Next Months):
+  Impact Coefficient: 173.0351 (revenue $ per investment $)
+  Average Monthly Investment: $160,900,652.42
+  Attributed Revenue: $1,984,482,642.72 (48.95% of total GMV)
+  MMM-based ROI: 1.9608
+  Positive revenue impact - Each $1 spent generates $1.96 in revenue
+
+- SEM (Next Months):
+  Impact Coefficient: 98.1254 (revenue $ per investment $)
+  Average Monthly Investment: $72,748,327.98
+  Attributed Revenue: $637,303,280.00 (15.72% of total GMV)
+  MMM-based ROI: 1.1119
+  Positive revenue impact - Each $1 spent generates $1.11 in revenue
+
+- Digital (Next Months):
+  Impact Coefficient: 84.0456 (revenue $ per investment $)
+  Average Monthly Investment: $22,750,705.70
+  Attributed Revenue: $202,615,677.78 (5.00% of total GMV)
+  MMM-based ROI: 0.9524
+  Marginal revenue impact - Each $1 spent generates $0.95 in revenue
+
+- Radio (Next Months):
+  Impact Coefficient: 77.5457 (revenue $ per investment $)
+  Average Monthly Investment: $4,121,428.57
+  Attributed Revenue: $17,907,734.89 (0.44% of total GMV)
+  MMM-based ROI: 0.2825
+  Marginal revenue impact - Each $1 spent generates $0.28 in revenue
+
+- TV (Next Months):
+  Impact Coefficient: -76.3863 (revenue $ per investment $)
+  Average Monthly Investment: $33,857,680.42
+  Attributed Revenue: $-200,058,570.61 (-4.93% of total GMV)
+  MMM-based ROI: -0.8656
+  Negative revenue impact - Investment in this channel reduces revenue
+
+- Content Marketing (Next Months):
+  Impact Coefficient: 75.8750 (revenue $ per investment $)
+  Average Monthly Investment: $6,330,752.89
+  Attributed Revenue: $26,751,079.53 (0.66% of total GMV)
+  MMM-based ROI: 0.8598
+  Marginal revenue impact - Each $1 spent generates $0.86 in revenue
+
+- Affiliates (Next Months):
+  Impact Coefficient: 66.6605 (revenue $ per investment $)
+  Average Monthly Investment: $50,669,862.40
+  Attributed Revenue: $248,017,201.68 (6.12% of total GMV)
+  MMM-based ROI: 0.7554
+  Marginal revenue impact - Each $1 spent generates $0.76 in revenue
+
+- Sponsorship (Next Months):
+  Impact Coefficient: 50.6549 (revenue $ per investment $)
+  Average Monthly Investment: $301,497,363.91
+  Attributed Revenue: $1,015,760,784.40 (25.06% of total GMV)
+  MMM-based ROI: 0.5740
+  Marginal revenue impact - Each $1 spent generates $0.57 in revenue
+
+- Other (Next Months):
+  Impact Coefficient: 50.5385 (revenue $ per investment $)
+  Average Monthly Investment: $37,863,960.78
+  Attributed Revenue: $122,885,952.82 (3.03% of total GMV)
+  MMM-based ROI: 0.1841
+  Marginal revenue impact - Each $1 spent generates $0.18 in revenue
+
+Channel Impact Coefficients plot saved to: /mnt/c/Users/bhave/Downloads/GC-DATA-2025/GC-DATA-2025/agents/plots/mmm_channel_impact_20250318_190826.png
+Model Fit plot saved to: /mnt/c/Users/bhave/Downloads/GC-DATA-2025/GC-DATA-2025/agents/plots/mmm_model_fit_20250318_190826.png
+
+
+TV:
+Current Month Performance:
+  Attributed Revenue: $-251,504,201.93 (-6.20% of total GMV)
+  Average ROI: -46.11%
+  Average Marginal ROI: -31.81% (ΔRevenue/ΔInvestment)
+Next Month Performance:
+  Projected Attributed Revenue: $-200,058,570.61 (-4.93% of total GMV)
+  Projected Average ROI: -86.56%
+  Projected Average Marginal ROI: -7.54% (ΔRevenue/ΔInvestment)
+  Investment Recommendation: Consider decreasing investment (negative returns and efficiency)
+
+Digital:
+Current Month Performance:
+  Attributed Revenue: $129,898,031.48 (3.20% of total GMV)
+  Average ROI: 42.29%
+  Average Marginal ROI: 101.78% (ΔRevenue/ΔInvestment)
+Next Month Performance:
+  Projected Attributed Revenue: $202,615,677.78 (5.00% of total GMV)
+  Projected Average ROI: 95.24%
+  Projected Average Marginal ROI: -983.74% (ΔRevenue/ΔInvestment)
+  Investment Recommendation: Consider tactical increases in specific periods (positive marginal returns)
+
+Sponsorship:
+Current Month Performance:
+  Attributed Revenue: $1,680,450,879.39 (41.43% of total GMV)
+  Average ROI: 41.41%
+  Average Marginal ROI: 26.83% (ΔRevenue/ΔInvestment)
+Next Month Performance:
+  Projected Attributed Revenue: $1,015,760,784.40 (25.06% of total GMV)
+  Projected Average ROI: 57.40%
+  Projected Average Marginal ROI: -1.22% (ΔRevenue/ΔInvestment)
+  Investment Recommendation: Consider tactical increases in specific periods (positive marginal returns)
+
+Content Marketing:
+Current Month Performance:
+  Attributed Revenue: $36,979,898.99 (0.91% of total GMV)
+  Average ROI: 46.49%
+  Average Marginal ROI: 39.83% (ΔRevenue/ΔInvestment)
+Next Month Performance:
+  Projected Attributed Revenue: $26,751,079.53 (0.66% of total GMV)
+  Projected Average ROI: 85.98%
+  Projected Average Marginal ROI: 27.76% (ΔRevenue/ΔInvestment)
+  Investment Recommendation: Consider tactical increases in specific periods (positive marginal returns)
+
+Online marketing:
+Current Month Performance:
+  Attributed Revenue: $1,241,497,773.67 (30.61% of total GMV)
+  Average ROI: 51.13%
+  Average Marginal ROI: 127.52% (ΔRevenue/ΔInvestment)
+Next Month Performance:
+  Projected Attributed Revenue: $1,984,482,642.72 (48.95% of total GMV)
+  Projected Average ROI: 196.08%
+  Projected Average Marginal ROI: -26.29% (ΔRevenue/ΔInvestment)
+  Investment Recommendation: Consider tactical increases in specific periods (positive marginal returns)
+
+Affiliates:
+Current Month Performance:
+  Attributed Revenue: $299,857,578.98 (7.39% of total GMV)
+  Average ROI: 38.41%
+  Average Marginal ROI: -30.03% (ΔRevenue/ΔInvestment)
+Next Month Performance:
+  Projected Attributed Revenue: $248,017,201.68 (6.12% of total GMV)
+  Projected Average ROI: 75.54%
+  Projected Average Marginal ROI: -109.69% (ΔRevenue/ΔInvestment)
+  Investment Recommendation: Consider decreasing investment (negative returns and efficiency)
+
+SEM:
+Current Month Performance:
+  Attributed Revenue: $719,140,248.11 (17.73% of total GMV)
+  Average ROI: 73.46%
+  Average Marginal ROI: 47.84% (ΔRevenue/ΔInvestment)
+Next Month Performance:
+  Projected Attributed Revenue: $637,303,280.00 (15.72% of total GMV)
+  Projected Average ROI: 111.19%
+  Projected Average Marginal ROI: -139.71% (ΔRevenue/ΔInvestment)
+  Investment Recommendation: Consider tactical increases in specific periods (positive marginal returns)
+
+Radio:
+Current Month Performance:
+  Attributed Revenue: $30,288,273.90 (0.75% of total GMV)
+  Average ROI: 46.08%
+  Average Marginal ROI: 52.66% (ΔRevenue/ΔInvestment)
+Next Month Performance:
+  Projected Attributed Revenue: $17,907,734.89 (0.44% of total GMV)
+  Projected Average ROI: 28.25%
+  Projected Average Marginal ROI: 32.28% (ΔRevenue/ΔInvestment)
+  Investment Recommendation: Consider tactical increases in specific periods (positive marginal returns)
+
+Other:
+Current Month Performance:
+  Attributed Revenue: $169,060,449.63 (4.17% of total GMV)
+  Average ROI: 25.08%
+  Average Marginal ROI: 28.66% (ΔRevenue/ΔInvestment)
+Next Month Performance:
+  Projected Attributed Revenue: $122,885,952.82 (3.03% of total GMV)
+  Projected Average ROI: 18.41%
+  Projected Average Marginal ROI: 21.04% (ΔRevenue/ΔInvestment)
+  Investment Recommendation: Consider tactical increases in specific periods (positive marginal returns)
+
+Strategic Recommendations based on MMM Analysis:
+Marginal ROI Analysis plot saved to: /mnt/c/Users/bhave/Downloads/GC-DATA-2025/GC-DATA-2025/agents/plots/marginal_roi_analysis_20250318_190826.png
+
+Next Month Marginal ROI Analysis plot saved to: /mnt/c/Users/bhave/Downloads/GC-DATA-2025/GC-DATA-2025/agents/plots/next_month_marginal_roi_analysis_20250318_190826.png
+
+Channel ROI Analysis Results:
+
+1. Increase investment in high-performing channels (Current Months): SEM, Online marketing, Radio, Content Marketing, Digital, Sponsorship, Affiliates, Other
+   These channels generate more revenue than their cost, providing positive ROI
+2. Reassess or reduce investment in low-performing channels (Current Months): TV
+   These channels generate less revenue than their cost, providing negative or minimal ROI
+3. Increase investment in high-performing channels (Next Months): Online marketing, SEM, Digital, Radio, Content Marketing, Affiliates, Sponsorship, Other
+   These channels generate more revenue than their cost, providing positive ROI
+4. Reassess or reduce investment in low-performing channels (Next Months): TV
+   These channels generate less revenue than their cost, providing negative or minimal ROI
+5. Consider running controlled experiments to validate MMM findings before making major budget shifts
+6. Re-run MMM analysis quarterly to capture changing market dynamics and seasonal effects
+7. For channels with negative impact, investigate whether they serve important non-revenue goals (e.g., brand building)
+
+Strategic Recommendations:
+1. Prioritize customer satisfaction initiatives as they significantly impact future ROI
+2. Set minimum monthly ROI targets based on the observed relationship with GMV
+3. Aim for ROI above 0.25 for high-performing channels (Current Months)
+4. Aim for ROI above 0.18 for high-performing channels (Next Months)
+6. Implement a monthly ROI-to-GMV tracking system to monitor how this relationship evolves over time

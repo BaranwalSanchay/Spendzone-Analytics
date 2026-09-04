@@ -1,0 +1,1482 @@
+{
+  "executive-summary": {
+    "revenueData": [
+      { "month": "Jul", "revenue": "175676286.23", "marketingSpend": "171000000", "roi": "1.03" },
+      { "month": "Aug", "revenue": "418694.00", "marketingSpend": "51000000", "roi": "0.01" },
+      { "month": "Sep", "revenue": "424661698.51", "marketingSpend": "963000000", "roi": "0.44" },
+      { "month": "Oct", "revenue": "506275383.48", "marketingSpend": "1702000000", "roi": "0.30" },
+      { "month": "Nov", "revenue": "333244247.04", "marketingSpend": "512000000", "roi": "0.65" },
+      { "month": "Dec", "revenue": "435820260.36", "marketingSpend": "1067000000", "roi": "0.41" },
+      { "month": "Jan", "revenue": "387193067.71", "marketingSpend": "742000000", "roi": "0.52" },
+      { "month": "Feb", "revenue": "331567049.54", "marketingSpend": "481000000", "roi": "0.69" },
+      { "month": "Mar", "revenue": "404003100.80", "marketingSpend": "1000000000", "roi": "0.40" },
+      { "month": "Apr", "revenue": "339703563.34", "marketingSpend": "568000000", "roi": "0.60" },
+      { "month": "May", "revenue": "409453186.25", "marketingSpend": "781000000", "roi": "0.52" },
+      { "month": "Jun", "revenue": "305913320.96", "marketingSpend": "428000000", "roi": "0.71" }
+    ],
+    "categoryData": [
+    { "category": "Cameras", "revenue": 1.784014e+09, "units": 1800, "growth": -5, "margin": 29 },
+    { "category": "Entertainment", "revenue": 1.297358e+09, "units": 2500, "growth": 10, "margin": 30 },
+    { "category": "Gaming Hardware", "revenue": 4.555337e+08, "units": 3100, "growth": 18, "margin": 26 },
+    { "category": "Camera Accessories", "revenue": 3.044750e+08, "units": 1500, "growth": -3, "margin": 25 },
+    { "category": "Game CDs & DVDs", "revenue": 2.142882e+08, "units": 2200, "growth": -8, "margin": 200 }
+  ],
+    "channelData": [
+      { "channel": "Paid Search", "spend": 95000, "revenue": 380000, "roi": "4.00", "cac": 45 },
+      { "channel": "Social Media", "spend": 80000, "revenue": 320000, "roi": "4.00", "cac": 52 },
+      { "channel": "Email", "spend": 40000, "revenue": 180000, "roi": "4.50", "cac": 28 },
+      { "channel": "Display", "spend": 65000, "revenue": 195000, "roi": "3.00", "cac": 75 },
+      { "channel": "Affiliate", "spend": 35000, "revenue": 140000, "roi": "4.00", "cac": 60 },
+      { "channel": "Direct Mail", "spend": 50000, "revenue": 125000, "roi": "2.50", "cac": 120 },
+      { "channel": "TV/Radio", "spend": 120000, "revenue": 290000, "roi": "2.42", "cac": 135 },
+      { "channel": "SEO", "spend": 55000, "revenue": 220000, "roi": "4.00", "cac": 40 },
+      { "channel": "Content", "spend": 60000, "revenue": 150000, "roi": "2.50", "cac": 85 }
+    ],
+    "promotionalData": [
+      { "month": "Jan", "promotional": 380000, "nonPromotional": 280000 },
+      { "month": "Feb", "promotional": 420000, "nonPromotional": 300000 },
+      { "month": "Mar", "promotional": 480000, "nonPromotional": 320000 },
+      { "month": "Apr", "promotional": 520000, "nonPromotional": 290000 },
+      { "month": "May", "promotional": 450000, "nonPromotional": 310000 },
+      { "month": "Jun", "promotional": 400000, "nonPromotional": 350000 }
+    ],
+    "budgetAllocationData": [
+      { "channel": "Paid Search", "current": 180000, "recommended": 220000 },
+      { "channel": "Social Media", "current": 150000, "recommended": 200000 },
+      { "channel": "Email", "current": 80000, "recommended": 100000 },
+      { "channel": "Display", "current": 120000, "recommended": 90000 },
+      { "channel": "TV/Radio", "current": 200000, "recommended": 150000 },
+      { "channel": "Content", "current": 70000, "recommended": 110000 },
+      { "channel": "SEO", "current": 100000, "recommended": 130000 }
+    ],
+    "kpiData": [
+      { "period": "Q1", "target": 2500000, "actual": 2350000 },
+      { "period": "Q2", "target": 2750000, "actual": 2950000 },
+      { "period": "Q3", "target": 3000000, "actual": 3200000 },
+      { "period": "Q4", "target": 3500000, "actual": 3350000 }
+    ],
+    "customerJourneyData": [
+      { "stage": "Awareness", "conversion": 100, "dropoff": 0 },
+      { "stage": "Consideration", "conversion": 65, "dropoff": 35 },
+      { "stage": "Evaluation", "conversion": 40, "dropoff": 25 },
+      { "stage": "Purchase", "conversion": 25, "dropoff": 15 },
+      { "stage": "Retention", "conversion": 18, "dropoff": 7 },
+      { "stage": "Advocacy", "conversion": 12, "dropoff": 6 }
+    ],
+    "dashboardKpiData": [
+      {
+        "title": "Total Revenue",
+        "value": "405.6 Cr.",
+        "change": { "value": 14.2 },
+        "icon": "DollarSign",
+        "gradient": "linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)"
+      },
+      {
+        "title": "Marketing ROI",
+        "value": "0.48x",
+        "change": { "value": 6.8 },
+        "icon": "TrendingUp",
+        "gradient": "linear-gradient(135deg, #10B981 0%, #34D399 100%)"
+      },
+      {
+        "title": "Number of Customers",
+        "value": "1252K",
+        "change": { "value": 2.1 },
+        "icon": "DollarSign",
+        "gradient": "linear-gradient(135deg, #F43F5E 0%, #FB7185 100%)"
+      },
+      {
+        "title": "Costumer Repitition Rate",
+        "value": "21.56%",
+        "change": { "value": 18.7 },
+        "icon": "Users",
+        "gradient": "linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%)"
+      },
+      {
+        "title": "Average SLA",
+        "value": "5.69 Days",
+        "change": { "value": 1.2 },
+        "icon": "Target",
+        "gradient": "linear-gradient(135deg, #0EA5E9 0%, #38BDF8 100%)"
+      }
+    ]
+  },
+  "business-context": {
+    "saleDaysData": [
+      { "year": 2023, "month": 7, "monthName": "Jul", "sale_days": 2 },
+      { "year": 2023, "month": 8, "monthName": "Aug", "sale_days": 6 },
+      { "year": 2023, "month": 9, "monthName": "Sep", "sale_days": 0 },
+      { "year": 2023, "month": 10, "monthName": "Oct", "sale_days": 3 },
+      { "year": 2023, "month": 11, "monthName": "Nov", "sale_days": 8 },
+      { "year": 2023, "month": 12, "monthName": "Dec", "sale_days": 7 },
+      { "year": 2024, "month": 1, "monthName": "Jan", "sale_days": 6 },
+      { "year": 2024, "month": 2, "monthName": "Feb", "sale_days": 6 },
+      { "year": 2024, "month": 3, "monthName": "Mar", "sale_days": 3 },
+      { "year": 2024, "month": 4, "monthName": "Apr", "sale_days": 0 },
+      { "year": 2024, "month": 5, "monthName": "May", "sale_days": 3 },
+      { "year": 2024, "month": 6, "monthName": "Jun", "sale_days": 0 }
+    ],
+    "monthlyRevenueData": [
+        { "month": "Jul", "revenue": "2108115.6", "marketingSpend": "2052000.0" },
+        { "month": "Aug", "revenue": "5024.33", "marketingSpend": "612000.0" },
+        { "month": "Sep", "revenue": "5095940.4", "marketingSpend": "11556000.0" },
+        { "month": "Oct", "revenue": "6075304.8", "marketingSpend": "20424000.0" },
+        { "month": "Nov", "revenue": "3998930.4", "marketingSpend": "6144000.0" },
+        { "month": "Dec", "revenue": "5229843.6", "marketingSpend": "12804000.0" },
+        { "month": "Jan", "revenue": "4646317.2", "marketingSpend": "8904000.0" },
+        { "month": "Feb", "revenue": "3978804.0", "marketingSpend": "5772000.0" },
+        { "month": "Mar", "revenue": "4848037.2", "marketingSpend": "12000000.0" },
+        { "month": "Apr", "revenue": "4076443.2", "marketingSpend": "6816000.0" },
+        { "month": "May", "revenue": "4913438.4", "marketingSpend": "9372000.0" },
+        { "month": "Jun", "revenue": "3670959.6", "marketingSpend": "5136000.0" }
+    ],
+    "categoryRevenueData": [
+        { "name": "Camera", "value": 21493547.02 },
+        { "name": "Speaker", "value": 7758455.02 },
+        { "name": "CameraAccessory", "value": 3463289.20 },
+        { "name": "GamingConsole", "value": 3419251.99 },
+        { "name": "HomeAudio", "value": 3233518.24 },
+        { "name": "Game", "value": 2582451.96 },
+        { "name": "TVVideoSmall", "value": 2324672.20 },
+        { "name": "GamingAccessory", "value": 2068986.43 },
+        { "name": "AudioMP3Player", "value": 1724625.56 },
+        { "name": "HomeTheatre", "value": 286082.83 },
+        { "name": "AudioAccessory", "value": 213793.01 },
+        { "name": "CameraStorage", "value": 205084.57 },
+        { "name": "AmplifierReceiver", "value": 89666.22 },
+        { "name": "GameMembershipCards", "value": 540.00 }
+    ],
+    "quarterlyRevenueData": [
+  {
+    "name": "2023Q3",
+    "Camera": 183082100.00,
+    "CameraAccessory": 63378660.00,
+    "EntertainmentSmall": 261390900.00,
+    "GamingHardware": 57451910.00,
+    "GameCDDVD": 35453110.00
+  },
+  {
+    "name": "2023Q4",
+    "Camera": 611900000.00,
+    "CameraAccessory": 84196650.00,
+    "EntertainmentSmall": 398864400.00,
+    "GamingHardware": 118630700.00,
+    "GameCDDVD": 61748070.00
+  },
+  {
+    "name": "2024Q1",
+    "Camera": 528076400.00,
+    "CameraAccessory": 78517290.00,
+    "EntertainmentSmall": 330050000.00,
+    "GamingHardware": 131336000.00,
+    "GameCDDVD": 54783520.00
+  },
+  {
+    "name": "2024Q2",
+    "Camera": 459952400.00,
+    "CameraAccessory": 78298330.00,
+    "EntertainmentSmall": 306604500.00,
+    "GamingHardware": 147995800.00,
+    "GameCDDVD": 62219020.00
+  }
+],
+
+    "channelSpendData": [
+      {
+        "quarter": "2023Q3",
+        "TV": 4.1,
+        "Digital": 5.2,
+        "Sponsorship": 71.3,
+        "Content Marketing": 0.6,
+        "Online Marketing": 17.8,
+        "Affiliates": 5.7,
+        "SEM": 13.7,
+        "Radio": 0,
+        "Other": 0
+      },
+      {
+        "quarter": "2023Q4",
+        "TV": 15.8,
+        "Digital": 17.0,
+        "Sponsorship": 155.6,
+        "Content Marketing": 4.7,
+        "Online Marketing": 66.4,
+        "Affiliates": 20.4,
+        "SEM": 48.3,
+        "Radio": 0,
+        "Other": 0
+      },
+      {
+        "quarter": "2024Q1",
+        "TV": 16.3,
+        "Digital": 4.5,
+        "Sponsorship": 57.5,
+        "Content Marketing": 1.9,
+        "Online Marketing": 61.2,
+        "Affiliates": 20.1,
+        "SEM": 14.3,
+        "Radio": 3.6,
+        "Other": 43.0
+      },
+      {
+        "quart": "2024Q2",
+        "TV": 8.2,
+        "Digital": 3.1,
+        "Sponsorship": 81.0,
+        "Content Marketing": 0.9,
+        "Online Marketing": 48.1,
+        "Affiliates": 15.3,
+        "SEM": 14.9,
+        "Radio": 1.1,
+        "Other": 5.0
+      }
+    ],
+    "marketShareData": [
+      { "name": "0-500", "value": 14.9 },
+      { "name": "500-1000", "value": 23.8 },
+      { "name": "1000-2000", "value": 23.3 },
+      { "name": "2000-5000", "value": 23.9 },
+      { "name": "5000-10000", "value": 7.12 },
+      { "name": "10000+", "value": 6.79 }
+    ],
+    "annualChannelSpendData": [
+      { "name": "Tv", "value": 44.4 },
+      { "name": "Digital", "value": 29.7 },
+      { "name": "Sponsorship", "value": 365.4 },
+      { "name": "Content Marketing", "value": 8 },
+      { "name": "Online Marketing", "value": 193.6 },
+      { "name": "Affiliates", "value": 61.4 },
+      { "name": "SEM", "value": 91.2 },
+      { "name": "Radio", "value": 4.7 },
+      { "name": "Other", "value": 48 }
+    ],
+    "kpiData": [
+      {
+        "title": "Camera",
+        "value": "178.4 Cr.",
+        "change": { "value": 101172 },
+        "icon": "DollarSign",
+        "gradient": "linear-gradient(135deg, #10B981 0%, #34D399 100%)"
+      },
+      {
+        "title": "Camera Accesory",
+        "value": "30.4 Cr.",
+        "change": { "value": 257493 },
+        "icon": "TrendingUp",
+        "gradient": "linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)"
+      },
+      {
+        "title": "Entertainment Small",
+        "value": "129.7 Cr.",
+        "change": { "value": 944698 },
+        "icon": "BarChart3",
+        "gradient": "linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%)"
+      },
+      {
+        "title": "Gaming Hardware",
+        "value": "45.5 Cr.",
+        "change": { "value": 230958 },
+        "icon": "PieChartIcon",
+        "gradient": "linear-gradient(135deg, #EC4899 0%, #F472B6 100%)"
+      },
+      {
+        "title": "Gaming CDDVD",
+        "value": "21.4 Cr.",
+        "change": { "value": 114503 },
+        "icon": "LineChartIcon",
+        "gradient": "linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%)"
+      }
+    ]
+  },
+  "marketing-performance": {
+    "monthlyRevenueData": [
+      { "month": "Jul 2023", "revenue": 175676286.23, "marketingSpend": 171000000.00 },
+      { "month": "Aug 2023", "revenue": 418694.00, "marketingSpend": 51000000.00 },
+      { "month": "Sep 2023", "revenue": 424661698.51, "marketingSpend": 963000000.00 },
+      { "month": "Oct 2023", "revenue": 506275383.48, "marketingSpend": 1702000000.00 },
+      { "month": "Nov 2023", "revenue": 333244247.04, "marketingSpend": 512000000.00 },
+      { "month": "Dec 2023", "revenue": 435820260.36, "marketingSpend": 1067000000.00 },
+      { "month": "Jan 2024", "revenue": 387193067.71, "marketingSpend": 742000000.00 },
+      { "month": "Feb 2024", "revenue": 331567049.54, "marketingSpend": 481000000.00 },
+      { "month": "Mar 2024", "revenue": 404003100.80, "marketingSpend": 1000000000.00 },
+      { "month": "Apr 2024", "revenue": 339703563.34, "marketingSpend": 568000000.00 },
+      { "month": "May 2024", "revenue": 409453186.25, "marketingSpend": 781000000.00 },
+      { "month": "Jun 2024", "revenue": 305913320.96, "marketingSpend": 428000000.00 }
+    ],
+    "categoryRevenueData": [
+      { "category": "Cameras", "revenue": 1.784014e+09, "units": 1800, "growth": 24.409368, "margin": 29 },
+      { "category": "Entertainment", "revenue": 1.297358e+09, "units": 2500, "growth": -3.508993, "margin": 30 },
+      { "category": "Gaming Hardware", "revenue": 4.555337e+08, "units": 3100, "growth": 58.7044928, "margin": 26 },
+      { "category": "Camera Accessories", "revenue": 3.044750e+08, "units": 1500, "growth": 6.317913, "margin": 25 },
+      { "category": "Game CDs & DVDs", "revenue": 2.142882e+08, "units": 2200, "growth": 20.458472, "margin": 200 }
+    ],
+    "channelData": [
+      { "channel": "Radio", "spend": 47000000, "attributed_revenue": 30288273.90, "roi": 0.4608, "marginal_roi": 0.5266 },
+      { "channel": "Content Marketing", "spend": 80000000, "attributed_revenue": 36979898.99, "roi": 0.4649, "marginal_roi": 0.3983 },
+      { "channel": "Digital", "spend": 297000000, "attributed_revenue": 129898031.48, "roi": 0.4229, "marginal_roi": 1.0178 },
+      { "channel": "TV", "spend": 444000000, "attributed_revenue": -251504201.93, "roi": -0.4611, "marginal_roi": 0.3181 },
+      { "channel": "Other", "spend": 480000000, "attributed_revenue": 169060449.63, "roi": 0.2508, "marginal_roi": 0.2866 },
+      { "channel": "Affiliates", "spend": 614000000, "attributed_revenue": 299857578.98, "roi": 0.3841, "marginal_roi": -0.3003 },
+      { "channel": "SEM", "spend": 912000000, "attributed_revenue": 719140248.11, "roi": 0.7346, "marginal_roi": 0.4784 },
+      { "channel": "Online Marketing", "spend": 1936000000, "attributed_revenue": 1241497773.67, "roi": 0.5113, "marginal_roi": 1.2752 },
+      { "channel": "Sponsorship", "spend": 3650400000, "attributed_revenue": 1680450879.39, "roi": 0.4141, "marginal_roi": 0.2683 }
+    ],
+
+    "performanceRadarData": [
+      { "subject": "Revenue", "current": 90, "target": 100, "fullMark": 100 },
+      { "subject": "ROI", "current": 75, "target": 80, "fullMark": 100 },
+      { "subject": "Market Share", "current": 85, "target": 90, "fullMark": 100 },
+      { "subject": "CAC", "current": 70, "target": 65, "fullMark": 100 },
+      { "subject": "Customer Retention", "current": 95, "target": 90, "fullMark": 100 },
+      { "subject": "Brand Awareness", "current": 80, "target": 95, "fullMark": 100 }
+    ],
+    "additionalKPIData": {
+      "totalGMV": {
+        "value": "₹4,055.67M",
+        "change": { "value": 15.2, "positive": true }
+      },
+      "clv": {
+        "value": "₹147,584",
+        "change": { "value": 8.4, "positive": true }
+      },
+      "avgSLA": {
+        "value": "5.69 days",
+        "change": { "value": -0.3, "positive": true }
+      },
+      "arppu": {
+        "value": "₹3,377",
+        "change": { "value": 12.5, "positive": true }
+      },
+      "gmroi": {
+        "value": "-₹673,586",
+        "change": { "value": 5.2, "positive": false }
+      }
+    },
+    "kpiData": [
+      {
+        "title": "Total Revenue",
+        "value": "$46.62M",
+        "change": { "value": 12.5 },
+        "icon": "DollarSign",
+        "gradient": "linear-gradient(90deg, rgb(16, 185, 129) 0%, rgb(5, 150, 105) 100%)"
+      },
+      {
+        "title": "Top Channel ROI",
+        "value": "0.48x",
+        "change": { "value": 0.8 },
+        "icon": "Target",
+        "gradient": "linear-gradient(90deg, rgb(59, 130, 246) 0%, rgb(37, 99, 235) 100%)"
+      },
+      {
+        "title": "Average CAC",
+        "value": "$70",
+        "change": { "value": 15 },
+        "icon": "ZapIcon",
+        "gradient": "linear-gradient(90deg, rgb(245, 158, 11) 0%, rgb(217, 119, 6) 100%)"
+      },
+      {
+        "title": "Marketing Spend",
+        "value": "$5.82M",
+        "change": { "value": 8.3 },
+        "icon": "BarChart3",
+        "gradient": "linear-gradient(90deg, rgb(124, 58, 237) 0%, rgb(99, 102, 241) 100%)"
+      },
+      {
+        "title": "Conversion Rate",
+        "value": "4.2%",
+        "change": { "value": 0.5 },
+        "icon": "PieChart",
+        "gradient": "linear-gradient(90deg, rgb(236, 72, 153) 0%, rgb(219, 39, 119) 100%)"
+      }
+    ]
+  },
+  "appendix": {
+    "quarterlyBreakdownData": [
+      { "quarter": "Q1 2023", "search": 110000, "social": 85000, "email": 38000, "display": 72000, "affiliate": 48000, "content": 45000 },
+      { "quarter": "Q2 2023", "search": 112000, "social": 88000, "email": 36000, "display": 68000, "affiliate": 52000, "content": 42000 },
+      { "quarter": "Q3 2023", "search": 115000, "social": 90000, "email": 42000, "display": 70000, "affiliate": 50000, "content": 46000 },
+      { "quarter": "Q4 2023", "search": 120000, "social": 92000, "email": 45000, "display": 75000, "affiliate": 55000, "content": 50000 }
+    ],
+    "demographicData": [
+      { "name": "18-24", "value": 15, "color": "#8B5CF6" },
+      { "name": "25-34", "value": 35, "color": "#D946EF" },
+      { "name": "35-44", "value": 25, "color": "#F97316" },
+      { "name": "45-54", "value": 15, "color": "#0EA5E9" },
+      { "name": "55+", "value": 10, "color": "#10B981" }
+    ],
+    "deviceBreakdownData": [
+      { "name": "Desktop", "value": 45, "color": "#8B5CF6" },
+      { "name": "Mobile", "value": 40, "color": "#F97316" },
+      { "name": "Tablet", "value": 15, "color": "#0EA5E9" }
+    ],
+    "conversionRateData": [
+      { "month": "Jan", "rate": 2.8 },
+      { "month": "Feb", "rate": 2.9 },
+      { "month": "Mar", "rate": 3.1 },
+      { "month": "Apr", "rate": 3.0 },
+      { "month": "May", "rate": 3.2 },
+      { "month": "Jun", "rate": 3.4 },
+      { "month": "Jul", "rate": 3.3 },
+      { "month": "Aug", "rate": 3.5 },
+      { "month": "Sep", "rate": 3.6 },
+      { "month": "Oct", "rate": 3.7 },
+      { "month": "Nov", "rate": 3.8 },
+      { "month": "Dec", "rate": 3.9 }
+    ],
+    "dataSourcesTable": [
+      { "id": 1, "name": "Canada Holiday List", "type": "Excel Spreadsheet", "date": "2025-03-11", "size": "10 KB", "description": "Calendar of Canadian holidays for marketing campaign planning" },
+      { "id": 2, "name": "Customers Orders Data", "type": "CSV", "date": "2025-03-11", "size": "246 MB", "description": "Complete customer transaction history and order details" },
+      { "id": 3, "name": "Media Data - Sale Calendar - NPS Scores", "type": "Excel Spreadsheet", "date": "2025-03-11", "size": "144 KB", "description": "Media performance metrics, promotional calendar, and customer satisfaction scores" },
+      { "id": 4, "name": "Product Hierarchy Details", "type": "Word Document", "date": "2025-03-11", "size": "10 KB", "description": "Product categorization and hierarchical structure" },
+      { "id": 5, "name": "SKU Details", "type": "CSV", "date": "2025-03-11", "size": "1.3 MB", "description": "Detailed product information including pricing and inventory" },
+      { "id": 6, "name": "Weather Data ONTARIO-2023", "type": "CSV", "date": "2025-03-11", "size": "23 KB", "description": "Historical weather data for Ontario region in 2023" }    
+    ],
+    "methodologyTable": [
+      { "id": 1, "name": "Time Series Modeling", "description": "A Comprehensive Approach to Optimized Budget Allocation Using Adaptive Time-Series Models with Adstock and Hill Functions. Abstract: This report explores a systematic approach to optimizing budget allocation for marketing expenditures. We begin with a baseline Optimized Budget Allocation, followed by an Optimized Budget Allocation per Month (Adaptive Time-Series Model), and culminate with the Final Optimized Budget Allocation per Month (Adaptive Time-Series Model with Adstock + Hill). Each phase incorporates increasingly sophisticated modeling techniques to enhance resource allocation efficiency. Our findings demonstrate the impact of adaptive optimization and carryover effects on improving marketing effectiveness." },
+      { "id": 2, "name": "Optimal Marketing Budget Allocation", "description": "A Bilevel Optimization Approach. Abstract: This paper presents a comprehensive methodology for optimizing marketing budget allocation across multiple channels using a bilevel optimization framework. The approach addresses the challenge of determining effective weight parameters for each marketing channel and subsequently optimizing budget allocation to maximize return on investment. Two complementary models are developed and compared: one utilizing the difference between future GMV (Gross Merchandise Value) and investment as the optimization target, and another using direct GMV values. The methodology incorporates channel-specific constraints, handles diminishing returns through logarithmic utility functions, and provides robust allocation recommendations despite limited historical data. Empirical results demonstrate the effectiveness of the approach, providing marketing managers with data-driven, actionable insights for budget allocation decisions." },
+      { "id": 3, "name": "Robyn MMM Model from Meta", "description": "Robyn is an experimental, AI/ML-powered and open-sourced Marketing Mix Modeling (MMM) package from Meta Marketing Science. The automation is enabled through various techniques like the multi-objective evolutionary algorithm for hyperparameter optimisation, time-series decomposition for trend & season, Ridge regression for model fitting & gradient-based optimizer for budget allocation. Robyn is built for granular datasets with many independent variables and therefore especially suitable for digital and direct response advertisers with rich data sources." }
+    ],
+    "documentsTable": [
+      { "id": 1, "name": "Canada Holiday List", "type": "Spreadsheet", "date": "2025-03-07", "size": "10 KB" },
+      { "id": 2, "name": "Customers Orders Data", "type": "Spreadsheet", "date": "2025-03-07", "size": "246 MB" },
+      { "id": 3, "name": "Media Data - Sale Calender - NPS Score", "type": "Spreadsheet", "date": "2025-03-07", "size": "144 KB" },
+      { "id": 4, "name": "SKU Details", "type": "Spreadsheet", "date": "2025-03-07", "size": "1.3 MB" },
+      { "id": 5, "name": "Weather Data 2023", "type": "Spreadsheet", "date": "2025-03-07", "size": "23 KB" },
+      { "id": 6, "name": "Weather Data 2024", "type": "Spreadsheet", "date": "2025-03-07", "size": "23 KB" }
+    ],
+    "glossaryItems": [
+      { "term": "ROI", "definition": "Return on Investment - A performance measure used to evaluate the efficiency of an investment." },
+      { "term": "CTR", "definition": "Click-Through Rate - The ratio of users who click on a specific link to the number of total users who view a page, email, or advertisement." },
+      { "term": "CPA", "definition": "Cost Per Acquisition - The total cost of acquiring a new customer, including marketing and sales expenses." },
+      { "term": "ROAS", "definition": "Return on Ad Spend - A marketing metric that measures the revenue earned for every dollar spent on advertising." },
+      { "term": "CAC", "definition": "Customer Acquisition Cost - The cost of convincing a potential customer to buy a product or service." },
+      { "term": "LTV", "definition": "Lifetime Value - The total worth of a customer to a business over the whole period of their relationship." },
+      { "term": "CPC", "definition": "Cost Per Click - The actual price paid for each click in pay-per-click marketing campaigns." },
+      { "term": "CPM", "definition": "Cost Per Mille - The cost an advertiser pays for one thousand views or impressions of an advertisement." },
+      { "term": "MQL", "definition": "Marketing Qualified Lead - A lead that has been deemed more likely to become a customer compared to other leads." },
+      { "term": "SQL", "definition": "Sales Qualified Lead - A prospective customer that has been researched and vetted by the marketing team and deemed ready for the next stage in the sales process." }
+    ]
+  },
+  "implementation": {
+    "implementationStatusData": [
+      { "name": "Completed", "value": 18, "color": "#10B981" },
+      { "name": "In Progress", "value": 12, "color": "#F97316" },
+      { "name": "Not Started", "value": 7, "color": "#8B5CF6" },
+      { "name": "Delayed", "value": 5, "color": "#EF4444" }
+    ],
+    "taskEffectivenessData": [
+      { "name": "Email Campaign Automation", "value": 0.92, "color": "#10B981" },
+      { "name": "Social Media Content", "value": 0.78, "color": "#10B981" },
+      { "name": "SEO Optimization", "value": 0.65, "color": "#10B981" },
+      { "name": "Display Advertising", "value": 0.45, "color": "#10B981" },
+      { "name": "PR Outreach", "value": 0.32, "color": "#10B981" },
+      { "name": "Direct Mail Campaign", "value": -0.15, "color": "#EF4444" },
+      { "name": "Cold Calling", "value": -0.48, "color": "#EF4444" },
+      { "name": "Trade Show Presence", "value": -0.67, "color": "#EF4444" }
+    ],
+    "taskEffectivenessBarData": [
+      { "name": "TV", "current": 6200448.8861, "previous": 2563254.4503, "goal": 80 },
+      { "name": "Digital", "current": 1925562.5159, "previous": 2108794.8831, "goal": 75 },
+      { "name": "Radio", "current": 403058.553, "previous": 1404929.4164, "goal": 70 },
+      { "name": "Online marketing", "current": 4145923.0225, "previous": 1244156.5696, "goal": 60 },
+      { "name": "Affiliates", "current": 2710586.7399, "previous": 1140684.8653, "goal": 45 }
+    ],
+
+    "timelineData": [
+      { "month": "Jan", "completed": 3, "planned": 3 },
+      { "month": "Feb", "completed": 4, "planned": 5 },
+      { "month": "Mar", "completed": 5, "planned": 4 },
+      { "month": "Apr", "completed": 2, "planned": 3 },
+      { "month": "May", "completed": 4, "planned": 4 },
+      { "month": "Jun", "completed": 2, "planned": 3 },
+      { "month": "Jul", "completed": 0, "planned": 4 },
+      { "month": "Aug", "completed": 0, "planned": 3 },
+      { "month": "Sep", "completed": 0, "planned": 5 },
+      { "month": "Oct", "completed": 0, "planned": 3 },
+      { "month": "Nov", "completed": 0, "planned": 4 },
+      { "month": "Dec", "completed": 0, "planned": 2 }
+    ],
+    "timelineBarData": [
+      { "name": "TV", "current": 7090193.3757, "previous": 2608387.2723},
+      { "name": "Digital", "current": 254615.2493, "previous": 2324019.68},
+      { "name": "Radio", "current": 429009.2795, "previous": 1442761.5448 },
+      { "name": "Online marketing", "current": 5155222.9434, "previous": 1282979.3367},
+      { "name": "SEM", "current": 1665399.353, "previous": 1122643.4467 }
+    ],
+    "implementationByChannelData": [
+      { "name": "Paid Search", "completed": 85, "target": 90 },
+      { "name": "Social Media", "completed": 70, "target": 80 },
+      { "name": "Email", "completed": 95, "target": 90 },
+      { "name": "Display", "completed": 65, "target": 75 },
+      { "name": "Affiliate", "completed": 75, "target": 80 },
+      { "name": "Content", "completed": 60, "target": 70 }
+    ],
+    "channelImplementationBarData": [
+      { "name": "TV", "current": 306918.0841, "previous": 2652961.0452},
+      { "name": "Digital", "current": 44435.9651, "previous": 2160713.0459},
+      { "name": "Radio", "current": 452018.068, "previous": 1544522.4539},
+      { "name": "Online Marketing", "current": 1060104.4362, "previous": 1163148.1913},
+      { "name": "SEM", "current": 703271.0359, "previous": 1417475.8293}
+    ],
+    "kpiTrackingData": [
+      { "name": "TV", "actual": 2336989.1293, "goal": 3.5, "previous": 2741955.5871 },
+      { "name": "Digital", "actual": 2041269.7307, "goal": 3.0, "previous": 2361469.7668 },
+      { "name": "Radio", "actual": 498240.5089, "goal": 4, "previous": 1571950.6264 },
+      { "name": "Online Marketing", "actual": 110434.3327, "goal": 4.5, "previous": 1402621.3246 },
+      { "name": "SEM", "actual": 601551.1192, "goal": 4.0, "previous": 1280277.6945 }
+    ],
+    "resourceAllocationData": [
+      { "name": "Strategy", "value": 20, "color": "#8B5CF6" },
+      { "name": "Creative", "value": 25, "color": "#D946EF" },
+      { "name": "Media Buying", "value": 30, "color": "#F97316" },
+      { "name": "Analytics", "value": 15, "color": "#0EA5E9" },
+      { "name": "Management", "value": 10, "color": "#10B981" }
+    ],
+    "implementationTasksData": [
+      {
+        "id": 1,
+        "task": "May 2024",
+        "status": "Expected",
+        "day": 50,
+        "Team": "Marketing",
+        "Date": "2024-05-02",
+        "priority": "Medium",
+        "revenue": 5.92,
+        "totalDays": 3,
+        "schedules": ["second Tuesday + 3 days"]
+      },
+      {
+        "id": 2,
+        "task": "June 2024",
+        "status": "Expected",
+        "day": 0,
+        "Team": "Marketing",
+        "Date": "2024-06-06",
+        "priority": "Low",
+        "revenue": 4.87,
+        "totalDays": 2,
+        "schedules": ["second Tuesday + 2 days"]
+      },
+      {
+        "id": 3,
+        "task": "July 2024",
+        "status": "Expected",
+        "day": 0,
+        "Team": "Marketing",
+        "Date": "2024-07-07",
+        "priority": "Medium",
+        "revenue": 3.43,
+        "totalDays": 0,
+        "schedules": []
+      },
+      {
+        "id": 4,
+        "task": "August 2024",
+        "status": "Expected",
+        "day": 0,
+        "Team": "Marketing",
+        "Date": "2024-08-08",
+        "priority": "Low",
+        "revenue": 1.91,
+        "totalDays": 0,
+        "schedules": []
+      },
+      {
+        "id": 5,
+        "task": "September 2024",
+        "status": "Expected",
+        "day": 0,
+        "Team": "Marketing",
+        "Date": "2024-09-03",
+        "priority": "Medium",
+        "revenue": 6.29,
+        "totalDays": 4,
+        "schedules": ["second Tuesday + 4 days"]
+      },
+      {
+        "id": 6,
+        "task": "October 2024",
+        "status": "Expected",
+        "day": 0,
+        "Team": "Marketing",
+        "Date": "2024-10-01",
+        "priority": "High",
+        "revenue": 7.34,
+        "totalDays": 8,
+        "schedules": ["second Tuesday + 4 days", "fourth Wednesday + 4 days"]
+      },
+      {
+        "id": 7,
+        "task": "November 2024",
+        "status": "Expected",
+        "day": 0,
+        "Team": "Marketing",
+        "Date": "2024-11-05",
+        "priority": "Medium",
+        "revenue": 5.18,
+        "totalDays": 8,
+        "schedules": ["second Tuesday + 4 days", "fourth Wednesday + 4 days"]
+      },
+      {
+        "id": 8,
+        "task": "December 2024",
+        "status": "Expected",
+        "day": 0,
+        "Team": "Marketing",
+        "Date": "2024-12-02",
+        "priority": "High",
+        "revenue": 6.48,
+        "totalDays": 10,
+        "schedules": ["second Tuesday + 5 days", "fourth Wednesday + 5 days"]
+      },
+      {
+        "id": 9,
+        "task": "January 2025",
+        "status": "Expected",
+        "day": 0,
+        "Team": "Marketing",
+        "Date": "2025-01-03",
+        "priority": "Medium",
+        "revenue": 5.83,
+        "totalDays": 3,
+        "schedules": ["second Tuesday + 3 days"]
+      },
+      {
+        "id": 10,
+        "task": "February 2025",
+        "status": "Expected",
+        "day": 0,
+        "Team": "Marketing",
+        "Date": "2025-02-05",
+        "priority": "Medium",
+        "revenue": 5.07,
+        "totalDays": 3,
+        "schedules": ["second Tuesday + 3 days"]
+      },
+      {
+        "id": 11,
+        "task": "March 2025",
+        "status": "Upcoming",
+        "day": 0,
+        "Team": "Marketing",
+        "Date": "2025-03-01",
+        "priority": "High",
+        "revenue": 6.36,
+        "totalDays": 8,
+        "schedules": ["second Tuesday + 4 days", "fourth Wednesday + 4 days"]
+      },
+      {
+        "id": 12,
+        "task": "April 2025",
+        "status": "Upcoming",
+        "day": 0,
+        "Team": "Marketing",
+        "Date": "2025-04-04",
+        "priority": "Medium",
+        "revenue": 5.36,
+        "totalDays": 3,
+        "schedules": ["second Tuesday + 3 days"]
+      },
+      {
+        "id": 13,
+        "task": "May 2025",
+        "status": "Upcoming",
+        "day": 0,
+        "Team": "Marketing",
+        "Date": "2025-05-02",
+        "priority": "Medium",
+        "revenue": 5.92,
+        "totalDays": 6,
+        "schedules": ["second Tuesday + 3 days", "fourth Wednesday + 3 days"]
+      },
+      {
+        "id": 14,
+        "task": "June 2025",
+        "status": "Upcoming",
+        "day": 0,
+        "Team": "Marketing",
+        "Date": "2025-06-06",
+        "priority": "Low",
+        "revenue": 4.87,
+        "totalDays": 2,
+        "schedules": ["second Tuesday + 2 days"]
+      },
+      {
+        "id": 15,
+        "task": "July 2025",
+        "status": "Upcoming",
+        "day": 0,
+        "Team": "Marketing",
+        "Date": "2025-07-07",
+        "priority": "Medium",
+        "revenue": 3.43,
+        "totalDays": 0,
+        "schedules": []
+      }
+    ],
+    "teamPerformanceData": [
+      { "subject": "Quality", "A": 90, "B": 85, "fullMark": 100 },
+      { "subject": "Speed", "A": 80, "B": 70, "fullMark": 100 },
+      { "subject": "Efficiency", "A": 85, "B": 75, "fullMark": 100 },
+      { "subject": "Communication", "A": 95, "B": 90, "fullMark": 100 },
+      { "subject": "Innovation", "A": 75, "B": 80, "fullMark": 100 },
+      { "subject": "Adaptability", "A": 85, "B": 80, "fullMark": 100 }
+    ],
+    "teamPerformanceBarData": [
+      { "name": "TV", "current": 167759.5522, "previous": 2686890.1967, "goal": 95 },
+      { "name": "Digital", "current": 469331.7588, "previous": 2118149.7442, "goal": 85 },
+      { "name": "Radio", "current": 521419.1326, "previous": 1854002.0027, "goal": 90 },
+      { "name": "Online Marketing", "current": 225360.4613, "previous": 1372348.6441, "goal": 95 },
+      { "name": "SEM", "current": 209188.7997, "previous": 1250942.1776, "goal": 85 }
+    ],
+    "kpiData":  [
+      {
+        "title": "Gaming Console",
+        "value": "3.38",
+        "icon": "Folders", 
+        "gradient": "linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%)"
+      },
+      {
+        "title": "DSLR",
+        "value": "3.03",
+        "icon": "CheckCircle", 
+        "gradient": "linear-gradient(135deg, #10B981 0%, #34D399 100%)"
+      },
+      {
+        "title": "Cooling Pad",
+        "value": "2.765",
+        "icon": "DollarSign", 
+        "gradient": "linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)"
+      },
+      {
+        "title": "Remote Control",
+        "value": "2.674",
+        "icon": "Clock", 
+        "gradient": "linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%)"
+      },
+      {
+        "title": "Gaming Mouse Pad",
+        "value": "2.175",
+        "icon": "Users", 
+        "gradient": "linear-gradient(135deg, #EC4899 0%, #F472B6 100%)"
+      }
+    ]
+  },
+
+  "performance-drivers": {
+    "productComparisonData" : [
+      {
+        "name": "Luxury Products",
+        "productType": 1,
+        "orders": 303782,
+        "orderPercentage": 20.15,
+        "gmv": 3054090000,
+        "gmvPercentage": 75.3,
+        "averageOrderValue": 10053.56,
+        "averageUnitsPerOrder": 1.13
+      },
+      {
+        "name": "Ordinary Products",
+        "productType": 0,
+        "orders": 1203608,
+        "orderPercentage": 79.85,
+        "gmv": 1001579000,
+        "gmvPercentage": 24.7,
+        "averageOrderValue": 832.15,
+        "averageUnitsPerOrder": 1.12
+      }
+    ],
+    "correlationData": [
+      { "name": "Paid Search Spend", "value": 0.82 },
+      { "name": "Social Media Spend", "value": 0.76 },
+      { "name": "Email Campaigns", "value": 0.65 },
+      { "name": "Promotional Discounts", "value": 0.59 },
+      { "name": "TV Advertising", "value": 0.52 },
+      { "name": "Direct Mail", "value": 0.48 },
+      { "name": "Holiday Season", "value": 0.44 },
+      { "name": "Price Changes", "value": -0.38 },
+      { "name": "Competitor Promotions", "value": -0.32 },
+      { "name": "NPS Score", "value": 0.29 },
+      { "name": "Weather Conditions", "value": 0.18 },
+      { "name": "Website Traffic", "value": 0.72 }
+    ],
+  "npsData": [
+  {"month": "July'23", "nps": 54.6, "revenue": 1177},
+  {"month": "Aug'23", "nps": 60.0, "revenue": 1206},
+  {"month": "Sept'23", "nps": 46.9, "revenue": 1101},
+  {"month": "Oct'23", "nps": 44.4, "revenue": 1210},
+  {"month": "Nov'23", "nps": 47.0, "revenue": 1233},
+  {"month": "Dec'23", "nps": 45.8, "revenue": 1038},
+  {"month": "Jan'24", "nps": 47.1, "revenue": 1052},
+  {"month": "Feb'24", "nps": 50.3, "revenue": 1222},
+  {"month": "Mar'24", "nps": 49.0, "revenue": 1015},
+  {"month": "Apr'24", "nps": 51.8, "revenue": 1242},
+  {"month": "May'24", "nps": 47.3, "revenue": 1228},
+  {"month": "June'24", "nps": 50.5, "revenue": 1194}
+]
+,
+    "paymentTypeData": [
+   
+      { "type": "COD", "Order Percentace": 72.57, "GMV Percentage": 58.43, "Average Order Value":  2173.44  , "Avg Units per Order": 1.11 },
+      { "type": "Prepaid", "Order Percentace": 27.43, "GMV Percentage": 41.57, "Average Order Value":  4091.28  , "Avg Units per Order": 1.14 }
+     
+    ],
+
+    "holidayData": [
+      { "holiday": "New Year", "sales": 2500000, "averageOrder": 150, "growth": 25 },
+      { "holiday": "Valentine's", "sales": 1800000, "averageOrder": 120, "growth": 15 },
+      { "holiday": "Easter", "sales": 2200000, "averageOrder": 140, "growth": 20 },
+      { "holiday": "Canada Day", "sales": 1600000, "averageOrder": 130, "growth": 10 },
+      { "holiday": "Labor Day", "sales": 1900000, "averageOrder": 145, "growth": 18 },
+      { "holiday": "Thanksgiving", "sales": 2800000, "averageOrder": 160, "growth": 30 },
+      { "holiday": "Black Friday", "sales": 3500000, "averageOrder": 180, "growth": 40 },
+      { "holiday": "Christmas", "sales": 4000000, "averageOrder": 200, "growth": 45 }
+    ], 
+    "productCategoryData": [
+      { "name": "Smartphones", "size": 4000000, "growth": 12, "margin": 32 },
+      { "name": "Laptops", "size": 3000000, "growth": 8, "margin": 28 },
+      { "name": "Televisions", "size": 2500000, "growth": 5, "margin": 25 },
+      { "name": "Audio", "size": 1800000, "growth": 15, "margin": 35 },
+      { "name": "Cameras", "size": 1200000, "growth": -3, "margin": 30 },
+      { "name": "Gaming", "size": 2200000, "growth": 20, "margin": 38 },
+      { "name": "Wearables", "size": 1600000, "growth": 18, "margin": 42 },
+      { "name": "Accessories", "size": 900000, "growth": 10, "margin": 45 }
+    ],
+    "treemapData": [
+      {
+        "name": "Smartphones",
+        "children": [
+          { "name": "High-end", "size": 1800000 },
+          { "name": "Mid-range", "size": 1500000 },
+          { "name": "Budget", "size": 700000 }
+        ]
+      },
+      {
+        "name": "Laptops",
+        "children": [
+          { "name": "Gaming", "size": 1200000 },
+          { "name": "Business", "size": 1000000 },
+          { "name": "Student", "size": 800000 }
+        ]
+      },
+      {
+        "name": "Televisions",
+        "children": [
+          { "name": "OLED", "size": 1000000 },
+          { "name": "QLED", "size": 800000 },
+          { "name": "LED", "size": 700000 }
+        ]
+      },
+      {
+        "name": "Audio",
+        "children": [
+          { "name": "Headphones", "size": 800000 },
+          { "name": "Speakers", "size": 600000 },
+          { "name": "Soundbars", "size": 400000 }
+        ]
+      }
+    ],
+    
+    "kpiData": {
+      "activeCustomers": {
+        "value": "5.2M",
+        "change": { "value": 18, "positive": true }
+      },
+      "avgNPS": {
+        "value": 49.57,
+        "change": { "value": 3.5, "positive": true }
+      },
+      "totalCustomers": {
+        "value": 387542,
+        "change": { "value": 12.3, "positive": true }
+      },
+      "repeatRate": {
+        "value": 68,
+        "change": { "value": 5.8, "positive": true }
+      }
+     
+    }
+  },
+  "marketing-roi": {
+    "channelROIData": [
+      { "name": "Digital", "roi": 0.42, "spend": 29700000, "revenue": 129898031, "color": "#D946EF" },
+      { "name": "Sponsorship", "roi": 0.41, "spend": 365400000, "revenue": 1680450879, "color": "#F97316" },
+      { "name": "Content Marketing", "roi": 0.46, "spend": 8000000, "revenue": 36979899, "color": "#0EA5E9" },
+      { "name": "Online marketing", "roi": 0.51, "spend": 193600000, "revenue": 1241497774, "color": "#10B981" },
+      { "name": "Affiliates", "roi": 0.38, "spend": 61400000, "revenue": 299857579, "color": "#EAB308" },
+      { "name": "SEM", "roi": 0.73, "spend": 91200000, "revenue": 719140248, "color": "#EAB308" },
+      { "name": "Radio", "roi": 0.46, "spend": 4700000, "revenue": 30288274, "color": "#EAB308" },
+      { "name": "Other", "roi": 0.25, "spend": 48000000, "revenue": 169060450, "color": "#EAB308" }
+    ],
+    "roiTrendsData": [
+      { "month": "Jul'23", "digital": 0.8616, "sponsorship": 0.8438, "contentMarketing": 0.9473, "onlineMarketing": 1.0418, "affiliates": 0.7827, "sem": 1.4968},
+      { "month": "Aug'23", "digital": 0.0061, "sponsorship": 0.0059, "contentMarketing": 0.0067, "onlineMarketing": 0.0073, "affiliates": 0.0055, "sem": 0.0105},
+      { "month": "Sep'23", "digital": 0.4497, "sponsorship": 0.4403, "contentMarketing": 0.4943, "onlineMarketing": 0.5437, "affiliates": 0.4084, "sem": 0.7811},
+      { "month": "Oct'23", "digital": 0.2753, "sponsorship": 0.2696, "contentMarketing": 0.3027, "onlineMarketing": 0.3329, "affiliates": 0.2501, "sem": 0.4783},
+      { "month": "Nov'23", "digital": 0.6739, "sponsorship": 0.6599, "contentMarketing": 0.7408, "onlineMarketing": 0.8148, "affiliates": 0.6121, "sem": 1.1706},
+      { "month": "Dec'23", "digital": 0.4084, "sponsorship": 0.3999, "contentMarketing": 0.4490, "onlineMarketing": 0.4938, "affiliates": 0.3710, "sem": 0.7094},
+      { "month": "Jan'24", "digital": 0.6212, "sponsorship": 0.6083, "contentMarketing": 0.6829, "onlineMarketing": 0.7511, "affiliates": 0.5642, "sem": 1.0791},
+      { "month": "Feb'24", "digital": 0.6682, "sponsorship": 0.6543, "contentMarketing": 0.7346, "onlineMarketing": 0.8079, "affiliates": 0.6069, "sem": 1.1607},
+      { "month": "Mar'24", "digital": 0.4992, "sponsorship": 0.4888, "contentMarketing": 0.5488, "onlineMarketing": 0.6036, "affiliates": 0.4534, "sem": 0.8671},
+      { "month": "Apr'24", "digital": 0.6595, "sponsorship": 0.6458, "contentMarketing": 0.7250, "onlineMarketing": 0.7974, "affiliates": 0.5990, "sem": 1.1456},
+      { "month": "May'24", "digital": 0.4976, "sponsorship": 0.4873, "contentMarketing": 0.5470, "onlineMarketing": 0.6016, "affiliates": 0.4520, "sem": 0.8644},
+      { "month": "Jun'24", "digital": 0.7143, "sponsorship": 0.6995, "contentMarketing": 0.7853, "onlineMarketing": 0.8637, "affiliates": 0.6488, "sem": 1.2408}
+    ],
+    "spendRevenueData": [
+      { "month": "Jul'23", "spend": 172667756.47, "revenue": 175676286.23 },
+      { "month": "Aug'23", "spend": 50643061.88, "revenue": 418694.00 },
+      { "month": "Sep'23", "spend": 962543798.65, "revenue": 424661698.51 },
+      { "month": "Oct'23", "spend": 1701562973.68, "revenue": 506275383.48 },
+      { "month": "Nov'23", "spend": 512162204.16, "revenue": 333244247.04 },
+      { "month": "Dec'23", "spend": 1067453117.16, "revenue": 435820260.36 },
+      { "month": "Jan'24", "spend": 741960000.00, "revenue": 387193067.71 },
+      { "month": "Feb'24", "spend": 480520000.00, "revenue": 331567049.54 },
+      { "month": "Mar'24", "spend": 1000246214.30, "revenue": 404003100.80 },
+      { "month": "Apr'24", "spend": 568482414.79, "revenue": 339703563.34 },
+      { "month": "May'24", "spend": 780570000.00, "revenue": 409453186.25 },
+      { "month": "Jun'24", "spend": 426519376.93, "revenue": 305913320.96 }
+    ],
+    "roiBySegmentData": [
+      { "name": "New Customers", "value": 2.8, "color": "#8B5CF6" },
+      { "name": "Repeat Customers", "value": 4.2, "color": "#D946EF" },
+      { "name": "Loyal Customers", "value": 5.7, "color": "#F97316" }
+    ],
+    "campaignROIData": [
+      { "name": "0-10%", "revenue": 320374300 },
+      { "name": "10-20%", "revenue": 612380600 },
+      { "name": "20-30%", "revenue": 682627400 },
+      { "name": "30-40%", "revenue": 778438900 },
+      { "name": "40-50%", "revenue": 910534100 },
+      { "name": "50%+", "revenue": 591009200 }
+    ],
+    "kpiData": [
+      {
+        "title": "Avg Monthly Spend",
+        "value": "70.54 Cr.",
+        "change": { "value": 0.8 },
+        "icon": "TrendingUp",
+        "gradient": "linear-gradient(90deg, rgb(79, 70, 229) 0%, rgb(67, 56, 202) 100%)"
+      },
+      {
+        "title": "Top Spend Channel",
+        "value": "Sponsorship",
+        "change": { "value": 365.4 },
+        "icon": "DollarSign",
+        "gradient": "linear-gradient(90deg, rgb(239, 68, 68) 0%, rgb(220, 38, 38) 100%)"
+      },
+      {
+        "title": "Lowest Spend Channel",
+        "value": "Radio",
+        "change": { "value": 4.7 },
+        "icon": "BarChart3",
+        "gradient": "linear-gradient(90deg, rgb(16, 185, 129) 0%, rgb(5, 150, 105) 100%)"
+      },
+      {
+        "title": "Avg ROI Next Month",
+        "value": "64%",
+        "change": { "value": 4.5 },
+        "icon": "LineChart",
+        "gradient": "linear-gradient(90deg, rgb(139, 92, 246) 0%, rgb(124, 58, 237) 100%)"
+      },
+      {
+        "title": "Avg Marginal ROI Next Month",
+        "value": "127%",
+        "change": { "value": 0.4 },
+        "icon": "PieChart",
+        "gradient": "linear-gradient(90deg, rgb(99, 102, 241) 0%, rgb(79, 70, 229) 100%)"
+      }
+    ],
+    "monthlyROIData": [
+      {
+        "Month":"2023-05",
+        "Current_Monthly_Avg_ROI":0.0,
+        "Next_Month_ROI":0.0,
+        "Current_Month_Avg_Marginal_ROI":null,
+        "Next_Month_Avg_Marginal_ROI":null
+      },
+      {
+        "Month":"2023-06",
+        "Current_Monthly_Avg_ROI":0.0,
+        "Next_Month_ROI":1.0296,
+        "Current_Month_Avg_Marginal_ROI":0.0,
+        "Next_Month_Avg_Marginal_ROI":-67.9946
+      },
+      {
+        "Month":"2023-07",
+        "Current_Monthly_Avg_ROI":1.0296,
+        "Next_Month_ROI":0.0083,
+        "Current_Month_Avg_Marginal_ROI":-67.9946,
+        "Next_Month_Avg_Marginal_ROI":31.766484
+      },
+      {
+        "Month":"2023-08",
+        "Current_Monthly_Avg_ROI":0.0083,
+        "Next_Month_ROI":0.4412,
+        "Current_Month_Avg_Marginal_ROI":31.766484,
+        "Next_Month_Avg_Marginal_ROI":17.3023
+      },
+      {
+        "Month":"2023-09",
+        "Current_Monthly_Avg_ROI":0.4412,
+        "Next_Month_ROI":0.2975,
+        "Current_Month_Avg_Marginal_ROI":17.3023,
+        "Next_Month_Avg_Marginal_ROI":2.0685
+      },
+      {
+        "Month":"2023-10",
+        "Current_Monthly_Avg_ROI":0.2975,
+        "Next_Month_ROI":0.6507,
+        "Current_Month_Avg_Marginal_ROI":2.0685,
+        "Next_Month_Avg_Marginal_ROI":10.758
+      },
+      {
+        "Month":"2023-11",
+        "Current_Monthly_Avg_ROI":0.6507,
+        "Next_Month_ROI":0.4083,
+        "Current_Month_Avg_Marginal_ROI":10.758,
+        "Next_Month_Avg_Marginal_ROI":11.6586
+      },
+      {
+        "Month":"2023-12",
+        "Current_Monthly_Avg_ROI":0.4083,
+        "Next_Month_ROI":0.5219,
+        "Current_Month_Avg_Marginal_ROI":11.6586,
+        "Next_Month_Avg_Marginal_ROI":1.4283
+      },
+      {
+        "Month":"2024-01",
+        "Current_Monthly_Avg_ROI":0.5219,
+        "Next_Month_ROI":0.69,
+        "Current_Month_Avg_Marginal_ROI":1.4283,
+        "Next_Month_Avg_Marginal_ROI":2.8388
+      },
+      {
+        "Month":"2024-02",
+        "Current_Monthly_Avg_ROI":0.69,
+        "Next_Month_ROI":0.4039,
+        "Current_Month_Avg_Marginal_ROI":2.8388,
+        "Next_Month_Avg_Marginal_ROI":-4.1833
+      },
+      {
+        "Month":"2024-03",
+        "Current_Monthly_Avg_ROI":0.4039,
+        "Next_Month_ROI":0.5976,
+        "Current_Month_Avg_Marginal_ROI":-4.1833,
+        "Next_Month_Avg_Marginal_ROI":6.392
+      },
+      {
+        "Month":"2024-04",
+        "Current_Monthly_Avg_ROI":0.5976,
+        "Next_Month_ROI":0.5246,
+        "Current_Month_Avg_Marginal_ROI":6.392,
+        "Next_Month_Avg_Marginal_ROI":3.2472
+      },
+      {
+        "Month":"2024-05",
+        "Current_Monthly_Avg_ROI":0.5246,
+        "Next_Month_ROI":0.7142,
+        "Current_Month_Avg_Marginal_ROI":3.2472,
+        "Next_Month_Avg_Marginal_ROI":-0.2415
+      },
+      {
+        "Month":"2024-06",
+        "Current_Monthly_Avg_ROI":0.7142,
+        "Next_Month_ROI":0.0101,
+        "Current_Month_Avg_Marginal_ROI":-0.2415,
+        "Next_Month_Avg_Marginal_ROI":117.7356
+      },
+      {
+        "Month":"2024-07",
+        "Current_Monthly_Avg_ROI":0.0101,
+        "Next_Month_ROI":null,
+        "Current_Month_Avg_Marginal_ROI":117.7356,
+        "Next_Month_Avg_Marginal_ROI":null
+      }
+    ]
+  },
+    "additionalKPIData": {
+      "totalGMV": {
+        "value": "₹4,055.67M",
+        "change": { "value": 15.2, "positive": true }
+      },
+      "clv": {
+        "value": "₹147,584",
+        "change": { "value": 8.4, "positive": true }
+      },
+      "avgSLA": {
+        "value": "5.69 days",
+        "change": { "value": -0.3, "positive": true }
+      },
+      "arppu": {
+        "value": "₹3,377",
+        "change": { "value": 12.5, "positive": true }
+      },
+      "gmroi": {
+        "value": "-₹673,586",
+        "change": { "value": 5.2, "positive": false }
+      }
+    },
+  "budget-allocation": {
+    "quarterlyChannelAllocation": [
+      {
+        "quarter": "2023-Q3",
+        "channels": {
+          "TV": 8.02,
+          "Digital": 0.11,
+          "Sponsorship": 5.08,
+          "Content Marketing": 0.93,
+          "Online marketing": 41.20,
+          "Affiliates": 44.38,
+          "SEM": 0.35
+        }
+      },
+      {
+        "quarter": "2023-Q4",
+        "channels": {
+          "TV": 8.83,
+          "Digital": 0.10,
+          "Sponsorship": 5.88,
+          "Content Marketing": 1.22,
+          "Online marketing": 40.15,
+          "Affiliates": 43.13,
+          "SEM": 0.61
+        }
+      },
+      {
+        "quarter": "2024-Q1",
+        "channels": {
+          "TV": 8.64,
+          "Digital": 0.10,
+          "Sponsorship": 5.60,
+          "Content Marketing": 0.84,
+          "Online marketing": 40.74,
+          "Affiliates": 43.78,
+          "SEM": 0.27
+        }
+      },
+      {
+        "quarter": "2024-Q2",
+        "channels": {
+          "TV": 8.46,
+          "Digital": 0.10,
+          "Sponsorship": 5.38,
+          "Content Marketing": 0.57,
+          "Online marketing": 41.07,
+          "Affiliates": 44.18,
+          "SEM": 0.13
+        }
+      }
+    ],
+    "monthlyChannelAllocation": [
+      {
+        "month": "2023-07",
+        "channels": {
+          "TV": 5.96,
+          "Digital": 0.10,
+          "Sponsorship": 2.38,
+          "Content Marketing": 0.10,
+          "Online marketing": 43.86,
+          "Affiliates": 47.50,
+          "SEM": 0.10
+        },
+        "investment": 17.06,
+        "projectedRevenue": 3.86
+      },
+      {
+        "month": "2023-08",
+        "channels": {
+          "TV": 0.10,
+          "Digital": 0.10,
+          "Sponsorship": 0.10,
+          "Content Marketing": 0.10,
+          "Online marketing": 47.26,
+          "Affiliates": 52.24,
+          "SEM": 0.10
+        },
+        "investment": 5.06,
+        "projectedRevenue": 2.13
+      },
+      {
+        "month": "2023-09",
+        "channels": {
+          "TV": 8.79,
+          "Digital": 0.10,
+          "Sponsorship": 5.81,
+          "Content Marketing": 1.11,
+          "Online marketing": 40.39,
+          "Affiliates": 43.39,
+          "SEM": 0.41
+        },
+        "investment": 96.25,
+        "projectedRevenue": 7.03
+      },
+      {
+        "month": "2023-10",
+        "channels": {
+          "TV": 8.98,
+          "Digital": 0.10,
+          "Sponsorship": 6.10,
+          "Content Marketing": 1.51,
+          "Online marketing": 39.76,
+          "Affiliates": 42.71,
+          "SEM": 0.83
+        },
+        "investment": 170.16,
+        "projectedRevenue": 8.17
+      },
+      {
+        "month": "2023-11",
+        "channels": {
+          "TV": 8.33,
+          "Digital": 0.10,
+          "Sponsorship": 5.50,
+          "Content Marketing": 0.98,
+          "Online marketing": 40.50,
+          "Affiliates": 43.50,
+          "SEM": 0.40
+        },
+        "investment": 51.22,
+        "projectedRevenue": 6.52
+      },
+      {
+        "month": "2023-12",
+        "channels": {
+          "TV": 9.00,
+          "Digital": 0.10,
+          "Sponsorship": 6.00,
+          "Content Marketing": 1.20,
+          "Online marketing": 40.20,
+          "Affiliates": 43.20,
+          "SEM": 0.60
+        },
+        "investment": 106.75,
+        "projectedRevenue": 6.53
+      },
+      {
+        "month": "2024-01",
+        "channels": {
+          "TV": 8.70,
+          "Digital": 0.10,
+          "Sponsorship": 5.65,
+          "Content Marketing": 0.90,
+          "Online marketing": 40.65,
+          "Affiliates": 43.70,
+          "SEM": 0.30
+        },
+        "investment": 74.09,
+        "projectedRevenue": 6.44
+      },
+      {
+        "month": "2024-02",
+        "channels": {
+          "TV": 8.60,
+          "Digital": 0.10,
+          "Sponsorship": 5.55,
+          "Content Marketing": 0.80,
+          "Online marketing": 40.80,
+          "Affiliates": 43.85,
+          "SEM": 0.25
+        },
+        "investment": 74.09,
+        "projectedRevenue": 6.44
+      },
+      {
+        "month": "2024-03",
+        "channels": {
+          "TV": 8.62,
+          "Digital": 0.10,
+          "Sponsorship": 5.60,
+          "Content Marketing": 0.82,
+          "Online marketing": 40.77,
+          "Affiliates": 43.80,
+          "SEM": 0.26
+        },
+        "investment": 74.09,
+        "projectedRevenue": 6.45
+      },
+      {
+        "month": "2024-04",
+        "channels": {
+          "TV": 8.50,
+          "Digital": 0.10,
+          "Sponsorship": 5.40,
+          "Content Marketing": 0.60,
+          "Online marketing": 41.00,
+          "Affiliates": 44.10,
+          "SEM": 0.15
+        },
+        "investment": 59.25,
+        "projectedRevenue": 6.04
+      },
+      {
+        "month": "2024-05",
+        "channels": {
+          "TV": 8.45,
+          "Digital": 0.10,
+          "Sponsorship": 5.38,
+          "Content Marketing": 0.56,
+          "Online marketing": 41.08,
+          "Affiliates": 44.20,
+          "SEM": 0.13
+        },
+        "investment": 59.25,
+        "projectedRevenue": 6.04
+      },
+      {
+        "month": "2024-06",
+        "channels": {
+          "TV": 8.43,
+          "Digital": 0.10,
+          "Sponsorship": 5.36,
+          "Content Marketing": 0.55,
+          "Online marketing": 41.13,
+          "Affiliates": 44.24,
+          "SEM": 0.11
+        },
+        "investment": 59.24,
+        "projectedRevenue": 6.03
+      }
+    ],
+    "channelAllocationData": [
+      { "name": "TV", "current": 5.7, "proposed": 14.2, "color": "#8B5CF6" },
+      { "name": "Digital", "current": 3.8, "proposed": 8.3, "color": "#D946EF" },
+      { "name": "Spons", "current": 45.3, "proposed": 13.5, "color": "#F97316" },
+      { "name": "Content", "current": 1.1, "proposed": 4.3, "color": "#0EA5E9" },
+      { "name": "Online", "current": 24.7, "proposed": 24.7, "color": "#10B981" },
+      { "name": "Affiliates", "current": 7.8, "proposed": 23.4, "color": "#EAB308" },
+      { "name": "SEM", "current": 11.6, "proposed": 11.6, "color": "#EC4899" }
+    ],
+    "subCategoryImportanceData": [
+      { "name": "Camera Storage", "value": 14.729942, "color": "#8B5CF6" },
+      { "name": "Camera Accessory", "value": 13.158074, "color": "#D946EF" },
+      { "name": "Camera", "value": 12.989870, "color": "#F97316" },
+      { "name": "Gaming Console", "value": 11.632951, "color": "#0EA5E9" },
+      { "name": "Game", "value": 8.889232, "color": "#10B981" },
+      { "name": "Speaker", "value": 8.277947, "color": "#EC4899" },
+      { "name": "Audio MP3 Player", "value": 7.414274, "color": "#F59E0B" },
+      { "name": "Home Theatre", "value": 6.513078, "color": "#6366F1" },
+      { "name": "Home Audio", "value": 4.313574, "color": "#14B8A6" },
+      { "name": "Audio Accessory", "value": 3.389943, "color": "#A855F7" },
+      { "name": "Gaming Accessory", "value": 3.261558, "color": "#EF4444" },
+      { "name": "Game Membership Cards", "value": 3.221356, "color": "#3B82F6" },
+      { "name": "", "value": 1.164039, "color": "#84CC16" },
+      { "name": "", "value": 1.044163, "color": "#F43F5E" }
+    ],
+    "quarterlyBudgetData": [
+      {
+        "quarter": "Q3 2023",
+        "TV": 41000000,
+        "Digital": 52000000,
+        "Sponsorship": 713000000,
+        "ContentMarketing": 6000000,
+        "OnlineMarketing": 178000000,
+        "Affiliates": 57000000,
+        "SEM": 137000000,
+        "Radio": 0,
+        "Other":0
+      },
+      {
+        "quarter": "Q4 2023",
+        "TV": 158000000,
+        "Digital": 170000000,
+        "Sponsorship": 1556000000,
+        "ContentMarketing": 47000000,
+        "OnlineMarketing": 664000000,
+        "Affiliates": 204000000,
+        "SEM": 483000000,
+        "Radio": 0,
+        "Other": 0
+      },
+      {
+        "quarter": "Q1 2024",
+        "TV": 163000000,
+        "Digital": 45000000,
+        "Sponsorship": 575000000,
+        "ContentMarketing": 19000000,
+        "OnlineMarketing": 612000000,
+        "Affiliates": 201000000,
+        "SEM": 143000000,
+        "Radio": 36000000,
+        "Other": 430000000
+      },
+      {
+        "quarter": "Q2 2024",
+        "TV": 82000000,
+        "Digital": 31000000,
+        "Sponsorship": 810000000,
+        "ContentMarketing": 9000000,
+        "OnlineMarketing": 481000000,
+        "Affiliates": 153000000,
+        "SEM": 149000000,
+        "Radio": 11000000,
+        "Other": 50000000
+      }
+    ],
+    "budgetVsROIData": [
+      { "channel": "Tv", "budget": 450000, "roi": 3.49, "size": 450000 },
+      { "channel": "Digital", "budget": 320000, "roi": 0.79, "size": 320000 },
+      { "channel": "Sponsorship", "budget": 150000, "roi": 0.68, "size": 150000 },
+      { "channel": "Content Marketing", "budget": 280000, "roi": 8.31, "size": 280000 },
+      { "channel": "Online Marketing", "budget": 200000, "roi": 1.83, "size": 200000 },
+      { "channel": "Affiliates", "budget": 180000, "roi": 2.28, "size": 180000 },
+      { "channel": "SEM", "budget": 180000, "roi": 0.51, "size": 180000 }
+    ],
+    "budgetByRegionData": [
+      { "name": "North America", "value": 650000, "color": "#8B5CF6" },
+      { "name": "Europe", "value": 420000, "color": "#D946EF" },
+      { "name": "Asia Pacific", "value": 380000, "color": "#F97316" },
+      { "name": "Latin America", "value": 210000, "color": "#0EA5E9" },
+      { "name": "Middle East", "value": 120000, "color": "#10B981" }
+    ],
+    "budgetTreemapData": [
+      {
+        "children": [
+          { "name": "TV", "size": 11.4, "color": "#8B5CF6" },
+          { "name": "Digital", "size": 7.5, "color": "#D946EF" },
+          { "name": "Sponsorship", "size": 27.7, "color": "#0EA5E9" },
+          { "name": "Content Marketing", "size": 4.3, "color": "#F97316" },
+          { "name": "Online Marketing", "size": 19.6, "color": "#10B981" },
+          { "name": "Affiliates", "size": 15.6, "color": "#EAB308" },
+          { "name": "SEM", "size": 14.0, "color": "#EC4899" }
+        ]
+      }
+    ],
+    "kpiData": [
+      {
+        "title": "Initial ROAS",
+        "value": "0.48x",
+        "change": { "value": 12 },
+        "icon": "DollarSign",
+        "gradient": "linear-gradient(90deg, rgb(16, 185, 129) 0%, rgb(5, 150, 105) 100%)"
+      },
+      {
+        "title": "Bounded ROAS",
+        "value": "3.55x",
+        "change": { "value": 8 },
+        "icon": "LineChart",
+        "gradient": "linear-gradient(90deg, rgb(59, 130, 246) 0%, rgb(37, 99, 235) 100%)"
+      },
+      {
+        "title": "Bounded % Response",
+        "value": "+43.5%",
+        "change": { "value": 4.5 },
+        "icon": "PieChart",
+        "gradient": "linear-gradient(90deg, rgb(139, 92, 246) 0%, rgb(124, 58, 237) 100%)"
+      },
+      {
+        "title": "Bounded x3 ROAS",
+        "value": "2.47x",
+        "change": { "value": 5 },
+        "icon": "TrendingUp",
+        "gradient": "linear-gradient(90deg, rgb(245, 158, 11) 0%, rgb(217, 119, 6) 100%)"
+      },
+      {
+        "title": "Bounded x3 % Response",
+        "value": "42.0%",
+        "change": { "value": 1.2 },
+        "icon": "BarChart3",
+        "gradient": "linear-gradient(90deg, rgb(16, 185, 129) 0%, rgb(5, 150, 105) 100%)"
+      }
+    ]
+  }
+}  

@@ -1,0 +1,61 @@
+{
+    "top_performing_marketing_channels": {
+      "current_month": [
+        {
+          "channel": "SEM",
+          "average_roi": 0.7346,
+          "attributed_revenue": "$719,140,248.11",
+          "revenue_percentage": "17.73% of total GMV"
+        },
+        {
+          "channel": "Online Marketing",
+          "average_roi": 0.5113,
+          "attributed_revenue": "$1,241,497,773.67",
+          "revenue_percentage": "30.61% of total GMV"
+        },
+        {
+          "channel": "Content Marketing",
+          "average_roi": 0.4649,
+          "attributed_revenue": "$36,979,898.99",
+          "revenue_percentage": "0.91% of total GMV"
+        },
+        {
+          "channel": "Radio",
+          "average_roi": 0.4608,
+          "attributed_revenue": "$30,288,273.90",
+          "revenue_percentage": "0.75% of total GMV"
+        },
+        {
+          "channel": "Digital",
+          "average_roi": 0.4229,
+          "attributed_revenue": "$129,898,031.48",
+          "revenue_percentage": "3.20% of total GMV"
+        },
+        {
+          "channel": "Sponsorship",
+          "average_roi": 0.4141,
+          "attributed_revenue": "$1,680,450,879.39",
+          "revenue_percentage": "41.43% of total GMV"
+        },
+        {
+          "channel": "Affiliates",
+          "average_roi": 0.3841,
+          "attributed_revenue": "$299,857,578.98",
+          "revenue_percentage": "7.39% of total GMV"
+        },
+        {
+          "channel": "Other",
+          "average_roi": 0.2508,
+          "attributed_revenue": "$169,060,449.63",
+          "revenue_percentage": "4.17% of total GMV"
+        },
+        {
+          "channel": "TV",
+          "average_roi": -0.4611,
+          "attributed_revenue": "$-251,504,201.93",
+          "revenue_percentage": "-6.20% of total GMV"
+        }
+      ]
+    }
+  }
+  

@@ -1,0 +1,145 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 180 25% 98%;
+    --foreground: 180 20% 8%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 180 20% 8%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 180 20% 8%;
+
+    --primary: 175 70% 41%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 173 58% 39%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 173 84% 71%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 180 16% 85%;
+    --input: 180 16% 85%;
+    --ring: 175 70% 41%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 174 96% 24%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 180 0% 100%;
+    --sidebar-primary-foreground: 174 96% 20%;
+    --sidebar-accent: 174 68% 30%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 174 68% 30%;
+    --sidebar-ring: 173 84% 71%;
+  }
+
+  .dark {
+    --background: 180 20% 8%;
+    --foreground: 180 20% 98%;
+
+    --card: 180 15% 10%;
+    --card-foreground: 180 20% 98%;
+
+    --popover: 180 15% 10%;
+    --popover-foreground: 180 20% 98%;
+
+    --primary: 175 70% 41%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 173 58% 39%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 180 10% 20%;
+    --muted-foreground: 180 10% 75%;
+
+    --accent: 174 68% 30%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 180 10% 20%;
+    --input: 180 10% 20%;
+    --ring: 175 70% 41%;
+
+    --sidebar-background: 174 96% 20%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 174 96% 20%;
+    --sidebar-accent: 174 68% 30%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 174 68% 30%;
+    --sidebar-ring: 173 84% 71%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html, body {
+    font-family: 'Inter', sans-serif;
+    @apply bg-background text-foreground;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .recharts-default-tooltip {
+    @apply bg-background/90 border border-border rounded-md shadow-lg !important;
+  }
+
+  .recharts-tooltip-label {
+    @apply text-foreground font-medium mb-1 !important;
+  }
+
+  .recharts-tooltip-item {
+    @apply text-sm !important;
+  }
+}
+
+@layer components {
+  .dashboard-card {
+    @apply bg-card p-4 rounded-lg border shadow-sm hover:shadow-md transition-all duration-200;
+  }
+  
+  .stats-card {
+    @apply flex flex-col p-4 bg-card rounded-lg border shadow-sm hover:shadow-md transition-shadow;
+  }
+
+  .stats-value {
+    @apply text-3xl font-bold;
+  }
+
+  .stats-label {
+    @apply text-sm text-muted-foreground;
+  }
+
+  .stats-trend {
+    @apply flex items-center text-xs mt-1;
+  }
+
+  .trend-up {
+    @apply text-green-500;
+  }
+
+  .trend-down {
+    @apply text-red-500;
+  }
+}
