@@ -1,0 +1,12 @@
+{
+  "_note": "Sample values using the midpoints of the Robyn hyperparameter search ranges defined in ds-pipeline/Budget Allocation/Robyn.ipynb (alphas/gammas/thetas per channel). Replace this file with the real export once that notebook has been run against production spend data via its export_saturation_json() cell.",
+  "channels": [
+    { "channel": "TV", "alpha": 1.75, "gamma": 0.65, "theta": 0.15, "maxObservedSpend": 500000, "currentSpend": 350000 },
+    { "channel": "Digital", "alpha": 1.75, "gamma": 0.65, "theta": 0.25, "maxObservedSpend": 800000, "currentSpend": 400000 },
+    { "channel": "Sponsorship", "alpha": 1.75, "gamma": 0.65, "theta": 0.55, "maxObservedSpend": 300000, "currentSpend": 150000 },
+    { "channel": "Content Marketing", "alpha": 1.75, "gamma": 0.65, "theta": 0.15, "maxObservedSpend": 200000, "currentSpend": 90000 },
+    { "channel": "Online Marketing", "alpha": 1.75, "gamma": 0.65, "theta": 0.25, "maxObservedSpend": 600000, "currentSpend": 550000 },
+    { "channel": "Affiliates", "alpha": 1.75, "gamma": 0.65, "theta": 0.25, "maxObservedSpend": 250000, "currentSpend": 100000 },
+    { "channel": "SEM", "alpha": 1.75, "gamma": 0.65, "theta": 0.55, "maxObservedSpend": 450000, "currentSpend": 420000 }
+  ]
+}
