@@ -1,0 +1,61 @@
+# Local/CI testing environment only — mirrors the real deployment (Vercel frontend +
+# a standalone Python API) so both halves can be exercised together without installing
+# Bun/Python locally. Does not change how anything is actually deployed:
+#   - Vercel still builds the frontend straight from the repo, not from this image.
+#   - The backend still ships as whatever "accessible Python backend/API layer" you host.
+#
+# Quickstart:
+#   cp frontend/.env.example frontend/.env   # fill in your Supabase project values
+#   cp backend/.env.example backend/.env     # fill in your Groq/Gemini/Tavily keys
+#   docker compose up --build                # frontend on :5173, backend on :8000
+#
+# Optional notebook sandbox (Robyn / bi-level optimization notebooks), off by default:
+#   docker compose --profile ds-pipeline up --build ds-pipeline   # Jupyter on :8888
+
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./backend/.env
+    # Dev-only: the image's own default CMD (no --reload) is what a real host runs.
+    command: uvicorn api:app --host 0.0.0.0 --port 8000 --reload
+    volumes:
+      - ./backend:/app
+
+  frontend:
+    build:
+      context: ./frontend
+      target: dev
+    ports:
+      # Host 5173 -> container 8080 (the port vite.config.ts pins the dev server to).
+      - "5173:8080"
+    env_file:
+      - ./frontend/.env
+    environment:
+      # The *browser* calls this URL (not the frontend container), so it must be the
+      # host-mapped port (localhost:8000), not the backend's compose service name.
+      - VITE_API_BASE_URL=http://localhost:8000
+      # Tells vite.config.ts to poll for file changes — bind mounts from a Windows/macOS
+      # host don't deliver native filesystem events into the Linux container, so without
+      # this, HMR silently never fires.
+      - DOCKER=true
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app
+      - frontend-node-modules:/app/node_modules
+
+  ds-pipeline:
+    profiles: ["ds-pipeline"]
+    build:
+      context: ./ds-pipeline
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./ds-pipeline:/app
+
+volumes:
+  frontend-node-modules:

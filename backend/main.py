@@ -37,13 +37,23 @@ def format_section_title(section):
     """Format section name for display"""
     return section.replace('_', ' ').title()
 
-def generate_markdown_report():
-    """Generate a complete marketing report and save it as markdown"""
+def generate_markdown_report(data_path=None, output_path=None, on_progress=None):
+    """Generate a complete marketing report and save it as markdown.
+
+    Args:
+        data_path: Optional path to a CSV (or directory of CSVs) to analyze, forwarded to
+            SupervisorAgent/DataManager. Defaults to DataManager's own default (backend/data),
+            same as before this parameter existed.
+        output_path: Optional path for the markdown file. Defaults to reports/report.md,
+            same as before this parameter existed.
+        on_progress: Optional callback(section, processed_sections, total_sections) invoked
+            after each section completes, so a caller (e.g. an API job) can report progress.
+    """
     # Load environment variables
     load_dotenv()
-    
+
     # Initialize output file
-    md_file = REPORTS_DIR / "report.md"
+    md_file = Path(output_path) if output_path is not None else (REPORTS_DIR / "report.md")
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     
     # Write header to markdown file
@@ -65,7 +75,7 @@ def generate_markdown_report():
     
     # Initialize the supervisor agent
     logger.info("Initializing SupervisorAgent...")
-    report_generator = SupervisorAgent(llm)
+    report_generator = SupervisorAgent(llm, data_path=data_path)
     
     # Track sections processed for reporting
     total_sections = len(section_questions)
@@ -122,11 +132,14 @@ def generate_markdown_report():
                 logger.info(f"Waiting {QUESTION_PAUSE} seconds before next question...")
                 time.sleep(QUESTION_PAUSE)
         
+        if on_progress:
+            on_progress(section, processed_sections, total_sections)
+
         # Add longer delay between sections to avoid rate limiting
         if processed_sections < total_sections:
             logger.info(f"Waiting {SECTION_PAUSE} seconds before next section...")
             time.sleep(SECTION_PAUSE)
-    
+
     logger.info(f"Markdown report generated: {md_file}")
     return md_file
 

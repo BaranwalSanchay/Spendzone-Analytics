@@ -1,15 +1,43 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Header } from '@/components/header';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Download, FileText, Printer, Share2, Eye, ChevronDown } from 'lucide-react';
+import { Download, FileText, Printer, Share2, Eye, ChevronDown, Sparkles, AlertCircle, Upload } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { LoadingAnimation } from '@/components/loading-animation';
 import ReactMarkdown from 'react-markdown';
 
-// Hardcoded report content sections
-const REPORT_CONTENT = {
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL as string | undefined;
+
+interface ReportJob {
+  job_id: string;
+  status: 'running' | 'completed' | 'failed';
+  created_at: string;
+  completed_at?: string | null;
+  sections_done: number;
+  total_sections: number;
+  current_section?: string | null;
+  error?: string | null;
+}
+
+/** Splits the AI-generated markdown (backend/main.py writes "## Section Title" headers)
+ * into a lookup keyed the same way as `sectionDefinitions` ids below (kebab-case). */
+function parseReportSections(markdown: string): Record<string, string> {
+  const parts = markdown.split(/^##\s+(.+)$/m).slice(1); // drop the "# Marketing Report" preamble
+  const sections: Record<string, string> = {};
+  for (let i = 0; i < parts.length - 1; i += 2) {
+    const title = parts[i].trim();
+    const id = title.toLowerCase().replace(/\s+/g, '-');
+    sections[id] = parts[i + 1].trim();
+  }
+  return sections;
+}
+
+// Hardcoded sample content, shown only until a real report has been generated (see
+// `hasRealReport` below, which the UI uses to label this clearly as sample data).
+const SAMPLE_REPORT_CONTENT = {
   'executive-summary': {
     title: 'Executive Summary',
     content: `The executive summary provides a high-level overview of the company's performance based on the analyzed data, highlighting key insights and findings across various dimensions.
@@ -292,9 +320,84 @@ const Report = () => {
   const { toast } = useToast();
   const [activeTab, setActiveTab] = useState('executive-summary');
   const [pdfViewerOpen, setPdfViewerOpen] = useState(false);
-  
-  // PDF file path
-  const pdfPath = '/assets/sample-report.pdf';
+
+  const [job, setJob] = useState<ReportJob | null>(null);
+  const [realSections, setRealSections] = useState<Record<string, string> | null>(null);
+  const [generateError, setGenerateError] = useState<string | null>(null);
+  const [uploadFile, setUploadFile] = useState<File | null>(null);
+  const pollTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const hasRealReport = job?.status === 'completed' && realSections !== null;
+  const isGenerating = job?.status === 'running';
+
+  // On mount, pick up whatever the server already knows about (survives a page refresh --
+  // the backend keeps this in memory, so it's lost on a server restart, not on navigation).
+  useEffect(() => {
+    if (!API_BASE_URL) return;
+    fetch(`${API_BASE_URL}/api/reports/latest`)
+      .then((res) => (res.ok ? res.json() : null))
+      .then((latest: ReportJob | null) => {
+        if (latest) setJob(latest);
+      })
+      .catch(() => {
+        /* backend unreachable -- fall back to the sample report below */
+      });
+  }, []);
+
+  // Poll while a job is running; load + parse the markdown once it completes.
+  useEffect(() => {
+    if (!job || !API_BASE_URL) return;
+    if (job.status !== 'running') return;
+
+    pollTimer.current = setTimeout(async () => {
+      try {
+        const res = await fetch(`${API_BASE_URL}/api/reports/${job.job_id}`);
+        if (!res.ok) return;
+        const updated: ReportJob = await res.json();
+        setJob(updated);
+      } catch {
+        /* transient network hiccup -- next poll will retry */
+      }
+    }, 4000);
+
+    return () => {
+      if (pollTimer.current) clearTimeout(pollTimer.current);
+    };
+  }, [job]);
+
+  useEffect(() => {
+    if (job?.status !== 'completed' || !API_BASE_URL) return;
+    fetch(`${API_BASE_URL}/api/reports/${job.job_id}/markdown`)
+      .then((res) => (res.ok ? res.text() : Promise.reject(res)))
+      .then((markdown) => setRealSections(parseReportSections(markdown)))
+      .catch(() => setRealSections(null));
+  }, [job]);
+
+  const handleGenerate = async () => {
+    if (!API_BASE_URL) {
+      toast({ title: 'Backend not configured', description: 'Set VITE_API_BASE_URL to enable report generation.' });
+      return;
+    }
+    setGenerateError(null);
+    try {
+      const formData = new FormData();
+      if (uploadFile) formData.append('file', uploadFile);
+      const res = await fetch(`${API_BASE_URL}/api/reports/generate`, { method: 'POST', body: formData });
+      const body = await res.json().catch(() => null);
+      if (!res.ok) {
+        setGenerateError(body?.detail || `Could not start report generation (HTTP ${res.status}).`);
+        return;
+      }
+      setRealSections(null);
+      setJob(body as ReportJob);
+      toast({ title: 'Report generation started', description: 'This runs several AI agents over your data and can take a few minutes.' });
+    } catch (err) {
+      setGenerateError('Could not reach the backend API.');
+    }
+  };
+
+  // Sample content/PDF are shown until a real report exists, clearly labeled as such below.
+  const pdfPath = hasRealReport ? `${API_BASE_URL}/api/reports/${job!.job_id}/pdf` : '/assets/sample-report.pdf';
 
   const handleDownload = () => {
     // Create a link element
@@ -304,7 +407,7 @@ const Report = () => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    
+
     toast({
       title: 'Report Downloaded',
       description: 'Your report has been downloaded successfully.',
@@ -406,16 +509,85 @@ const Report = () => {
 
         <Card className="mb-6">
           <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Sparkles className="h-5 w-5 text-primary" />
+              AI Report Generator
+            </CardTitle>
+            <CardDescription>
+              Runs a multi-agent AI pipeline (exploration, ROI, budget, KPI, and market-analysis
+              agents) over your data and writes a full report. A real run makes several LLM calls
+              and can take a few minutes.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-3">
+            {isGenerating ? (
+              <div className="py-2">
+                <LoadingAnimation />
+                {job && job.total_sections > 0 && (
+                  <p className="text-center text-sm text-muted-foreground mt-2">
+                    Section {job.sections_done} of {job.total_sections}
+                    {job.current_section ? ` — ${job.current_section.replace(/_/g, ' ')}` : ''}
+                  </p>
+                )}
+              </div>
+            ) : (
+              <>
+                <div className="flex flex-col sm:flex-row gap-2 items-start sm:items-center">
+                  <label className="flex items-center gap-2 text-sm border rounded-md px-3 py-2 cursor-pointer hover:bg-muted">
+                    <Upload className="h-4 w-4" />
+                    {uploadFile ? uploadFile.name : 'Optional: upload a dataset CSV'}
+                    <input
+                      type="file"
+                      accept=".csv"
+                      className="hidden"
+                      onChange={(e) => setUploadFile(e.target.files?.[0] ?? null)}
+                    />
+                  </label>
+                  <Button onClick={handleGenerate} disabled={!API_BASE_URL}>
+                    <Sparkles className="h-4 w-4 mr-2" />
+                    Generate Report
+                  </Button>
+                </div>
+                <p className="text-xs text-muted-foreground">
+                  This is your company's broader operations data (orders, GMV, NPS, SLA, marketing
+                  spend, etc.) — a different, richer dataset than the CSV uploader on the dashboard.
+                  Leave it blank to use whatever dataset is already configured on the server.
+                </p>
+                {!API_BASE_URL && (
+                  <p className="text-xs text-amber-600">Backend API is not configured (VITE_API_BASE_URL) — showing sample output below.</p>
+                )}
+              </>
+            )}
+
+            {job?.status === 'failed' && (
+              <div className="flex items-start gap-2 text-sm text-destructive bg-destructive/10 rounded-md p-3">
+                <AlertCircle className="h-4 w-4 mt-0.5 shrink-0" />
+                <span>Report generation failed: {job.error || 'Unknown error.'}</span>
+              </div>
+            )}
+            {generateError && (
+              <div className="flex items-start gap-2 text-sm text-destructive bg-destructive/10 rounded-md p-3">
+                <AlertCircle className="h-4 w-4 mt-0.5 shrink-0" />
+                <span>{generateError}</span>
+              </div>
+            )}
+          </CardContent>
+        </Card>
+
+        <Card className="mb-6">
+          <CardHeader>
             <CardTitle>Report Overview</CardTitle>
             <CardDescription>
-              Generated on {new Date().toLocaleDateString()} for Q2 2023
+              {hasRealReport
+                ? `Generated on ${job?.completed_at ? new Date(job.completed_at).toLocaleString() : ''}`
+                : 'Sample output — generate a real report above using your own data'}
             </CardDescription>
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground">
               This report provides a comprehensive analysis of marketing performance, ROI, and budget allocation recommendations based on the data you've uploaded.
             </p>
-            
+
             {/* Table of Contents */}
             <div className="mt-4 border-t pt-4">
               <h3 className="font-medium mb-2">Table of Contents</h3>
@@ -463,8 +635,12 @@ const Report = () => {
                   <CardTitle>{section.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <MarkdownContent 
-                    content={REPORT_CONTENT[section.id]?.content || 'Content not available'} 
+                  <MarkdownContent
+                    content={
+                      (hasRealReport ? realSections?.[section.id] : undefined) ??
+                      SAMPLE_REPORT_CONTENT[section.id]?.content ??
+                      'Content not available'
+                    }
                   />
                 </CardContent>
               </Card>

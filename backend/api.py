@@ -6,15 +6,22 @@ Run locally with:
 """
 import io
 import json
+import os
+import threading
+import uuid
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import List, Optional
 
 import numpy as np
 import pandas as pd
-from fastapi import FastAPI, File, HTTPException, UploadFile
+from fastapi import BackgroundTasks, FastAPI, File, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse, PlainTextResponse
 from pydantic import BaseModel, Field
 from scipy.optimize import minimize
+
+from utils.report import section_questions
 
 app = FastAPI(title="Spendzone API")
 
@@ -215,3 +222,180 @@ def budget_scenario(request: BudgetScenarioRequest):
             for ch, amt, pct in zip(channels, amounts, percentages)
         ],
     )
+
+
+# --- AI-powered report generation --------------------------------------------------
+#
+# Wraps backend/main.py's generate_markdown_report() (the LangGraph multi-agent
+# report generator) as a background job: a real run makes several LLM calls per
+# section plus deliberate rate-limit pauses, so it can take minutes -- far too long
+# to block an HTTP request on. The heavy agents/langchain import only happens inside
+# the background job itself, so importing this module (and every other endpoint above)
+# stays cheap regardless of whether report generation is ever used.
+#
+# Single job at a time: the pipeline shares a process-wide DataManager singleton and one
+# SQLite file for its SQL agent (backend/agents/sql.py), so two concurrent runs would
+# corrupt each other's data rather than actually run in parallel. This in-memory job
+# store also resets on server restart -- there's no persistence/queue infrastructure
+# here, which is fine for a single-instance deployment but wouldn't scale past one.
+
+BACKEND_DIR = Path(__file__).resolve().parent
+REPORTS_DIR = BACKEND_DIR / "reports"
+DATA_DIR = BACKEND_DIR / "data"
+SQL_DB_PATH = DATA_DIR / "marketing_analysis.db"
+UPLOADED_DATASET_PATH = DATA_DIR / "uploaded_dataset.csv"
+
+
+class ReportJob(BaseModel):
+    job_id: str
+    status: str  # "running" | "completed" | "failed"
+    created_at: str
+    completed_at: Optional[str] = None
+    sections_done: int = 0
+    total_sections: int = len(section_questions)
+    current_section: Optional[str] = None
+    error: Optional[str] = None
+
+
+_report_jobs: dict[str, ReportJob] = {}
+_report_jobs_lock = threading.Lock()
+_report_job_running = False
+
+
+def _run_report_job(job_id: str, data_path: Optional[str]) -> None:
+    global _report_job_running
+
+    # Imported here, not at module load, so the rest of the API stays fast to start and
+    # doesn't require langchain/langgraph to even be importable unless this job actually runs.
+    from main import generate_markdown_report
+    from utils.data_manager import DataManager
+    from utils.report_to_pdf import markdown_to_pdf
+
+    job = _report_jobs[job_id]
+
+    def on_progress(section: str, done: int, total: int) -> None:
+        job.current_section = section
+        job.sections_done = done
+        job.total_sections = total
+
+    try:
+        # DataManager is a process-wide singleton (utils/data_manager.py) -- without
+        # resetting it, a second report run would silently keep analyzing the *first*
+        # run's dataset instead of picking up this job's data_path.
+        DataManager._instance = None
+        # agents/sql.py skips re-importing a table name that already exists, so a
+        # leftover SQLite file would otherwise keep the SQL agent answering from
+        # whatever dataset first created it, regardless of new uploads.
+        if SQL_DB_PATH.exists():
+            SQL_DB_PATH.unlink()
+
+        md_path = REPORTS_DIR / f"{job_id}.md"
+        generate_markdown_report(data_path=data_path, output_path=md_path, on_progress=on_progress)
+
+        pdf_path = REPORTS_DIR / f"{job_id}.pdf"
+        markdown_to_pdf(md_path, pdf_path, title="Marketing Analysis Report")
+
+        job.status = "completed"
+    except Exception as exc:  # noqa: BLE001 -- reported via the job's `error` field
+        job.status = "failed"
+        job.error = str(exc)
+    finally:
+        job.completed_at = datetime.now(timezone.utc).isoformat()
+        with _report_jobs_lock:
+            _report_job_running = False
+
+
+@app.post("/api/reports/generate", response_model=ReportJob, status_code=202)
+async def generate_report(background_tasks: BackgroundTasks, file: Optional[UploadFile] = File(None)):
+    """Start a report-generation job. Optionally upload a CSV (or leave it out to use
+    whatever dataset is already configured in backend/data/) -- poll GET /api/reports/{job_id}
+    for progress, then GET .../markdown or .../pdf once status is "completed".
+
+    Note: this dataset is the company's broader operations data (orders, GMV, NPS, SLA,
+    marketing spend, etc. -- whatever columns the agents/ modules query), not the simple
+    Date/Channel/Spend/Conversions schema /api/upload validates for the dashboard.
+    """
+    global _report_job_running
+
+    if not os.getenv("GROQ_API_KEY"):
+        raise HTTPException(
+            status_code=400,
+            detail="GROQ_API_KEY is not configured on the server; report generation is unavailable.",
+        )
+
+    with _report_jobs_lock:
+        if _report_job_running:
+            raise HTTPException(
+                status_code=409,
+                detail="A report is already being generated. Wait for it to finish before starting another.",
+            )
+        _report_job_running = True
+
+    # Needed unconditionally: agents/sql.py's SQL agent always opens a SQLite file under
+    # backend/data/ regardless of whether a custom CSV is uploaded, and sqlite3 fails with
+    # an opaque "unable to open database file" if that directory doesn't exist yet.
+    DATA_DIR.mkdir(exist_ok=True)
+
+    data_path = None
+    if file is not None:
+        if not file.filename or not file.filename.lower().endswith(".csv"):
+            with _report_jobs_lock:
+                _report_job_running = False
+            raise HTTPException(status_code=400, detail="Only CSV files are supported.")
+        data_path = str(UPLOADED_DATASET_PATH)
+        with open(data_path, "wb") as f:
+            f.write(await file.read())
+
+    job_id = uuid.uuid4().hex[:12]
+    job = ReportJob(
+        job_id=job_id,
+        status="running",
+        created_at=datetime.now(timezone.utc).isoformat(),
+        total_sections=len(section_questions),
+    )
+    _report_jobs[job_id] = job
+    background_tasks.add_task(_run_report_job, job_id, data_path)
+    return job
+
+
+@app.get("/api/reports/latest", response_model=Optional[ReportJob])
+def get_latest_report_job():
+    """So the frontend can show the most recent report after a page refresh without
+    tracking a job_id client-side. In-memory only -- resets on server restart."""
+    if not _report_jobs:
+        return None
+    return max(_report_jobs.values(), key=lambda j: j.created_at)
+
+
+@app.get("/api/reports/{job_id}", response_model=ReportJob)
+def get_report_job(job_id: str):
+    job = _report_jobs.get(job_id)
+    if job is None:
+        raise HTTPException(status_code=404, detail="No such report job.")
+    return job
+
+
+@app.get("/api/reports/{job_id}/markdown", response_class=PlainTextResponse)
+def get_report_markdown(job_id: str):
+    job = _report_jobs.get(job_id)
+    if job is None:
+        raise HTTPException(status_code=404, detail="No such report job.")
+    if job.status != "completed":
+        raise HTTPException(status_code=409, detail=f"Report is not ready yet (status: {job.status}).")
+    md_path = REPORTS_DIR / f"{job_id}.md"
+    if not md_path.exists():
+        raise HTTPException(status_code=404, detail="Report markdown file not found.")
+    return md_path.read_text(encoding="utf-8")
+
+
+@app.get("/api/reports/{job_id}/pdf")
+def get_report_pdf(job_id: str):
+    job = _report_jobs.get(job_id)
+    if job is None:
+        raise HTTPException(status_code=404, detail="No such report job.")
+    if job.status != "completed":
+        raise HTTPException(status_code=409, detail=f"Report is not ready yet (status: {job.status}).")
+    pdf_path = REPORTS_DIR / f"{job_id}.pdf"
+    if not pdf_path.exists():
+        raise HTTPException(status_code=404, detail="Report PDF file not found.")
+    return FileResponse(pdf_path, media_type="application/pdf", filename="marketing-analysis-report.pdf")

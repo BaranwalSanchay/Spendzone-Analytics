@@ -17,7 +17,17 @@ lime==0.2.0.1
 shap==0.46.0
 
 # Marketing Mix Modeling
-robynpy==0.2.1
+# NOTE: originally pinned to 0.2.1 (the version Robyn.ipynb's own cached output was
+# produced against), but that release has since been pulled from PyPI entirely -- only
+# 0.0.1, 0.0.2, 0.1, 0.1.1, 0.3.6 remain installable as of this pin. Bumped to the latest
+# available. robynpy's API may have moved between 0.2.1 and 0.3.6; re-verify
+# pareto_result.result_hyp_param / plot_data_collect access paths (Stage 5) before trusting
+# a real Robyn.ipynb run against this version. robynpy also pulls in rpy2 (R interop) --
+# actually *executing* Robyn's model-fitting cells needs an R installation, which the
+# ds-pipeline Dockerfile intentionally does not provide (this container is a notebook
+# viewing/editing sandbox, not a place to run the heavy real trial -- same real-data
+# limitation already noted in Spendzone_Project_Plan.md's Stage 5).
+robynpy==0.3.6
 
 # Excel I/O (Pipeline/Investment_EDA.py)
 openpyxl==3.1.5
