@@ -10,6 +10,10 @@ import os
 load_dotenv()
 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+# Overridable since Groq's model catalog/account entitlements change over time -- see
+# https://console.groq.com/docs/models (or your own console's Playground model dropdown,
+# which reflects what your account can actually use) if this default 404s.
+GROQ_MODEL = os.getenv("GROQ_MODEL", "openai/gpt-oss-120b")
 
 # Define the expected state structure for validation
 class AgentState(BaseModel):
@@ -36,7 +40,7 @@ class CompilerAgent:
             llm: LLM to use (defaults to ChatGroq if None provided)
         """
         if llm is None:
-            self.llm = ChatGroq(model="llama-3.3-70b-versatile", temperature=0, api_key = GROQ_API_KEY)
+            self.llm = ChatGroq(model=GROQ_MODEL, temperature=0, api_key = GROQ_API_KEY)
         else:
             self.llm = llm
     

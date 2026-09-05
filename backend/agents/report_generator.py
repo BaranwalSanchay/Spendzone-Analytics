@@ -208,7 +208,9 @@ def main():
     dotenv_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), '.env')
     load_dotenv(dotenv_path)
 
-    llm = ChatGroq(model="llama-3.3-70b-versatile", temperature=0, api_key=os.getenv("GROQ_API_KEY"))
+    # Overridable since Groq's model catalog/account entitlements change over time -- see
+    # https://console.groq.com/docs/models if this 404s.
+    llm = ChatGroq(model=os.getenv("GROQ_MODEL", "openai/gpt-oss-120b"), temperature=0, api_key=os.getenv("GROQ_API_KEY"))
     report_generator = SupervisorAgent(llm)
     report_generator.analyze("What is the total revenue for the year?", "executive_summary")
 

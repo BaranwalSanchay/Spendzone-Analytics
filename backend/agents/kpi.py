@@ -593,7 +593,9 @@ def get_kpi_agent(llm=None, data_manager=None):
             
             llm = ChatGroq(
                 api_key=api_key,
-                model="llama-3.3-70b-versatile",  # Using a smaller model for faster responses
+                # Overridable since Groq's model catalog/account entitlements change over
+                # time -- see https://console.groq.com/docs/models if this 404s.
+                model=os.getenv("GROQ_MODEL", "openai/gpt-oss-120b"),
                 temperature=0,                 # Deterministic outputs
                 max_retries=5,                 # Increased retries
                 timeout=90                     # Longer timeout

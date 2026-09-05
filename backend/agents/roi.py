@@ -1246,7 +1246,9 @@ def get_roi_agent(llm=None, data_manager=None, quick_mode=False):
                 request_timeout = 15
                 logger.info("Using fast model for quick analysis")
             else:
-                model = "llama-3.3-70b-versatile"  # More capable model for detailed analysis
+                # Overridable since Groq's model catalog/account entitlements change over
+                # time -- see https://console.groq.com/docs/models if this 404s.
+                model = os.getenv("GROQ_MODEL", "openai/gpt-oss-120b")  # More capable model for detailed analysis
                 timeout = 60
                 request_timeout = 30
                 logger.info("Using standard model for detailed analysis")

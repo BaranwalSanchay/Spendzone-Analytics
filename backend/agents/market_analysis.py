@@ -21,7 +21,9 @@ class MarketAnalysisAgent:
             api_key = os.environ.get("GROQ_API_KEY")
             if not api_key:
                 raise ValueError("GROQ_API_KEY environment variable not set")
-            self.llm = ChatGroq(model="llama-3.3-70b-versatile", temperature=0, api_key=api_key)
+            # Overridable since Groq's model catalog/account entitlements change over
+            # time -- see https://console.groq.com/docs/models if this 404s.
+            self.llm = ChatGroq(model=os.getenv("GROQ_MODEL", "openai/gpt-oss-120b"), temperature=0, api_key=api_key)
         else:
             self.llm = llm
             

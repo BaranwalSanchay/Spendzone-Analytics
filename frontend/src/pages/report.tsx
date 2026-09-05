@@ -324,7 +324,7 @@ const Report = () => {
   const [job, setJob] = useState<ReportJob | null>(null);
   const [realSections, setRealSections] = useState<Record<string, string> | null>(null);
   const [generateError, setGenerateError] = useState<string | null>(null);
-  const [uploadFile, setUploadFile] = useState<File | null>(null);
+  const [uploadFiles, setUploadFiles] = useState<File[]>([]);
   const pollTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const hasRealReport = job?.status === 'completed' && realSections !== null;
@@ -381,7 +381,7 @@ const Report = () => {
     setGenerateError(null);
     try {
       const formData = new FormData();
-      if (uploadFile) formData.append('file', uploadFile);
+      uploadFiles.forEach((f) => formData.append('files', f));
       const res = await fetch(`${API_BASE_URL}/api/reports/generate`, { method: 'POST', body: formData });
       const body = await res.json().catch(() => null);
       if (!res.ok) {
@@ -535,12 +535,15 @@ const Report = () => {
                 <div className="flex flex-col sm:flex-row gap-2 items-start sm:items-center">
                   <label className="flex items-center gap-2 text-sm border rounded-md px-3 py-2 cursor-pointer hover:bg-muted">
                     <Upload className="h-4 w-4" />
-                    {uploadFile ? uploadFile.name : 'Optional: upload a dataset CSV'}
+                    {uploadFiles.length > 0
+                      ? `${uploadFiles.length} file${uploadFiles.length > 1 ? 's' : ''} selected`
+                      : 'Optional: upload dataset CSV(s)'}
                     <input
                       type="file"
                       accept=".csv"
+                      multiple
                       className="hidden"
-                      onChange={(e) => setUploadFile(e.target.files?.[0] ?? null)}
+                      onChange={(e) => setUploadFiles(Array.from(e.target.files ?? []))}
                     />
                   </label>
                   <Button onClick={handleGenerate} disabled={!API_BASE_URL}>
@@ -548,9 +551,18 @@ const Report = () => {
                     Generate Report
                   </Button>
                 </div>
+                {uploadFiles.length > 0 && (
+                  <ul className="text-xs text-muted-foreground list-disc pl-5">
+                    {uploadFiles.map((f) => (
+                      <li key={f.name}>{f.name}</li>
+                    ))}
+                  </ul>
+                )}
                 <p className="text-xs text-muted-foreground">
                   This is your company's broader operations data (orders, GMV, NPS, SLA, marketing
                   spend, etc.) — a different, richer dataset than the CSV uploader on the dashboard.
+                  Select one or more CSVs (e.g. everything under <code>scripts/sample_data/</code> if
+                  you generated sample data) — each becomes its own table the AI agents can query.
                   Leave it blank to use whatever dataset is already configured on the server.
                 </p>
                 {!API_BASE_URL && (

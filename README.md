@@ -91,7 +91,7 @@ Spendzone-Analytics/
 - **What-If Scenario Modeling** — enter any total budget and get the exact recommended dollar split, computed live via `/api/budget-scenario` using the same optimization logic as the notebook.
 - **Dynamic Dataset Upload** — upload a marketing spend CSV (`Date, Channel, Spend, Conversions`); it's validated against that schema and automatically profiled (cardinality, missingness %, standard deviation per column) before being stored.
 - **Interactive Dashboards** — executive summary, marketing performance, ROI, performance drivers, and budget allocation views, with a date-range picker that filters the underlying JSON metrics.
-- **AI-Powered Reporting** — the Report page's "Generate Report" button kicks off a real background job (`POST /api/reports/generate`, optionally with your own CSV), polls it while a LangGraph multi-agent pipeline (exploration, SQL, ROI, budget, KPI, market analysis agents) analyzes the data section by section, then renders the real generated markdown and a downloadable PDF once it completes — a full run takes a few minutes given the number of LLM calls involved.
+- **AI-Powered Reporting** — the Report page's "Generate Report" button kicks off a real background job (`POST /api/reports/generate`, optionally with one or more of your own CSVs — each becomes its own queryable table), polls it while a LangGraph multi-agent pipeline (exploration, SQL, ROI, budget, KPI, market analysis agents) analyzes the data section by section, then renders the real generated markdown and a downloadable PDF once it completes — a full run takes a few minutes given the number of LLM calls involved. `scripts/generate_sample_data.py` generates synthetic CSVs to try this (and the rest of the platform) without real proprietary data.
 - **Resilient UI** — a React error boundary isolates rendering failures (e.g. malformed model output) to the affected page instead of crashing the whole app.
 
 ## Quickstart
@@ -138,10 +138,14 @@ The frontend's `VITE_API_BASE_URL` (default `http://localhost:8000`) should poin
 
 ```bash
 cd ds-pipeline
+python -m venv .venv
+.venv\Scripts\activate      # Windows (macOS/Linux: source .venv/bin/activate)
 pip install -r requirements.txt
 pip install -r requirements-dev.txt   # Jupyter + testing utilities
 jupyter notebook "Budget Allocation/Budget_Bioptimisation.ipynb"
 ```
+
+`.venv/` is gitignored — keep pandas/scipy/scikit-learn/etc. scoped to this folder rather than installing into your system Python, so version pins here don't clash with other projects.
 
 Running `Budget_Bioptimisation.ipynb` and `Robyn.ipynb` end-to-end regenerates the PNGs and JSON payloads under `../plots/`, which the frontend and backend both read from.
 
@@ -190,6 +194,7 @@ Each project has its own `.env.example` — copy it to `.env` and fill in real v
 | Variable | Purpose |
 |---|---|
 | `GROQ_API_KEY` | **Required** for `/api/reports/generate` — every report-generation agent's LLM calls |
+| `GROQ_MODEL` | Optional override for the Groq model used by those agents (default `openai/gpt-oss-120b`). Groq's model catalog and per-account entitlements change over time — some accounts no longer have access to the Llama chat models (e.g. `llama-3.3-70b-versatile`) this project originally used, which surfaces as a `model_not_found` 404. Check https://console.groq.com/docs/models (or your own console's Playground model dropdown) if the default stops working, and pick a model that supports tool calling — every agent here uses it |
 | `TAVILY_API_KEY` | Optional but recommended — powers the market-analysis agent's web search (used in the Business Context and Implementation sections); those two sections report a per-section error without it, the rest of the report is unaffected |
 | `GEMINI_API_KEY` | Google Gemini (sequential report generator) — not used by the current `/api/reports/generate` pipeline |
 

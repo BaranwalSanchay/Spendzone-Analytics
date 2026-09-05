@@ -7,6 +7,7 @@ Run locally with:
 import io
 import json
 import os
+import shutil
 import threading
 import uuid
 from datetime import datetime, timezone
@@ -243,7 +244,10 @@ BACKEND_DIR = Path(__file__).resolve().parent
 REPORTS_DIR = BACKEND_DIR / "reports"
 DATA_DIR = BACKEND_DIR / "data"
 SQL_DB_PATH = DATA_DIR / "marketing_analysis.db"
-UPLOADED_DATASET_PATH = DATA_DIR / "uploaded_dataset.csv"
+# A directory (not a single file) since DataManager already supports loading every CSV in
+# a directory as its own named table (utils/data_manager.py) -- multiple uploads become
+# multiple tables the SQL agent can query, keyed by original filename.
+UPLOADED_DATASET_DIR = DATA_DIR / "uploaded_dataset"
 
 
 class ReportJob(BaseModel):
@@ -306,10 +310,13 @@ def _run_report_job(job_id: str, data_path: Optional[str]) -> None:
 
 
 @app.post("/api/reports/generate", response_model=ReportJob, status_code=202)
-async def generate_report(background_tasks: BackgroundTasks, file: Optional[UploadFile] = File(None)):
-    """Start a report-generation job. Optionally upload a CSV (or leave it out to use
-    whatever dataset is already configured in backend/data/) -- poll GET /api/reports/{job_id}
-    for progress, then GET .../markdown or .../pdf once status is "completed".
+async def generate_report(background_tasks: BackgroundTasks, files: Optional[List[UploadFile]] = File(None)):
+    """Start a report-generation job. Optionally upload one or more CSVs (or leave it out
+    to use whatever dataset is already configured in backend/data/) -- poll
+    GET /api/reports/{job_id} for progress, then GET .../markdown or .../pdf once status is
+    "completed". Each uploaded file becomes its own named table (by filename) the SQL agent
+    can query -- e.g. uploading Monthly_Master.csv and Final_monthly.csv together gives the
+    agents two related tables instead of just one.
 
     Note: this dataset is the company's broader operations data (orders, GMV, NPS, SLA,
     marketing spend, etc. -- whatever columns the agents/ modules query), not the simple
@@ -337,14 +344,25 @@ async def generate_report(background_tasks: BackgroundTasks, file: Optional[Uplo
     DATA_DIR.mkdir(exist_ok=True)
 
     data_path = None
-    if file is not None:
-        if not file.filename or not file.filename.lower().endswith(".csv"):
+    uploads = [f for f in (files or []) if f is not None and f.filename]
+    if uploads:
+        bad = [f.filename for f in uploads if not f.filename.lower().endswith(".csv")]
+        if bad:
             with _report_jobs_lock:
                 _report_job_running = False
-            raise HTTPException(status_code=400, detail="Only CSV files are supported.")
-        data_path = str(UPLOADED_DATASET_PATH)
-        with open(data_path, "wb") as f:
-            f.write(await file.read())
+            raise HTTPException(status_code=400, detail=f"Only CSV files are supported (got: {', '.join(bad)}).")
+
+        # Clear any files left over from a previous run rather than accumulating uploads
+        # across jobs indefinitely.
+        if UPLOADED_DATASET_DIR.exists():
+            shutil.rmtree(UPLOADED_DATASET_DIR)
+        UPLOADED_DATASET_DIR.mkdir(parents=True)
+
+        for upload in uploads:
+            dest = UPLOADED_DATASET_DIR / Path(upload.filename).name  # strip any path components
+            with open(dest, "wb") as f:
+                f.write(await upload.read())
+        data_path = str(UPLOADED_DATASET_DIR)
 
     job_id = uuid.uuid4().hex[:12]
     job = ReportJob(

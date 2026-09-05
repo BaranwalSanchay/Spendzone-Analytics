@@ -245,7 +245,9 @@ def main():
         
         # Initialize LLM
         llm = ChatGroq(
-                model="llama-3.3-70b-versatile",  # Use a smaller model that uses less memory
+                # Overridable since Groq's model catalog/account entitlements change over
+                # time -- see https://console.groq.com/docs/models if this 404s.
+                model=os.getenv("GROQ_MODEL", "openai/gpt-oss-120b"),
                 temperature=0,
                 max_tokens=None,
                 timeout=None,

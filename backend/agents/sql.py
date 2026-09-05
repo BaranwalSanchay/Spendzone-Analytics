@@ -38,6 +38,11 @@ GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 if not GROQ_API_KEY:
     logger.warning("GROQ_API_KEY not found in .env file")
 
+# Overridable since Groq's model catalog/account entitlements change over time -- see
+# https://console.groq.com/docs/models (or your own console's Playground model dropdown,
+# which reflects what your account can actually use) if this default 404s.
+GROQ_MODEL = os.getenv("GROQ_MODEL", "openai/gpt-oss-120b")
+
 # Determine paths
 current_dir = os.path.dirname(os.path.abspath(__file__))
 data_dir = os.path.join(current_dir, "..", "data")
@@ -178,8 +183,8 @@ def get_sql_agent(llm=None, data_manager=None):
         # Initialize LLM if not provided
         if llm is None:
             llm = ChatGroq(
-                model="llama-3.3-70b-versatile", 
-                temperature=0, 
+                model=GROQ_MODEL,
+                temperature=0,
                 api_key=GROQ_API_KEY
             )
         

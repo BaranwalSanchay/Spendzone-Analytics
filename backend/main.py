@@ -68,8 +68,10 @@ def generate_markdown_report(data_path=None, output_path=None, on_progress=None)
         return None
     
     llm = ChatGroq(
-        model="llama-3.3-70b-versatile", 
-        temperature=0, 
+        # Overridable since Groq's model catalog/account entitlements change over time --
+        # see https://console.groq.com/docs/models if this 404s.
+        model=os.getenv("GROQ_MODEL", "openai/gpt-oss-120b"),
+        temperature=0,
         api_key=api_key
     )
     

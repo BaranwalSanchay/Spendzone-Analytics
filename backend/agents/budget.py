@@ -1091,7 +1091,9 @@ def get_budget_agent(llm=None, data_manager=None):
             
             llm = ChatGroq(
                 api_key=api_key,
-                model="llama-3.3-70b-versatile",
+                # Overridable since Groq's model catalog/account entitlements change over
+                # time -- see https://console.groq.com/docs/models if this 404s.
+                model=os.getenv("GROQ_MODEL", "openai/gpt-oss-120b"),
                 temperature=0,
                 max_retries=5,
                 timeout=90
