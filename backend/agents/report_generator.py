@@ -74,56 +74,61 @@ class SupervisorAgent:
             # Simply pass the state to all agents
             return state
 
-        # Node functions for each agent
+        # Node functions for each agent. Each returns only the single key it
+        # owns (never the whole shared `state`) -- when 2+ of these run in the
+        # same parallel superstep (most sections use more than one agent),
+        # LangGraph merges their returned dicts by key. Returning the full
+        # state from more than one branch makes every branch a concurrent
+        # writer of every key, including the un-reduced `messages` field,
+        # which LangGraph rejects with "Can receive only one value per step."
         def run_exploration(state: AgentState) -> Dict[str, Any]:
             """Run data exploration analysis"""
             if "exploration_agent" in self.section_agent_mapping[state["current_section"]]:
                 result = self.exploration_agent.analyze(state["current_question"])
-                state["exploration_results"] = result
-                return state
-            
+                return {"exploration_results": result}
+            return {}
+
         def run_sql(state: AgentState) -> Dict[str, Any]:
             """Run SQL analysis"""
             if "sql_agent" in self.section_agent_mapping[state["current_section"]]:
                 result = self.sql_agent.invoke(state["current_question"])
-                state["sql_results"] = result
-                return state
+                return {"sql_results": result}
+            return {}
 
         def run_roi(state: AgentState) -> Dict[str, Any]:
             """Run ROI analysis"""
             if "roi_agent" in self.section_agent_mapping[state["current_section"]]:
                 result = self.roi_agent.invoke(state["current_question"])
-                state["roi_results"] = result
-                return state
+                return {"roi_results": result}
+            return {}
 
         def run_budget(state: AgentState) -> Dict[str, Any]:
             """Run budget allocation analysis"""
             if "budget_agent" in self.section_agent_mapping[state["current_section"]]:
                 result = self.budget_agent.invoke(state["current_question"])
-                state["budget_results"] = result
-                return state
+                return {"budget_results": result}
+            return {}
 
         def run_kpi(state: AgentState) -> Dict[str, Any]:
             """Run KPI analysis"""
             if "kpi_agent" in self.section_agent_mapping[state["current_section"]]:
                 result = self.kpi_agent.invoke(state["current_question"])
-                state["kpi_results"] = result
-                return state
+                return {"kpi_results": result}
+            return {}
 
         def run_market(state: AgentState) -> Dict[str, Any]:
             """Run market analysis"""
             if "market_agent" in self.section_agent_mapping[state["current_section"]]:
                 result = self.market_agent.run(state["current_question"])
-                state["market_results"] = result
-                return state
+                return {"market_results": result}
+            return {}
 
 
         def compile_results(state: AgentState) -> Dict[str, Any]:
             """Compile all results into final answer"""
             # Collect results from all agents
             result = self.compiler_agent.invoke(state)
-            state["final_answer"] = result
-            return state
+            return {"final_answer": result}
 
         # Add nodes to workflow
         workflow.set_entry_point("supervisor")
