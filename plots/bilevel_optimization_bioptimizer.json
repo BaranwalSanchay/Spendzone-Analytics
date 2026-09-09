@@ -1,0 +1,535 @@
+{
+  "generated_at": "2026-09-09T19:41:37.801919+00:00",
+  "model": "BudgetOptimizer",
+  "channels": [
+    "TV",
+    "Digital",
+    "Sponsorship",
+    "Content Marketing",
+    "Online marketing",
+    "Affiliates",
+    "SEM"
+  ],
+  "weights": [
+    {
+      "channel": "TV",
+      "raw_weight": 0.8724520684220145,
+      "normalized_weight": 0.142534881455228,
+      "weight_range": [
+        0.4590157934984492,
+        1.3770473804953476
+      ]
+    },
+    {
+      "channel": "Digital",
+      "raw_weight": 0.8720325722785768,
+      "normalized_weight": 0.14246634722252915,
+      "weight_range": [
+        0.4595055588981554,
+        1.3785166766944663
+      ]
+    },
+    {
+      "channel": "Sponsorship",
+      "raw_weight": 0.8817494063483612,
+      "normalized_weight": 0.1440538129898599,
+      "weight_range": [
+        0.4645670873099483,
+        1.3937012619298448
+      ]
+    },
+    {
+      "channel": "Content Marketing",
+      "raw_weight": 0.8693450945347323,
+      "normalized_weight": 0.14202728663055272,
+      "weight_range": [
+        0.3859098248057275,
+        1.1577294744171824
+      ]
+    },
+    {
+      "channel": "Online marketing",
+      "raw_weight": 0.8871143639783892,
+      "normalized_weight": 0.14493030079645244,
+      "weight_range": [
+        0.48835291023748856,
+        1.4650587307124656
+      ]
+    },
+    {
+      "channel": "Affiliates",
+      "raw_weight": 0.868875016516006,
+      "normalized_weight": 0.14195048869849547,
+      "weight_range": [
+        0.460215323987093,
+        1.380645971961279
+      ]
+    },
+    {
+      "channel": "SEM",
+      "raw_weight": 0.8694038287921374,
+      "normalized_weight": 0.14203688220688246,
+      "weight_range": [
+        0.42573693573991234,
+        1.277210807219737
+      ]
+    }
+  ],
+  "time_series": [
+    {
+      "month": "2023-07",
+      "total_investment": 55128.71,
+      "projected_revenue": 54.91535116792095,
+      "channels": {
+        "TV": {
+          "allocation": 7856.501814948124,
+          "percentage": 14.251198359163716
+        },
+        "Digital": {
+          "allocation": 7856.699260927969,
+          "percentage": 14.251556513707591
+        },
+        "Sponsorship": {
+          "allocation": 7946.066783267764,
+          "percentage": 14.413663558004103
+        },
+        "Content Marketing": {
+          "allocation": 7833.32274641061,
+          "percentage": 14.209152991990218
+        },
+        "Online marketing": {
+          "allocation": 7985.403464961094,
+          "percentage": 14.485017815510457
+        },
+        "Affiliates": {
+          "allocation": 7823.363440997215,
+          "percentage": 14.191087440640665
+        },
+        "SEM": {
+          "allocation": 7827.352488487216,
+          "percentage": 14.198323320983233
+        }
+      }
+    },
+    {
+      "month": "2023-08",
+      "total_investment": 59847.28,
+      "projected_revenue": 55.41797689864511,
+      "channels": {
+        "TV": {
+          "allocation": 8528.994591521876,
+          "percentage": 14.251265206241415
+        },
+        "Digital": {
+          "allocation": 8529.167175659613,
+          "percentage": 14.251553580479538
+        },
+        "Sponsorship": {
+          "allocation": 8626.16862757835,
+          "percentage": 14.413635218807523
+        },
+        "Content Marketing": {
+          "allocation": 8503.81106415241,
+          "percentage": 14.209185553883838
+        },
+        "Online marketing": {
+          "allocation": 8668.871376319074,
+          "percentage": 14.484988083533745
+        },
+        "Affiliates": {
+          "allocation": 8492.952327455805,
+          "percentage": 14.191041476664946
+        },
+        "SEM": {
+          "allocation": 8497.314837312868,
+          "percentage": 14.198330880388996
+        }
+      }
+    },
+    {
+      "month": "2023-09",
+      "total_investment": 63968.78,
+      "projected_revenue": 55.8255824405508,
+      "channels": {
+        "TV": {
+          "allocation": 9116.392923830794,
+          "percentage": 14.251315913529684
+        },
+        "Digital": {
+          "allocation": 9116.542100362536,
+          "percentage": 14.251549115619428
+        },
+        "Sponsorship": {
+          "allocation": 9220.211260345248,
+          "percentage": 14.413611234019546
+        },
+        "Content Marketing": {
+          "allocation": 9089.459125591016,
+          "percentage": 14.209211314630382
+        },
+        "Online marketing": {
+          "allocation": 9265.854867451575,
+          "percentage": 14.48496417698067
+        },
+        "Affiliates": {
+          "allocation": 9077.815614630088,
+          "percentage": 14.191009449656674
+        },
+        "SEM": {
+          "allocation": 9082.504107788756,
+          "percentage": 14.198338795563641
+        }
+      }
+    },
+    {
+      "month": "2023-10",
+      "total_investment": 63504.96,
+      "projected_revenue": 55.78104416701739,
+      "channels": {
+        "TV": {
+          "allocation": 9050.289395197551,
+          "percentage": 14.251311071131376
+        },
+        "Digital": {
+          "allocation": 9050.441477535593,
+          "percentage": 14.251550552170404
+        },
+        "Sponsorship": {
+          "allocation": 9153.360120381773,
+          "percentage": 14.413614496224818
+        },
+        "Content Marketing": {
+          "allocation": 9023.551154146917,
+          "percentage": 14.209206893677152
+        },
+        "Online marketing": {
+          "allocation": 9198.672590586382,
+          "percentage": 14.484967143647335
+        },
+        "Affiliates": {
+          "allocation": 9011.996387104777,
+          "percentage": 14.191011831366836
+        },
+        "SEM": {
+          "allocation": 9016.648875047009,
+          "percentage": 14.198338011782086
+        }
+      }
+    },
+    {
+      "month": "2023-11",
+      "total_investment": 45634.57,
+      "projected_revenue": 53.758617915366706,
+      "channels": {
+        "TV": {
+          "allocation": 6503.388903747339,
+          "percentage": 14.251013877740798
+        },
+        "Digital": {
+          "allocation": 6503.640667618411,
+          "percentage": 14.251565573245042
+        },
+        "Sponsorship": {
+          "allocation": 6577.649787928765,
+          "percentage": 14.413743326449149
+        },
+        "Content Marketing": {
+          "allocation": 6484.247706376053,
+          "percentage": 14.209069366438762
+        },
+        "Online marketing": {
+          "allocation": 6610.209326976128,
+          "percentage": 14.485091734130787
+        },
+        "Affiliates": {
+          "allocation": 6476.09609794011,
+          "percentage": 14.191206574182926
+        },
+        "SEM": {
+          "allocation": 6479.337509413203,
+          "percentage": 14.198309547812554
+        }
+      }
+    },
+    {
+      "month": "2023-12",
+      "total_investment": 36688.66,
+      "projected_revenue": 52.42326394370776,
+      "channels": {
+        "TV": {
+          "allocation": 5228.404294407504,
+          "percentage": 14.250736588383175
+        },
+        "Digital": {
+          "allocation": 5228.71256707528,
+          "percentage": 14.251576828031547
+        },
+        "Sponsorship": {
+          "allocation": 5288.250557046199,
+          "percentage": 14.413855826422111
+        },
+        "Content Marketing": {
+          "allocation": 5213.077041337595,
+          "percentage": 14.208960047430445
+        },
+        "Online marketing": {
+          "allocation": 5314.418911983264,
+          "percentage": 14.485181284852766
+        },
+        "Affiliates": {
+          "allocation": 5206.627130997092,
+          "percentage": 14.191379927740863
+        },
+        "SEM": {
+          "allocation": 5209.169497153079,
+          "percentage": 14.19830949713911
+        }
+      }
+    },
+    {
+      "month": "2024-01",
+      "total_investment": 32538.42,
+      "projected_revenue": 51.688613581044464,
+      "channels": {
+        "TV": {
+          "allocation": 4636.903540917668,
+          "percentage": 14.250549169005957
+        },
+        "Digital": {
+          "allocation": 4637.239776533771,
+          "percentage": 14.251582518554285
+        },
+        "Sponsorship": {
+          "allocation": 4690.065044287299,
+          "percentage": 14.413929884386825
+        },
+        "Content Marketing": {
+          "allocation": 4623.350329718583,
+          "percentage": 14.208896220893896
+        },
+        "Online marketing": {
+          "allocation": 4713.264690143635,
+          "percentage": 14.485229123428963
+        },
+        "Affiliates": {
+          "allocation": 4617.68851331629,
+          "percentage": 14.191495817302407
+        },
+        "SEM": {
+          "allocation": 4619.908105082749,
+          "percentage": 14.198317266427654
+        }
+      }
+    },
+    {
+      "month": "2024-02",
+      "total_investment": 37762.53,
+      "projected_revenue": 52.59981850022547,
+      "channels": {
+        "TV": {
+          "allocation": 5381.454232465635,
+          "percentage": 14.250777774862106
+        },
+        "Digital": {
+          "allocation": 5381.755671016451,
+          "percentage": 14.251576022624679
+        },
+        "Sponsorship": {
+          "allocation": 5443.030214733081,
+          "percentage": 14.413838836362611
+        },
+        "Content Marketing": {
+          "allocation": 5365.6684491422175,
+          "percentage": 14.208975005494118
+        },
+        "Online marketing": {
+          "allocation": 5469.966502424259,
+          "percentage": 14.485169564709405
+        },
+        "Affiliates": {
+          "allocation": 5359.014614726372,
+          "percentage": 14.191354802568505
+        },
+        "SEM": {
+          "allocation": 5361.640315491986,
+          "percentage": 14.198307993378586
+        }
+      }
+    },
+    {
+      "month": "2024-03",
+      "total_investment": 48449.76,
+      "projected_revenue": 54.12497604348111,
+      "channels": {
+        "TV": {
+          "allocation": 6904.612519990497,
+          "percentage": 14.25107682677994
+        },
+        "Digital": {
+          "allocation": 6904.847543566493,
+          "percentage": 14.251561913963027
+        },
+        "Sponsorship": {
+          "allocation": 6983.411671770332,
+          "percentage": 14.413717780584118
+        },
+        "Content Marketing": {
+          "allocation": 6884.273626445159,
+          "percentage": 14.20909747838825
+        },
+        "Online marketing": {
+          "allocation": 7017.980606209569,
+          "percentage": 14.485067843905869
+        },
+        "Affiliates": {
+          "allocation": 6875.585231103222,
+          "percentage": 14.191164685032954
+        },
+        "SEM": {
+          "allocation": 6879.048800914733,
+          "percentage": 14.19831347134585
+        }
+      }
+    },
+    {
+      "month": "2024-04",
+      "total_investment": 64573.28,
+      "projected_revenue": 55.883147288886065,
+      "channels": {
+        "TV": {
+          "allocation": 9202.545321192938,
+          "percentage": 14.251320857780398
+        },
+        "Digital": {
+          "allocation": 9202.69408086615,
+          "percentage": 14.251551231199885
+        },
+        "Sponsorship": {
+          "allocation": 9307.339699723492,
+          "percentage": 14.413608383720778
+        },
+        "Content Marketing": {
+          "allocation": 9175.355674388678,
+          "percentage": 14.209214204991103
+        },
+        "Online marketing": {
+          "allocation": 9353.41479719071,
+          "percentage": 14.484961577281979
+        },
+        "Affiliates": {
+          "allocation": 9163.59729303167,
+          "percentage": 14.191004844467663
+        },
+        "SEM": {
+          "allocation": 9168.333133606366,
+          "percentage": 14.198338900558197
+        }
+      }
+    },
+    {
+      "month": "2024-05",
+      "total_investment": 68708.62,
+      "projected_revenue": 56.26306035867103,
+      "channels": {
+        "TV": {
+          "allocation": 9791.915173312294,
+          "percentage": 14.251363472752466
+        },
+        "Digital": {
+          "allocation": 9792.041511674508,
+          "percentage": 14.251547348315988
+        },
+        "Sponsorship": {
+          "allocation": 9903.377180348494,
+          "percentage": 14.413587669710868
+        },
+        "Content Marketing": {
+          "allocation": 9762.969269192265,
+          "percentage": 14.209234982731811
+        },
+        "Online marketing": {
+          "allocation": 9952.403590384283,
+          "percentage": 14.48494175895875
+        },
+        "Affiliates": {
+          "allocation": 9750.425305665285,
+          "percentage": 14.190978229027573
+        },
+        "SEM": {
+          "allocation": 9755.48796942287,
+          "percentage": 14.198346538502548
+        }
+      }
+    },
+    {
+      "month": "2024-06",
+      "total_investment": 59434.66,
+      "projected_revenue": 55.37563437341048,
+      "channels": {
+        "TV": {
+          "allocation": 8470.188019028978,
+          "percentage": 14.251260155318423
+        },
+        "Digital": {
+          "allocation": 8470.362744724107,
+          "percentage": 14.251554134782813
+        },
+        "Sponsorship": {
+          "allocation": 8566.69576707599,
+          "percentage": 14.413636364834911
+        },
+        "Content Marketing": {
+          "allocation": 8445.179131326158,
+          "percentage": 14.20918220332405
+        },
+        "Online marketing": {
+          "allocation": 8609.104531746429,
+          "percentage": 14.484989956611896
+        },
+        "Affiliates": {
+          "allocation": 8434.400353393163,
+          "percentage": 14.191046694627618
+        },
+        "SEM": {
+          "allocation": 8438.729452705184,
+          "percentage": 14.198330490500297
+        }
+      }
+    },
+    {
+      "month": "2024-07",
+      "total_investment": 49942.71,
+      "projected_revenue": 54.31071600285575,
+      "channels": {
+        "TV": {
+          "allocation": 7117.388769442304,
+          "percentage": 14.25110645666265
+        },
+        "Digital": {
+          "allocation": 7117.615845742677,
+          "percentage": 14.251561130228371
+        },
+        "Sponsorship": {
+          "allocation": 7198.594520341361,
+          "percentage": 14.413704263027299
+        },
+        "Content Marketing": {
+          "allocation": 7096.414791305844,
+          "percentage": 14.209110381286566
+        },
+        "Online marketing": {
+          "allocation": 7234.229529833184,
+          "percentage": 14.485056036873416
+        },
+        "Affiliates": {
+          "allocation": 7087.442983452763,
+          "percentage": 14.191146182201091
+        },
+        "SEM": {
+          "allocation": 7091.023559881864,
+          "percentage": 14.198315549720597
+        }
+      }
+    }
+  ]
+}
