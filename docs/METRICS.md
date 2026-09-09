@@ -205,3 +205,38 @@ sizes understates steady-state throughput and shouldn't be quoted alone without 
 file size it was measured at. This says nothing about behavior under concurrent
 uploads (3b) or on real network-attached storage.
 
+## 3b. API latency
+
+**Claim tested:** `/api/upload` and `/api/budget-scenario` serve concurrent requests
+at some stated p50/p95/p99 latency and throughput.
+
+**Command:**
+```
+python scripts/metrics/load_test.py
+```
+
+**Raw output:**
+```
+Hardware: Windows-11-10.0.26200-SP0, Intel64 Family 6 Model 186 Stepping 3, GenuineIntel, 12 logical cores
+Concurrency: 10, requests per endpoint: 60
+
+/api/upload (n=60, concurrency=10):
+  p50=71.0ms  p95=84.9ms  p99=92.7ms  throughput=131.2 req/s
+
+/api/budget-scenario (n=60, concurrency=10):
+  p50=33.9ms  p95=64.1ms  p99=72.3ms  throughput=254.4 req/s
+```
+
+**Computed value:** at concurrency 10 on the stated hardware: `/api/upload`
+p50=71.0ms / p95=84.9ms / p99=92.7ms, 131.2 req/s; `/api/budget-scenario`
+p50=33.9ms / p95=64.1ms / p99=72.3ms, 254.4 req/s.
+
+**What this does and does not support:** this is a real network round trip -- the
+script spins up an actual `uvicorn` process on a dedicated port and drives it with
+concurrent `httpx.AsyncClient` requests, not an in-process test client. It's a single
+uvicorn worker (no multi-process/multi-worker deployment config, which is how this
+repo's `Dockerfile`/`docker-compose.yml` run it too) on one Windows laptop with 12
+logical cores, at a fixed concurrency of 10 and 60 requests per endpoint -- these
+numbers do not generalize to a production deployment, a different concurrency level,
+or different hardware without re-measuring there.
+
