@@ -97,3 +97,57 @@ where the model shows a real, if narrow, edge on this tiny holdout -- but that e
 should be described as "beat a naive persistence baseline on MAPE across a 3-month
 holdout," not as validated forecasting accuracy.
 
+## 2c. Negative marginal ROI spend share
+
+**Claim tested:** some marketing channels have negative marginal ROI, and a
+measurable share of total spend goes to those channels.
+
+**Command:**
+```
+ds-pipeline/.venv/Scripts/python.exe scripts/metrics/roi_regression.py
+```
+
+**Raw output:**
+```
+Months after monthly aggregation: 13
+
+Current-month model (spend -> same-month GMV) (n=13 months, intercept=2,374.89):
+Channel                    Coefficient   Avg Monthly Spend
+TV                              2.7370           16,858.62
+Digital                         5.4301            9,732.39
+Sponsorship                     5.5680            5,521.99
+Content Marketing               5.2019            4,077.97
+Online marketing                7.6936           10,442.23
+Affiliates                     -6.5334            3,165.22  (negative marginal ROI)
+SEM                             7.9177            2,984.89
+Spend share absorbed by negative-marginal-ROI channels: 6.00%
+
+Next-month model (spend -> following month's GMV) (n=12 months, intercept=42,329.29):
+Channel                    Coefficient   Avg Monthly Spend
+TV                              3.8815           16,997.26
+Digital                       -10.8885            9,884.44  (negative marginal ROI)
+Sponsorship                    87.2342            5,524.83
+Content Marketing             -47.3744            4,047.93  (negative marginal ROI)
+Online marketing                3.2867           10,457.01
+Affiliates                    -49.2386            3,153.31  (negative marginal ROI)
+SEM                            22.2945            2,955.24
+Spend share absorbed by negative-marginal-ROI channels: 32.22%
+```
+
+**Computed value:** current-month model: 1 of 7 channels (Affiliates) has a negative
+coefficient, absorbing **6.00%** of spend. Next-month model: 3 of 7 channels (Digital,
+Content Marketing, Affiliates) are negative, absorbing **32.22%** of spend.
+
+**What this does and does not support:** these are `roi.py`'s own regression method
+(channel spend -> GMV, current- and next-month variants) run directly against
+`scripts/sample_data/Monthly_Master.csv`, without the `roi.py` tool's two
+dataset-specific adjustments that don't apply to this data (a x1e7 crore-to-rupee
+conversion, and hardcoded month exclusions -- see `roi_regression.py`'s docstring).
+With 13 (or 12) monthly observations against 7 channel predictors, this regression is
+poorly identified: the next-month model's coefficients swing as high as +87 and as low
+as -49, which is a strong sign of overfitting to a handful of data points rather than a
+stable estimate of channel effectiveness. Treat both spend-share numbers as
+illustrative of the method, not as a validated attribution result -- and note the two
+models don't even agree on which channels are negative, so no single "X% of spend goes
+to negative-ROI channels" claim is defensible from this data without more observations.
+
