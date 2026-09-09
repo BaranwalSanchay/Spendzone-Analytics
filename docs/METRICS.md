@@ -170,3 +170,38 @@ want a real Robyn comparison, that requires installing R locally (or in CI) and
 re-running `Robyn.ipynb` against the same `scripts/sample_data/` inputs used above --
 I can do that if you supply/install R. Absent that, 2b's backtest against naive
 baselines is the only validated-effort predictive-accuracy claim this repo supports.
+
+## 3a. Ingestion throughput
+
+**Claim tested:** `/api/upload` (parse + schema validation + profiling) processes
+marketing-spend CSVs at some stated rows/second, and that rate holds up as file size
+grows.
+
+**Command:**
+```
+python scripts/metrics/ingestion_throughput.py
+```
+
+**Raw output:**
+```
+  Days      Rows   Median Time (s)      Rows/sec
+    30       210            0.0058        36,108
+    90       630            0.0106        59,433
+   365      2555            0.0106       240,995
+  1000      7000            0.0161       435,906
+  3000     21000            0.0281       747,015
+```
+
+**Computed value:** throughput ranges from **~36k rows/sec** at 210 rows up to
+**~747k rows/sec** at 21,000 rows (median of 5 requests per size).
+
+**What this does and does not support:** this times `/api/upload`'s actual processing
+(pandas CSV parse, schema check, per-column profiling) via FastAPI's in-process
+`TestClient` -- it isolates server-side compute from network transport (that's covered
+in 3b) and from disk I/O (the CSV is built in memory, not read from disk). Throughput
+rises with file size because a roughly fixed per-request overhead (FastAPI routing,
+response-model validation) gets amortized over more rows -- so "rows/sec" at small
+sizes understates steady-state throughput and shouldn't be quoted alone without the
+file size it was measured at. This says nothing about behavior under concurrent
+uploads (3b) or on real network-attached storage.
+
