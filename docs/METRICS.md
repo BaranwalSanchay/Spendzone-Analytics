@@ -151,3 +151,22 @@ illustrative of the method, not as a validated attribution result -- and note th
 models don't even agree on which channels are negative, so no single "X% of spend goes
 to negative-ROI channels" claim is defensible from this data without more observations.
 
+## 2d. Robyn benchmark
+
+**Claim tested:** compare the platform's own model against Meta's Robyn MMM as a
+benchmark.
+
+**Status: not run.** `robynpy` (pinned in `ds-pipeline/requirements.txt`) depends on
+`rpy2`, which requires a working R installation for its Python-to-R bridge. No R or
+`Rscript` is present on this machine (`which R` / `which Rscript` both fail), and
+`Robyn.ipynb`'s own recorded run confirms it was last executed in a different
+environment that had R installed (`/Library/Frameworks/Python.framework/...`, i.e. a
+Mac with R already set up), not this one.
+
+**What this does and does not support:** nothing -- there is no Robyn result to report
+from this repo in its current state. Per the Stage 0 recommendation, this benchmark
+claim should be dropped rather than describing a model that was never run here. If you
+want a real Robyn comparison, that requires installing R locally (or in CI) and
+re-running `Robyn.ipynb` against the same `scripts/sample_data/` inputs used above --
+I can do that if you supply/install R. Absent that, 2b's backtest against naive
+baselines is the only validated-effort predictive-accuracy claim this repo supports.
