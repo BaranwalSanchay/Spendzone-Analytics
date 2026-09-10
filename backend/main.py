@@ -2,6 +2,7 @@ import os
 import sys
 import time
 import datetime
+import json
 import logging
 from pathlib import Path
 import gc
@@ -20,6 +21,7 @@ from langchain_groq import ChatGroq
 from agents.report_generator import SupervisorAgent
 from utils.report import section_questions
 from utils.report_to_pdf import markdown_to_pdf
+from utils.token_tracking import TokenUsageCallbackHandler, compute_cost_usd, GROQ_PRICING_PER_MILLION_TOKENS
 from dotenv import load_dotenv
 
 # Project paths
@@ -66,49 +68,62 @@ def generate_markdown_report(data_path=None, output_path=None, on_progress=None)
     if not api_key:
         logger.error("GROQ_API_KEY environment variable not found")
         return None
-    
+
+    model_name = os.getenv("GROQ_MODEL", "openai/gpt-oss-120b")
+    token_handler = TokenUsageCallbackHandler()
     llm = ChatGroq(
         # Overridable since Groq's model catalog/account entitlements change over time --
         # see https://console.groq.com/docs/models if this 404s.
-        model=os.getenv("GROQ_MODEL", "openai/gpt-oss-120b"),
+        model=model_name,
         temperature=0,
-        api_key=api_key
+        api_key=api_key,
+        callbacks=[token_handler],
     )
-    
+
     # Initialize the supervisor agent
     logger.info("Initializing SupervisorAgent...")
     report_generator = SupervisorAgent(llm, data_path=data_path)
-    
+
     # Track sections processed for reporting
     total_sections = len(section_questions)
     processed_sections = 0
-    
+
     # Set pause times
     SECTION_PAUSE = 10  # seconds between sections
     QUESTION_PAUSE = 5  # seconds between questions
-    
+
+    # Timing/cost instrumentation -- see utils/token_tracking.py. section_metrics holds
+    # one entry per section; fixed_pause_overhead_s accumulates only the sleeps this run
+    # actually executed (not a theoretical max), so it can be subtracted from total
+    # wall-clock to report "real work" time separately from SECTION_PAUSE/QUESTION_PAUSE.
+    report_start = time.time()
+    section_metrics = []
+    fixed_pause_overhead_s = 0.0
+
     # Generate each section
     for section, questions in section_questions.items():
         processed_sections += 1
         section_title = format_section_title(section)
         logger.info(f"[{processed_sections}/{total_sections}] Generating {section_title} section...")
-        
+        section_start = time.time()
+        section_calls_mark = len(token_handler.calls)
+
         # Process each question in the section
         for i, question in enumerate(questions):
             logger.info(f"Processing question: {question[:100]}...")
-            
+
             try:
                 # Generate content for this section/question
                 start_time = time.time()
                 result = report_generator.analyze(question, section)
-                
+
                 # Append results to markdown file
                 with open(md_file, 'a', encoding='utf-8') as f:
                     f.write(f"## {section_title}\n\n")
                     f.write(f"### Question {i+1}\n\n")
                     f.write(f"**Question:** {question}\n\n")
                     f.write(f"**Answer:**\n\n")
-                    
+
                     if "result" in result:
                         f.write(f"{result['result']}\n\n")
                         logger.info(f"✓ Generated in {time.time() - start_time:.2f} seconds")
@@ -116,24 +131,29 @@ def generate_markdown_report(data_path=None, output_path=None, on_progress=None)
                         error_msg = result.get("error", "Unknown error")
                         f.write(f"Error generating content: {error_msg}\n\n")
                         logger.error(f"✗ Error: {error_msg}")
-                
+
                 # Add section separator
                 with open(md_file, 'a', encoding='utf-8') as f:
                     f.write("---\n\n\n\n")
-                
+
             except Exception as e:
                 logger.error(f"Error processing question: {str(e)}")
                 with open(md_file, 'a', encoding='utf-8') as f:
                     f.write(f"Error: {str(e)}\n\n---\n\n")
-            
+
             # Force garbage collection to free memory
             force_gc()
-            
+
             # Add delay between questions to avoid rate limiting
             if i < len(questions) - 1:
                 logger.info(f"Waiting {QUESTION_PAUSE} seconds before next question...")
                 time.sleep(QUESTION_PAUSE)
-        
+                fixed_pause_overhead_s += QUESTION_PAUSE
+
+        section_elapsed_s = time.time() - section_start
+        section_summary = TokenUsageCallbackHandler.summarize(token_handler.calls_since(section_calls_mark))
+        section_metrics.append({"section": section, "wall_clock_s": round(section_elapsed_s, 2), **section_summary})
+
         if on_progress:
             on_progress(section, processed_sections, total_sections)
 
@@ -141,6 +161,26 @@ def generate_markdown_report(data_path=None, output_path=None, on_progress=None)
         if processed_sections < total_sections:
             logger.info(f"Waiting {SECTION_PAUSE} seconds before next section...")
             time.sleep(SECTION_PAUSE)
+            fixed_pause_overhead_s += SECTION_PAUSE
+
+    report_elapsed_s = time.time() - report_start
+    total_summary = token_handler.total_summary()
+    cost = compute_cost_usd(total_summary["prompt_tokens"], total_summary["completion_tokens"], model_name)
+
+    metrics = {
+        "model": model_name,
+        "total_wall_clock_s": round(report_elapsed_s, 2),
+        "fixed_pause_overhead_s": round(fixed_pause_overhead_s, 2),
+        "wall_clock_excluding_fixed_pauses_s": round(report_elapsed_s - fixed_pause_overhead_s, 2),
+        "sections": section_metrics,
+        "totals": total_summary,
+        "cost_usd": cost,
+        "pricing_source": "https://console.groq.com/docs/model/openai/gpt-oss-120b",
+    }
+    metrics_path = REPORTS_DIR / "token_usage_metrics.json"
+    with open(metrics_path, "w", encoding="utf-8") as f:
+        json.dump(metrics, f, indent=2)
+    logger.info(f"Token usage/cost metrics written to {metrics_path}: {metrics}")
 
     logger.info(f"Markdown report generated: {md_file}")
     return md_file

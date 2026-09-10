@@ -342,6 +342,64 @@ those into the system Python conflicted with an already-installed newer
 `langchain`/`langgraph` stack there, which is why this test avoids importing that
 module at all.
 
+## 4b. End-to-end report runtime and cost
+
+**Claim tested:** the full 7-section report pipeline completes in some measured
+wall-clock time, at some measured Groq token cost.
+
+**Status: instrumentation added, real run not yet executed.** This needs real
+`GROQ_API_KEY`/`TAVILY_API_KEY` calls against Groq's paid API -- `backend/.env`
+already has working keys, but actually running a full 7-section job spends real money
+against them, so I implemented and unit-checked the instrumentation without spending
+anything, and am holding the real run for your explicit go-ahead rather than running
+it on my own judgment.
+
+**What was added:**
+- `backend/utils/token_tracking.py`: `TokenUsageCallbackHandler`, a LangChain callback
+  attached to the `ChatGroq` instance in `main.py` (`callbacks=[token_handler]`), so it
+  captures every LLM call any agent makes through that shared instance -- prompt/
+  completion/total tokens (from `response.llm_output["token_usage"]`, the OpenAI-
+  compatible shape Groq's integration uses) and per-call wall-clock time.
+- `compute_cost_usd()`: cost from Groq's own published per-model pricing --
+  `GROQ_PRICING_PER_MILLION_TOKENS["openai/gpt-oss-120b"] = {"input": 0.15, "output":
+  0.60}` (USD per 1M tokens), sourced directly from
+  https://console.groq.com/docs/model/openai/gpt-oss-120b (checked 2026-09-10). Not
+  estimated -- if `GROQ_MODEL` is overridden to a model not in that dict, cost comes
+  back as `None` rather than a guess.
+- `backend/main.py`'s `generate_markdown_report()`: now tracks each section's wall-
+  clock separately, and separately accumulates only the `SECTION_PAUSE`/
+  `QUESTION_PAUSE` sleeps this run actually executes (not a theoretical maximum), so
+  total runtime can be reported both with and without that fixed overhead, as asked.
+  Writes `backend/reports/token_usage_metrics.json` (model, total wall-clock, fixed-
+  pause overhead, wall-clock excluding it, per-section breakdown, token totals, cost)
+  after the run -- alongside the existing `report.md`/PDF output, no change to what
+  `generate_markdown_report()` returns.
+
+**Verified without spending tokens:** `python -c "from utils.token_tracking import
+compute_cost_usd; print(compute_cost_usd(150000, 40000, 'openai/gpt-oss-120b'))"` ->
+`{'input_cost_usd': 0.0225, 'output_cost_usd': 0.024, 'total_cost_usd': 0.0465, ...}`
+-- checking the arithmetic: 150,000 prompt tokens x ($0.15 / 1,000,000) = $0.0225;
+40,000 completion tokens x ($0.60 / 1,000,000) = $0.024; total $0.0465. Matches.
+
+**Exact command to run the real thing** (from `backend/`, with the poetry environment
+set up per `backend/README.md`, or any environment with `backend/pyproject.toml`'s
+dependencies installed and `GROQ_API_KEY`/`TAVILY_API_KEY` set in `.env`):
+```
+python main.py
+```
+This runs all 7 sections end to end, writes `reports/report.md`, converts it to
+`reports/marketing_report.pdf`, and writes `reports/token_usage_metrics.json` with the
+full breakdown. **Say the word and I'll run it and fill in the real numbers here** --
+per-section and total wall-clock (with and without the fixed `SECTION_PAUSE`/
+`QUESTION_PAUSE` overhead), prompt/completion tokens, and total cost.
+
+**What this will and won't support once run:** a single run's timing/cost is one data
+point (Groq inference time varies with provider load, and the market/exploration
+agents' output length -- and therefore token count -- can vary run to run even at
+temperature 0, since tool-calling agents' intermediate steps aren't fully
+deterministic). One real run is enough to support "a 7-section report costs about $X
+and takes about Y minutes," not a tight confidence interval on either number.
+
 ## 4c. Manual-baseline comparison
 
 **Claim tested:** the automated report pipeline is faster than a manual analyst
