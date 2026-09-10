@@ -1,0 +1,86 @@
+{
+  "model": "openai/gpt-oss-120b",
+  "total_wall_clock_s": 510.54,
+  "fixed_pause_overhead_s": 60.0,
+  "wall_clock_excluding_fixed_pauses_s": 450.54,
+  "sections": [
+    {
+      "section": "executive_summary",
+      "wall_clock_s": 55.03,
+      "n_calls": 6,
+      "prompt_tokens": 2306,
+      "completion_tokens": 1138,
+      "total_tokens": 3444,
+      "llm_wall_clock_s": 54.30191469937563
+    },
+    {
+      "section": "business_context",
+      "wall_clock_s": 74.81,
+      "n_calls": 5,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "total_tokens": 0,
+      "llm_wall_clock_s": 82.2535498002544
+    },
+    {
+      "section": "marketing_performance",
+      "wall_clock_s": 50.72,
+      "n_calls": 5,
+      "prompt_tokens": 674,
+      "completion_tokens": 858,
+      "total_tokens": 1532,
+      "llm_wall_clock_s": 53.47265709983185
+    },
+    {
+      "section": "performance_drivers",
+      "wall_clock_s": 113.33,
+      "n_calls": 9,
+      "prompt_tokens": 2710,
+      "completion_tokens": 1876,
+      "total_tokens": 4586,
+      "llm_wall_clock_s": 118.15632270136848
+    },
+    {
+      "section": "marketing_roi",
+      "wall_clock_s": 73.14,
+      "n_calls": 12,
+      "prompt_tokens": 764,
+      "completion_tokens": 881,
+      "total_tokens": 1645,
+      "llm_wall_clock_s": 62.8848324008286
+    },
+    {
+      "section": "budget_allocation",
+      "wall_clock_s": 13.28,
+      "n_calls": 4,
+      "prompt_tokens": 651,
+      "completion_tokens": 898,
+      "total_tokens": 1549,
+      "llm_wall_clock_s": 12.655024599749595
+    },
+    {
+      "section": "implementation",
+      "wall_clock_s": 69.92,
+      "n_calls": 3,
+      "prompt_tokens": 3971,
+      "completion_tokens": 2887,
+      "total_tokens": 6858,
+      "llm_wall_clock_s": 64.72579990047961
+    }
+  ],
+  "totals": {
+    "n_calls": 44,
+    "prompt_tokens": 11076,
+    "completion_tokens": 8538,
+    "total_tokens": 19614,
+    "llm_wall_clock_s": 448.4501012018882
+  },
+  "cost_usd": {
+    "input_cost_usd": 0.001661,
+    "output_cost_usd": 0.005123,
+    "total_cost_usd": 0.006784,
+    "input_price_per_million": 0.15,
+    "output_price_per_million": 0.6
+  },
+  "pricing_source": "https://console.groq.com/docs/model/openai/gpt-oss-120b"
+}

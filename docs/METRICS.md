@@ -347,12 +347,10 @@ module at all.
 **Claim tested:** the full 7-section report pipeline completes in some measured
 wall-clock time, at some measured Groq token cost.
 
-**Status: instrumentation added, real run not yet executed.** This needs real
-`GROQ_API_KEY`/`TAVILY_API_KEY` calls against Groq's paid API -- `backend/.env`
-already has working keys, but actually running a full 7-section job spends real money
-against them, so I implemented and unit-checked the instrumentation without spending
-anything, and am holding the real run for your explicit go-ahead rather than running
-it on my own judgment.
+**Status: run, for real, against your Groq/Tavily keys.** Result up front, because it
+contradicts a clean "generates a complete 7-section report" claim: **6 of 7 sections
+completed; `business_context` failed and was replaced with a raw Groq rate-limit error
+in the output report**, not real content. Full numbers and why, below.
 
 **What was added:**
 - `backend/utils/token_tracking.py`: `TokenUsageCallbackHandler`, a LangChain callback
@@ -375,30 +373,88 @@ it on my own judgment.
   after the run -- alongside the existing `report.md`/PDF output, no change to what
   `generate_markdown_report()` returns.
 
-**Verified without spending tokens:** `python -c "from utils.token_tracking import
-compute_cost_usd; print(compute_cost_usd(150000, 40000, 'openai/gpt-oss-120b'))"` ->
-`{'input_cost_usd': 0.0225, 'output_cost_usd': 0.024, 'total_cost_usd': 0.0465, ...}`
--- checking the arithmetic: 150,000 prompt tokens x ($0.15 / 1,000,000) = $0.0225;
-40,000 completion tokens x ($0.60 / 1,000,000) = $0.024; total $0.0465. Matches.
+**Arithmetic verified without spending tokens, before the real run:** `compute_cost_usd(150000,
+40000, 'openai/gpt-oss-120b')` -> `{'input_cost_usd': 0.0225, 'output_cost_usd': 0.024,
+'total_cost_usd': 0.0465, ...}` -- 150,000 x ($0.15/1,000,000) = $0.0225; 40,000 x
+($0.60/1,000,000) = $0.024; total $0.0465. Matches.
 
-**Exact command to run the real thing** (from `backend/`, with the poetry environment
-set up per `backend/README.md`, or any environment with `backend/pyproject.toml`'s
-dependencies installed and `GROQ_API_KEY`/`TAVILY_API_KEY` set in `.env`):
+**Command actually run** (from `Spendzone-Analytics/`, using a venv with
+`backend/pyproject.toml`'s dependencies installed and `backend/.env` populated --
+`python main.py` is the intended production command, but this machine's WeasyPrint
+install can't find its native Pango/GObject libraries, a Windows GTK runtime gap
+unrelated to the LLM pipeline; `run_report_job.py` calls the same
+`generate_markdown_report()` main.py calls, skipping only the PDF-conversion step that
+needs those libraries):
 ```
-python main.py
+backend/.venv/Scripts/python.exe scripts/metrics/run_report_job.py --confirm
 ```
-This runs all 7 sections end to end, writes `reports/report.md`, converts it to
-`reports/marketing_report.pdf`, and writes `reports/token_usage_metrics.json` with the
-full breakdown. **Say the word and I'll run it and fill in the real numbers here** --
-per-section and total wall-clock (with and without the fixed `SECTION_PAUSE`/
-`QUESTION_PAUSE` overhead), prompt/completion tokens, and total cost.
 
-**What this will and won't support once run:** a single run's timing/cost is one data
-point (Groq inference time varies with provider load, and the market/exploration
-agents' output length -- and therefore token count -- can vary run to run even at
-temperature 0, since tool-calling agents' intermediate steps aren't fully
-deterministic). One real run is enough to support "a 7-section report costs about $X
-and takes about Y minutes," not a tight confidence interval on either number.
+**Raw output (`backend/reports/token_usage_metrics.json`, and the relevant line from
+`backend/reports/report.md`):**
+```
+"business_context" section content in report.md:
+Error generating content: Error in analysis: Error code: 429 - {'error': {'message':
+'Rate limit reached for model `openai/gpt-oss-120b` in organization ... service tier
+`on_demand` on tokens per minute (TPM): Limit 8000, Used 7140, Requested 2706. Please
+try again in 13.845s. ...', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+
+token_usage_metrics.json:
+{
+  "model": "openai/gpt-oss-120b",
+  "total_wall_clock_s": 510.54,
+  "fixed_pause_overhead_s": 60.0,
+  "wall_clock_excluding_fixed_pauses_s": 450.54,
+  "sections": [
+    {"section": "executive_summary",     "wall_clock_s": 55.03,  "n_calls": 6,  "prompt_tokens": 2306, "completion_tokens": 1138, "total_tokens": 3444},
+    {"section": "business_context",      "wall_clock_s": 74.81,  "n_calls": 5,  "prompt_tokens": 0,    "completion_tokens": 0,    "total_tokens": 0},
+    {"section": "marketing_performance", "wall_clock_s": 50.72,  "n_calls": 5,  "prompt_tokens": 674,  "completion_tokens": 858,  "total_tokens": 1532},
+    {"section": "performance_drivers",   "wall_clock_s": 113.33, "n_calls": 9,  "prompt_tokens": 2710, "completion_tokens": 1876, "total_tokens": 4586},
+    {"section": "marketing_roi",         "wall_clock_s": 73.14,  "n_calls": 12, "prompt_tokens": 764,  "completion_tokens": 881,  "total_tokens": 1645},
+    {"section": "budget_allocation",     "wall_clock_s": 13.28,  "n_calls": 4,  "prompt_tokens": 651,  "completion_tokens": 898,  "total_tokens": 1549},
+    {"section": "implementation",        "wall_clock_s": 69.92,  "n_calls": 3,  "prompt_tokens": 3971, "completion_tokens": 2887, "total_tokens": 6858}
+  ],
+  "totals": {"n_calls": 44, "prompt_tokens": 11076, "completion_tokens": 8538, "total_tokens": 19614},
+  "cost_usd": {"input_cost_usd": 0.001661, "output_cost_usd": 0.005123, "total_cost_usd": 0.006784,
+               "input_price_per_million": 0.15, "output_price_per_million": 0.6}
+}
+```
+
+**Computed value:** total wall-clock **510.54s (8m 31s)**; fixed
+`SECTION_PAUSE`/`QUESTION_PAUSE` overhead **60.0s** (6 gaps between 7 sections at 10s
+each; this run had 1 question per section, so no `QUESTION_PAUSE` gaps fired); real
+work time **450.54s (7m 31s)**. Tracked usage: **11,076 prompt + 8,538 completion =
+19,614 tokens** across 44 LLM calls, costing **$0.006784** at Groq's published rate
+(11,076 x $0.15/1M = $0.001661; 8,538 x $0.60/1M = $0.005123; sum $0.006784).
+
+**What this does and does not support:** two things this run surfaced outrank the
+headline numbers above:
+
+1. **The report did not actually complete all 7 sections.** `business_context` hit
+   Groq's on-demand-tier rate limit (8,000 tokens/minute) mid-section -- three agents
+   (`exploration_agent`, `market_agent`, `sql_agent`) run in parallel for that section,
+   and together they burst past the per-minute cap. `SupervisorAgent.analyze()`
+   catches the resulting exception and writes a raw API error into the markdown report
+   instead of content. So "generates a complete 7-section report" is not what this run
+   demonstrates -- it demonstrates 6 of 7 sections succeeding and 1 failing
+   predictably under the account's current rate limit. A resume claim should say "6 of
+   7" or describe this as a known rate-limit sensitivity, not claim full completion
+   from this evidence.
+2. **The token/cost totals above are a lower bound, not exact.** `business_context`
+   shows `0` for every token field despite 5 successful LLM calls (82s of real
+   `llm_wall_clock_s`) -- those specific calls' responses didn't populate
+   `response.llm_output["token_usage"]` the way the other sections' calls did (likely a
+   difference in how that section's agents return results, not something this
+   instrumentation controls). So the real total tokens/cost for this run are higher
+   than $0.006784, by an unmeasured amount. This is a real gap in the instrumentation,
+   surfaced by an actual run rather than caught in the unit check above -- noting it
+   here rather than quietly reporting a number I know is undercounted.
+
+Separately, the general caveat: a single run's timing/cost is one data point (Groq
+inference time varies with provider load; parallel agents' tool-calling step counts
+aren't fully deterministic even at temperature 0). This run supports "a 7-section
+report attempt took about 8.5 minutes and cost under a cent in tracked tokens, with
+one section failing on a Groq rate limit" -- not a tight confidence interval on
+either number, and not yet a claim of full, reliable completion.
 
 ## 4c. Manual-baseline comparison
 
