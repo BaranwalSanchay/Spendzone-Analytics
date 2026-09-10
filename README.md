@@ -11,10 +11,11 @@ Spendzone is a Marketing Mix Modeling (MMM) and budget optimization platform. It
 5. [Running with Docker](#running-with-docker)
 6. [Environment Variables](#environment-variables)
 7. [Deployment](#deployment)
-8. [Screenshots](#screenshots)
-9. [Tech Stack](#tech-stack)
-10. [Contributing](#contributing)
-11. [License](#license)
+8. [Reproducing the Numbers](#reproducing-the-numbers)
+9. [Screenshots](#screenshots)
+10. [Tech Stack](#tech-stack)
+11. [Contributing](#contributing)
+12. [License](#license)
 
 ## Architecture
 
@@ -202,6 +203,15 @@ Each project has its own `.env.example` — copy it to `.env` and fill in real v
 
 - **Frontend** — deploys to [Vercel](https://vercel.com) directly from this repo (root directory `frontend/`, `bun run build` / `dist`). `frontend/vercel.json` already provides the SPA rewrite. Set the `VITE_*` variables from the table above in the Vercel project's environment settings, pointing `VITE_API_BASE_URL` at wherever the backend is hosted.
 - **Backend** — a standard ASGI app (`uvicorn api:app`), deployable to any host that runs a long-lived Python process or container: Railway, Fly.io, a plain VM, etc. `backend/Dockerfile` doubles as that deployable artifact — most hosts with container support can build and run it as-is (its default `CMD` is already production-safe, no `--reload`); on a host without container support, `poetry install && uvicorn api:app --host 0.0.0.0 --port $PORT` covers it. Either way, set the `GROQ_API_KEY` / `GEMINI_API_KEY` / `TAVILY_API_KEY` variables and update `allow_origins` in `api.py`'s CORS middleware to your deployed frontend's origin (it's currently `*` for local development).
+
+## Reproducing the Numbers
+
+Every performance/accuracy/cost claim about this platform is backed by a committed,
+runnable measurement, not a quoted figure — see [`docs/METRICS.md`](docs/METRICS.md).
+Each entry there states the exact claim, the exact command that produces it, the raw
+output, and what the result does and does not support (including where a measurement
+came back weaker than hoped, or couldn't be run at all). Supporting scripts live in
+`scripts/metrics/`.
 
 ## Screenshots
 
