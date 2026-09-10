@@ -281,3 +281,63 @@ of columns (`order_date_only`, `Month`) don't cleanly fit any bucket and are cou
 separately as "identifier/other." This supports a claim about what the *pipeline is
 built to handle* (channel count, feature breadth, monthly granularity), not a claim
 about the scale of any real dataset it has actually processed.
+
+## 4a. The LangGraph concurrency fix
+
+**Claim tested:** the fix in commit `fff1c29` ("Fix LangGraph concurrent-state-update
+crash in multi-agent report sections") actually changes whether the report-generation
+graph crashes, and the section count named in that commit message is correct.
+
+**Command:**
+```
+cd backend
+python -m venv .venv && .venv/Scripts/python.exe -m pip install "langgraph>=0.3.10,<0.4" pytest
+.venv/Scripts/python.exe -m pytest tests/test_report_graph_concurrency.py -v
+```
+
+**Raw output:**
+```
+tests/test_report_graph_concurrency.py::test_section_agent_mapping_has_four_multi_agent_sections PASSED
+tests/test_report_graph_concurrency.py::test_pre_fix_pattern_raises_concurrent_update_error PASSED
+tests/test_report_graph_concurrency.py::test_pre_fix_pattern_does_not_raise_for_single_agent_sections PASSED
+tests/test_report_graph_concurrency.py::test_current_pattern_merges_cleanly_for_all_seven_sections PASSED
+
+4 passed, 1 warning in 1.44s
+```
+
+The concurrent-update error the pre-fix pattern actually raises (captured while
+debugging the test itself, before a mistake in the test's own buggy-node
+reconstruction was fixed -- see "What this does and does not support" below):
+```
+langgraph.errors.InvalidUpdateError: At key 'messages': Can receive only one value
+per step. Use an Annotated key to handle multiple values.
+```
+
+**Computed value:** `section_agent_mapping` has **4 of 7 sections** with 2+ agents
+(`business_context`: 3 agents, `marketing_performance`: 2, `performance_drivers`: 2,
+`marketing_roi`: 2) -- not 3, and not 5. **Neither number already in circulation is
+right**: the harness task doc referenced "3 of 7" and commit `fff1c29`'s own message
+says "5 of 7" -- both are off from what the mapping actually contains. The pre-fix
+node pattern (reconstructed from `git show fff1c29^:backend/agents/report_generator.py`)
+raises `InvalidUpdateError` for exactly those 4 sections and not for the other 3; the
+current pattern merges cleanly for all 7.
+
+**What this does and does not support:** this confirms the fix is real (the before/after
+node patterns produce genuinely different LangGraph behavior, not just a cosmetic
+diff) and pins down the correct section count from the source of truth
+(`section_agent_mapping`, extracted via `ast` so the test can't silently drift from the
+real mapping) rather than from either number already floating around. It does not
+touch a real LLM, the SQL database, or any API key -- the six "agents" are inline stub
+node functions, not `ROIAgent`/`ExplorationAgent`/etc. One honest note on how this test
+came together: my first version of the pre-fix reconstruction added a `return state`
+fallback for inactive branches that the real pre-fix code never had (it fell through
+to an implicit `return None`) -- that bug in the *test* made every section crash,
+masking the true 4-vs-3 split, and was caught and fixed by checking the reconstruction
+against the actual git history rather than trusting the first result. Separately: get
+ting a compatible `langgraph`/`langchain-core` pair to install required a dedicated
+`backend/.venv` pinned to the versions in `backend/pyproject.toml` -- an earlier
+attempt to import the real (non-stubbed) `agents.report_generator` module pulled in
+`langchain-groq`/`langchain-google-genai`/etc., and installing the latest versions of
+those into the system Python conflicted with an already-installed newer
+`langchain`/`langgraph` stack there, which is why this test avoids importing that
+module at all.
