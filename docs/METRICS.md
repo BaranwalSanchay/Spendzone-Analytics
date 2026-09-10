@@ -333,11 +333,28 @@ came together: my first version of the pre-fix reconstruction added a `return st
 fallback for inactive branches that the real pre-fix code never had (it fell through
 to an implicit `return None`) -- that bug in the *test* made every section crash,
 masking the true 4-vs-3 split, and was caught and fixed by checking the reconstruction
-against the actual git history rather than trusting the first result. Separately: get
-ting a compatible `langgraph`/`langchain-core` pair to install required a dedicated
+against the actual git history rather than trusting the first result. Separately,
+getting a compatible `langgraph`/`langchain-core` pair to install required a dedicated
 `backend/.venv` pinned to the versions in `backend/pyproject.toml` -- an earlier
 attempt to import the real (non-stubbed) `agents.report_generator` module pulled in
 `langchain-groq`/`langchain-google-genai`/etc., and installing the latest versions of
 those into the system Python conflicted with an already-installed newer
 `langchain`/`langgraph` stack there, which is why this test avoids importing that
 module at all.
+
+## 4c. Manual-baseline comparison
+
+**Claim tested:** the automated report pipeline is faster than a manual analyst
+producing the same 7-section report.
+
+**Recommendation: drop the manual-baseline comparison, report measured automated
+runtime alone (4b) instead.** No real "X analyst hours" figure exists anywhere in this
+repo -- not in a commit, a doc, or a data file -- so any number here would be invented
+to make the comparison land somewhere specific, which is exactly what this whole
+exercise is trying to avoid. A resume bullet can say "generates a 7-section report in
+N minutes end-to-end" (once 4b measures N) without a baseline attached; that's a
+true, checkable claim on its own. It just can't say "Nx faster than manual" or
+"saves N analyst-hours" without a real number for the other side of that comparison.
+If you have an actual timed instance of someone producing a comparable report by hand
+(even a rough one, e.g. "our analyst took about a day for the quarterly version"),
+give me that and I'll add a real comparison section -- but I won't manufacture one.
